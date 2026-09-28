@@ -137,7 +137,7 @@ module Labs
       template_string.gsub!(/-%>/, "%>@NONEWLINE@")
       ERB.new(template_string).result(bnd)
     end
-    result.gsub(/@NONEWLINE@\n/, '')
+    result.gsub(/@NONEWLINE@\r?\n/, '')
   end
 
   def write_index_html(labs)
