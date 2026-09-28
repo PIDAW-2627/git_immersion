@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Lab 16 - Git Immersion</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover"">
+    <meta name="description" content="Un recorrido guiado por los fundamentos de Git">
+    <meta name="theme-color" content="#0000ff">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" media="screen" href="reset.css"> 
+    <link rel="stylesheet" media="screen" href="screen.css"> 
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1142510-7']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="text/javascript" src="UI.js"></script>
+  </head>
+
+  <body data-lab-id="16">
+    <a href="#content" tabindex="1" class="skip-to-content">
+      Saltar al contenido
+    </a>
+
+    <div class="layout">
+      <div id="index">
+        <p class="link-home">
+          <a href="index.html"><span>Git Immersion</span></a>
+        </p>
+        <button class="link-menu">Menú</button>
+        <nav tabindex="0">
+          <ol>
+            @NONEWLINE@
+  <li id="lab_1_link"><a href="lab_01.html">Configuración</a></li>
+@NONEWLINE@
+  <li id="lab_2_link"><a href="lab_02.html">Más configuración</a></li>
+@NONEWLINE@
+  <li id="lab_3_link"><a href="lab_03.html">Crear un proyecto</a></li>
+@NONEWLINE@
+  <li id="lab_4_link"><a href="lab_04.html">Comprobar el estado</a></li>
+@NONEWLINE@
+  <li id="lab_5_link"><a href="lab_05.html">Hacer cambios</a></li>
+@NONEWLINE@
+  <li id="lab_6_link"><a href="lab_06.html">Preparar cambios</a></li>
+@NONEWLINE@
+  <li id="lab_7_link"><a href="lab_07.html">Preparar y hacer commit</a></li>
+@NONEWLINE@
+  <li id="lab_8_link"><a href="lab_08.html">Hacer commit de los cambios</a></li>
+@NONEWLINE@
+  <li id="lab_9_link"><a href="lab_09.html">Cambios, no archivos</a></li>
+@NONEWLINE@
+  <li id="lab_10_link"><a href="lab_10.html">Historial</a></li>
+@NONEWLINE@
+  <li id="lab_11_link"><a href="lab_11.html">Alias</a></li>
+@NONEWLINE@
+  <li id="lab_12_link"><a href="lab_12.html">Obtener versiones anteriores</a></li>
+@NONEWLINE@
+  <li id="lab_13_link"><a href="lab_13.html">Etiquetar versiones</a></li>
+@NONEWLINE@
+  <li id="lab_14_link"><a href="lab_14.html">Deshacer cambios locales (antes de preparar)</a></li>
+@NONEWLINE@
+  <li id="lab_15_link"><a href="lab_15.html">Deshacer cambios preparados (antes de hacer commit)</a></li>
+@NONEWLINE@
+  <li id="lab_16_link"><a href="lab_16.html">Deshacer cambios confirmados</a></li>
+@NONEWLINE@
+  <li id="lab_17_link"><a href="lab_17.html">Eliminar commits de una rama</a></li>
+@NONEWLINE@
+  <li id="lab_18_link"><a href="lab_18.html">Eliminar la etiqueta oops</a></li>
+@NONEWLINE@
+  <li id="lab_19_link"><a href="lab_19.html">Modificar commits</a></li>
+@NONEWLINE@
+  <li id="lab_20_link"><a href="lab_20.html">Mover ficheros</a></li>
+@NONEWLINE@
+  <li id="lab_21_link"><a href="lab_21.html">Más estructura</a></li>
+@NONEWLINE@
+  <li id="lab_22_link"><a href="lab_22.html">Interioridades de Git: El directorio .git</a></li>
+@NONEWLINE@
+  <li id="lab_23_link"><a href="lab_23.html">Interioridades de Git: Trabajar directamente con los objetos de Git</a></li>
+@NONEWLINE@
+  <li id="lab_24_link"><a href="lab_24.html">Crear una rama</a></li>
+@NONEWLINE@
+  <li id="lab_25_link"><a href="lab_25.html">Moverse entre ramas</a></li>
+@NONEWLINE@
+  <li id="lab_26_link"><a href="lab_26.html">Cambios en main</a></li>
+@NONEWLINE@
+  <li id="lab_27_link"><a href="lab_27.html">Ver ramas divergentes</a></li>
+@NONEWLINE@
+  <li id="lab_28_link"><a href="lab_28.html">Fusionar</a></li>
+@NONEWLINE@
+  <li id="lab_29_link"><a href="lab_29.html">Crear un conflicto</a></li>
+@NONEWLINE@
+  <li id="lab_30_link"><a href="lab_30.html">Resolver conflictos</a></li>
+@NONEWLINE@
+  <li id="lab_31_link"><a href="lab_31.html">Rebase VS fusión</a></li>
+@NONEWLINE@
+  <li id="lab_32_link"><a href="lab_32.html">Restablecer la rama greet</a></li>
+@NONEWLINE@
+  <li id="lab_33_link"><a href="lab_33.html">Restablecer la rama main</a></li>
+@NONEWLINE@
+  <li id="lab_34_link"><a href="lab_34.html">Hacer rebase</a></li>
+@NONEWLINE@
+  <li id="lab_35_link"><a href="lab_35.html">Fusionar de vuelta en main</a></li>
+@NONEWLINE@
+  <li id="lab_36_link"><a href="lab_36.html">Múltiples repositorios</a></li>
+@NONEWLINE@
+  <li id="lab_37_link"><a href="lab_37.html">Clonar repositorios</a></li>
+@NONEWLINE@
+  <li id="lab_38_link"><a href="lab_38.html">Revisar el repositorio clonado</a></li>
+@NONEWLINE@
+  <li id="lab_39_link"><a href="lab_39.html">¿Qué es origin?</a></li>
+@NONEWLINE@
+  <li id="lab_40_link"><a href="lab_40.html">Ramas remotas</a></li>
+@NONEWLINE@
+  <li id="lab_41_link"><a href="lab_41.html">Cambiar el repositorio original</a></li>
+@NONEWLINE@
+  <li id="lab_42_link"><a href="lab_42.html">Obtener cambios con fetch</a></li>
+@NONEWLINE@
+  <li id="lab_43_link"><a href="lab_43.html">Fusionar los cambios descargados</a></li>
+@NONEWLINE@
+  <li id="lab_44_link"><a href="lab_44.html">Traer cambios con pull</a></li>
+@NONEWLINE@
+  <li id="lab_45_link"><a href="lab_45.html">Añadir una rama de seguimiento</a></li>
+@NONEWLINE@
+  <li id="lab_46_link"><a href="lab_46.html">Repositorios desnudos</a></li>
+@NONEWLINE@
+  <li id="lab_47_link"><a href="lab_47.html">Añadir un repositorio remoto</a></li>
+@NONEWLINE@
+  <li id="lab_48_link"><a href="lab_48.html">Enviar un cambio con push</a></li>
+@NONEWLINE@
+  <li id="lab_49_link"><a href="lab_49.html">Traer los cambios compartidos</a></li>
+@NONEWLINE@
+  <li id="lab_50_link"><a href="lab_50.html">Alojar tus repositorios Git</a></li>
+@NONEWLINE@
+  <li id="lab_51_link"><a href="lab_51.html">Compartir repositorios</a></li>
+@NONEWLINE@
+  <li id="lab_52_link"><a href="lab_52.html">Temas avanzados / futuros</a></li>
+@NONEWLINE@
+  <li id="lab_53_link"><a href="lab_53.html">Gracias</a></li>
+@NONEWLINE@
+
+          </ol>
+        </nav>
+      </div>
+
+      <div id="content" tabindex="-1">
+        <h1 class="lab_title"><em>lab 16</em>  Deshacer cambios confirmados</h1>
+<h2>Objetivos</h2>
+<ul>
+	<li>Aprender a revertir cambios que ya se han confirmado en un repositorio local.</li>
+</ul>
+<h2>Deshacer commits</h2>
+<p>A veces te das cuenta de que un cambio que ya has confirmado no era correcto y quieres deshacer ese commit. Hay varias formas de resolver este problema, y la que vamos a usar en este lab es siempre segura.</p>
+<p>Básicamente, desharemos el commit creando un nuevo commit que invierte los cambios no deseados.</p>
+<h2>Modifica el fichero y haz commit.</h2>
+<p>Cambia el fichero <code>hello.rb</code> por lo siguiente.</p>
+<h3 class="file-heading"><em>hello.rb</em></h3>
+<pre class="file"># This is an unwanted but committed change
+name = ARGV.first || "World"
+
+puts "Hello, #{name}!"
+</pre>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git add hello.rb
+git commit -m "Oops, we didn't want this commit"</pre>
+<h2>Crea un commit de reversión</h2>
+<p>Para deshacer un cambio confirmado, necesitamos generar un commit que elimine los cambios introducidos por el commit no deseado.</p>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git revert HEAD</pre>
+<p>Esto te abrirá el editor. Puedes editar el mensaje de commit por defecto o dejarlo tal cual. Guarda y cierra el fichero. Deberías ver&#8230;</p>
+<h3><b>Salida:</b></h3>
+<pre class="sample">$ git revert HEAD --no-edit
+[main b6120d7] Revert "Oops, we didn't want this commit"
+ Date: Mon Sep 28 09:54:55 2026 +0000
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</pre>
+<p>Como estábamos deshaciendo el último commit que hicimos, pudimos usar <code>HEAD</code> como argumento de revert. Podemos revertir cualquier commit anterior del historial simplemente indicando su valor hash.</p>
+<p class="note"><strong>Nota:</strong> Puedes ignorar el <code>--no-edit</code> que aparece en la salida. Era necesario para generar la salida sin abrir el editor.</p>
+<h2>Revisa el log</h2>
+<p>Al revisar el log se ven tanto el commit no deseado como el de reversión en nuestro repositorio.</p>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git hist</pre>
+<h3><b>Salida:</b></h3>
+<pre class="sample">$ git hist
+* b6120d7 2026-09-28 | Revert "Oops, we didn't want this commit" (HEAD -&gt; main) [Jim Weirich]
+* 936f37f 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
+* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
+* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+<p>Esta técnica funciona con cualquier commit (aunque puede que tengas que resolver conflictos). Es segura incluso en ramas que se comparten públicamente en repositorios remotos.</p>
+<h2>A continuación</h2>
+<p>Ahora vamos a ver una técnica que sirve para eliminar los commits más recientes del historial del repositorio.</p>
+        <nav class="foot-navigation">
+      <a href="lab_15.html">
+      <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>
+      Anterior
+    </a>
+  
+      <a href="lab_17.html">
+      <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>
+      Siguiente
+    </a>
+  </nav>
+
+      </div>
+    </div>
+  </body>
+</html>

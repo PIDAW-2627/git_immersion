@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Lab 19 - Git Immersion</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover"">
+    <meta name="description" content="Un recorrido guiado por los fundamentos de Git">
+    <meta name="theme-color" content="#0000ff">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" media="screen" href="reset.css"> 
+    <link rel="stylesheet" media="screen" href="screen.css"> 
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1142510-7']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="text/javascript" src="UI.js"></script>
+  </head>
+
+  <body data-lab-id="19">
+    <a href="#content" tabindex="1" class="skip-to-content">
+      Saltar al contenido
+    </a>
+
+    <div class="layout">
+      <div id="index">
+        <p class="link-home">
+          <a href="index.html"><span>Git Immersion</span></a>
+        </p>
+        <button class="link-menu">Menú</button>
+        <nav tabindex="0">
+          <ol>
+            @NONEWLINE@
+  <li id="lab_1_link"><a href="lab_01.html">Configuración</a></li>
+@NONEWLINE@
+  <li id="lab_2_link"><a href="lab_02.html">Más configuración</a></li>
+@NONEWLINE@
+  <li id="lab_3_link"><a href="lab_03.html">Crear un proyecto</a></li>
+@NONEWLINE@
+  <li id="lab_4_link"><a href="lab_04.html">Comprobar el estado</a></li>
+@NONEWLINE@
+  <li id="lab_5_link"><a href="lab_05.html">Hacer cambios</a></li>
+@NONEWLINE@
+  <li id="lab_6_link"><a href="lab_06.html">Preparar cambios</a></li>
+@NONEWLINE@
+  <li id="lab_7_link"><a href="lab_07.html">Preparar y hacer commit</a></li>
+@NONEWLINE@
+  <li id="lab_8_link"><a href="lab_08.html">Hacer commit de los cambios</a></li>
+@NONEWLINE@
+  <li id="lab_9_link"><a href="lab_09.html">Cambios, no archivos</a></li>
+@NONEWLINE@
+  <li id="lab_10_link"><a href="lab_10.html">Historial</a></li>
+@NONEWLINE@
+  <li id="lab_11_link"><a href="lab_11.html">Alias</a></li>
+@NONEWLINE@
+  <li id="lab_12_link"><a href="lab_12.html">Obtener versiones anteriores</a></li>
+@NONEWLINE@
+  <li id="lab_13_link"><a href="lab_13.html">Etiquetar versiones</a></li>
+@NONEWLINE@
+  <li id="lab_14_link"><a href="lab_14.html">Deshacer cambios locales (antes de preparar)</a></li>
+@NONEWLINE@
+  <li id="lab_15_link"><a href="lab_15.html">Deshacer cambios preparados (antes de hacer commit)</a></li>
+@NONEWLINE@
+  <li id="lab_16_link"><a href="lab_16.html">Deshacer cambios confirmados</a></li>
+@NONEWLINE@
+  <li id="lab_17_link"><a href="lab_17.html">Eliminar commits de una rama</a></li>
+@NONEWLINE@
+  <li id="lab_18_link"><a href="lab_18.html">Eliminar la etiqueta oops</a></li>
+@NONEWLINE@
+  <li id="lab_19_link"><a href="lab_19.html">Modificar commits</a></li>
+@NONEWLINE@
+  <li id="lab_20_link"><a href="lab_20.html">Mover ficheros</a></li>
+@NONEWLINE@
+  <li id="lab_21_link"><a href="lab_21.html">Más estructura</a></li>
+@NONEWLINE@
+  <li id="lab_22_link"><a href="lab_22.html">Interioridades de Git: El directorio .git</a></li>
+@NONEWLINE@
+  <li id="lab_23_link"><a href="lab_23.html">Interioridades de Git: Trabajar directamente con los objetos de Git</a></li>
+@NONEWLINE@
+  <li id="lab_24_link"><a href="lab_24.html">Crear una rama</a></li>
+@NONEWLINE@
+  <li id="lab_25_link"><a href="lab_25.html">Moverse entre ramas</a></li>
+@NONEWLINE@
+  <li id="lab_26_link"><a href="lab_26.html">Cambios en main</a></li>
+@NONEWLINE@
+  <li id="lab_27_link"><a href="lab_27.html">Ver ramas divergentes</a></li>
+@NONEWLINE@
+  <li id="lab_28_link"><a href="lab_28.html">Fusionar</a></li>
+@NONEWLINE@
+  <li id="lab_29_link"><a href="lab_29.html">Crear un conflicto</a></li>
+@NONEWLINE@
+  <li id="lab_30_link"><a href="lab_30.html">Resolver conflictos</a></li>
+@NONEWLINE@
+  <li id="lab_31_link"><a href="lab_31.html">Rebase VS fusión</a></li>
+@NONEWLINE@
+  <li id="lab_32_link"><a href="lab_32.html">Restablecer la rama greet</a></li>
+@NONEWLINE@
+  <li id="lab_33_link"><a href="lab_33.html">Restablecer la rama main</a></li>
+@NONEWLINE@
+  <li id="lab_34_link"><a href="lab_34.html">Hacer rebase</a></li>
+@NONEWLINE@
+  <li id="lab_35_link"><a href="lab_35.html">Fusionar de vuelta en main</a></li>
+@NONEWLINE@
+  <li id="lab_36_link"><a href="lab_36.html">Múltiples repositorios</a></li>
+@NONEWLINE@
+  <li id="lab_37_link"><a href="lab_37.html">Clonar repositorios</a></li>
+@NONEWLINE@
+  <li id="lab_38_link"><a href="lab_38.html">Revisar el repositorio clonado</a></li>
+@NONEWLINE@
+  <li id="lab_39_link"><a href="lab_39.html">¿Qué es origin?</a></li>
+@NONEWLINE@
+  <li id="lab_40_link"><a href="lab_40.html">Ramas remotas</a></li>
+@NONEWLINE@
+  <li id="lab_41_link"><a href="lab_41.html">Cambiar el repositorio original</a></li>
+@NONEWLINE@
+  <li id="lab_42_link"><a href="lab_42.html">Obtener cambios con fetch</a></li>
+@NONEWLINE@
+  <li id="lab_43_link"><a href="lab_43.html">Fusionar los cambios descargados</a></li>
+@NONEWLINE@
+  <li id="lab_44_link"><a href="lab_44.html">Traer cambios con pull</a></li>
+@NONEWLINE@
+  <li id="lab_45_link"><a href="lab_45.html">Añadir una rama de seguimiento</a></li>
+@NONEWLINE@
+  <li id="lab_46_link"><a href="lab_46.html">Repositorios desnudos</a></li>
+@NONEWLINE@
+  <li id="lab_47_link"><a href="lab_47.html">Añadir un repositorio remoto</a></li>
+@NONEWLINE@
+  <li id="lab_48_link"><a href="lab_48.html">Enviar un cambio con push</a></li>
+@NONEWLINE@
+  <li id="lab_49_link"><a href="lab_49.html">Traer los cambios compartidos</a></li>
+@NONEWLINE@
+  <li id="lab_50_link"><a href="lab_50.html">Alojar tus repositorios Git</a></li>
+@NONEWLINE@
+  <li id="lab_51_link"><a href="lab_51.html">Compartir repositorios</a></li>
+@NONEWLINE@
+  <li id="lab_52_link"><a href="lab_52.html">Temas avanzados / futuros</a></li>
+@NONEWLINE@
+  <li id="lab_53_link"><a href="lab_53.html">Gracias</a></li>
+@NONEWLINE@
+
+          </ol>
+        </nav>
+      </div>
+
+      <div id="content" tabindex="-1">
+        <h1 class="lab_title"><em>lab 19</em>  Modificar commits</h1>
+<h2>Objetivos</h2>
+<ul>
+	<li>Aprender a modificar (amend) un commit existente</li>
+</ul>
+<h2>Cambia el programa y haz commit</h2>
+<p>Añade al programa un comentario con el autor.</p>
+<h3 class="file-heading"><em>hello.rb</em></h3>
+<pre class="file"># Default is World
+# Author: Jim Weirich
+name = ARGV.first || "World"
+
+puts "Hello, #{name}!"
+</pre>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git add hello.rb
+git commit -m "Add an author comment"</pre>
+<h2>Vaya, debería incluir un email</h2>
+<p>Después de hacer el commit, te das cuenta de que un buen comentario de autor debería incluir un email. Actualiza el programa hello para que incluya un email.</p>
+<h3 class="file-heading"><em>hello.rb</em></h3>
+<pre class="file"># Default is World
+# Author: Jim Weirich (jim@somewhere.com)
+name = ARGV.first || "World"
+
+puts "Hello, #{name}!"
+</pre>
+<h2>Modifica el commit anterior</h2>
+<p>La verdad es que no queremos un commit aparte solo para el email. Vamos a modificar (amend) el commit anterior para que incluya el cambio del email.</p>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git add hello.rb
+git commit --amend -m "Add an author/email comment"</pre>
+<h3><b>Salida:</b></h3>
+<pre class="sample">$ git add hello.rb
+$ git commit --amend -m "Add an author/email comment"
+[main 54f902a] Add an author/email comment
+ Date: Mon Sep 28 09:54:55 2026 +0000
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+</pre>
+<h2>Revisa el historial</h2>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git hist</pre>
+<h3><b>Salida:</b></h3>
+<pre class="sample">$ git hist
+* 54f902a 2026-09-28 | Add an author/email comment (HEAD -&gt; main) [Jim Weirich]
+* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
+* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+<p>Podemos ver que el commit original de &#8220;author&#8221; ha desaparecido y lo ha sustituido el commit &#8220;author/email&#8221;. Puedes conseguir el mismo efecto haciendo reset de la rama un commit hacia atrás y volviendo a hacer commit de los nuevos cambios.</p>
+        <nav class="foot-navigation">
+      <a href="lab_18.html">
+      <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>
+      Anterior
+    </a>
+  
+      <a href="lab_20.html">
+      <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>
+      Siguiente
+    </a>
+  </nav>
+
+      </div>
+    </div>
+  </body>
+</html>

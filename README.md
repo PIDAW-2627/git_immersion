@@ -15,7 +15,31 @@ ellos.
 Puedes consultar los labs originales (en inglés) en
 [https://gitimmersion.com](https://gitimmersion.com).
 
-## Generar los labs
+## Generar los labs con Docker (recomendado)
+
+La generación necesita Ruby 3.1.2 y un sistema tipo Unix, porque
+ejecuta de verdad los comandos de los labs (`mkdir`, `cat`, `ls`…). En
+Windows, o con otra versión de Ruby, `bundle install` y `rake run`
+fallan. Lo más sencillo es generarlos con Docker. Desde la carpeta del
+proyecto, ejecuta:
+
+En PowerShell:
+
+    docker run --rm -v "${PWD}:/src" ruby:3.1.2 bash /src/docker-build.sh
+
+En Linux, macOS o Git Bash:
+
+    docker run --rm -v "$(pwd):/src" ruby:3.1.2 bash /src/docker-build.sh
+
+El script `docker-build.sh` trabaja sobre una copia del proyecto dentro
+del contenedor, ejecuta `rake run` y `rake labs`, y deja el HTML
+resultante en la carpeta `docs/`. Abre `docs/index.html` en el
+navegador para ver el tutorial. Tarda uno o dos minutos.
+
+Cada vez que cambies `src/labs.txt` o las plantillas, vuelve a generar
+los labs y haz commit de la carpeta `docs/` junto con tus cambios.
+
+## Generar los labs sin Docker
 
 Los labs se generan a partir de un único fichero fuente que describe
 cada uno de ellos. La generación se hace en dos pasos.
@@ -40,17 +64,19 @@ páginas de los labs y de los divs de navegación están en el directorio
 
 El HTML generado se guarda en `git_tutorial/html`. Abre el fichero
 `git_tutorial/html/index.html` en el navegador para ver el tutorial.
+Para publicarlo, copia su contenido a la carpeta `docs/`.
 
 ## Publicar los labs
 
-Para publicar los labs en la web, ejecuta el comando `rake publish`.
-Este comando copia el directorio `git_tutorial/html` a la rama
-`gh-pages`. Después se hace push de la rama `gh-pages`, y GitHub la
-publica automáticamente.
+Los labs generados se guardan en la carpeta `docs/` de la rama main.
+Para publicarlos en GitHub Pages, ve a *Settings → Pages* en el
+repositorio de GitHub y elige como origen la rama `main` y la carpeta
+`/docs`. A partir de ahí, cada push a main que incluya cambios en
+`docs/` actualiza la web.
 
-Modificar a mano los ficheros de la rama `gh-pages` casi nunca es buena
-idea. Modifica la plantilla o el fichero css que corresponda en la rama
-main y después ejecuta `rake publish`.
+No modifiques a mano los ficheros de `docs/`: se sobrescriben en cada
+generación. Modifica `src/labs.txt`, la plantilla o el fichero css que
+corresponda y vuelve a generar los labs.
 
 ## Directivas de formato de los labs
 

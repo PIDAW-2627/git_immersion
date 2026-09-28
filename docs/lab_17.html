@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Lab 17 - Git Immersion</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 viewport-fit=cover"">
+    <meta name="description" content="Un recorrido guiado por los fundamentos de Git">
+    <meta name="theme-color" content="#0000ff">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" media="screen" href="reset.css"> 
+    <link rel="stylesheet" media="screen" href="screen.css"> 
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1142510-7']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    <script type="text/javascript" src="UI.js"></script>
+  </head>
+
+  <body data-lab-id="17">
+    <a href="#content" tabindex="1" class="skip-to-content">
+      Saltar al contenido
+    </a>
+
+    <div class="layout">
+      <div id="index">
+        <p class="link-home">
+          <a href="index.html"><span>Git Immersion</span></a>
+        </p>
+        <button class="link-menu">Menú</button>
+        <nav tabindex="0">
+          <ol>
+            @NONEWLINE@
+  <li id="lab_1_link"><a href="lab_01.html">Configuración</a></li>
+@NONEWLINE@
+  <li id="lab_2_link"><a href="lab_02.html">Más configuración</a></li>
+@NONEWLINE@
+  <li id="lab_3_link"><a href="lab_03.html">Crear un proyecto</a></li>
+@NONEWLINE@
+  <li id="lab_4_link"><a href="lab_04.html">Comprobar el estado</a></li>
+@NONEWLINE@
+  <li id="lab_5_link"><a href="lab_05.html">Hacer cambios</a></li>
+@NONEWLINE@
+  <li id="lab_6_link"><a href="lab_06.html">Preparar cambios</a></li>
+@NONEWLINE@
+  <li id="lab_7_link"><a href="lab_07.html">Preparar y hacer commit</a></li>
+@NONEWLINE@
+  <li id="lab_8_link"><a href="lab_08.html">Hacer commit de los cambios</a></li>
+@NONEWLINE@
+  <li id="lab_9_link"><a href="lab_09.html">Cambios, no archivos</a></li>
+@NONEWLINE@
+  <li id="lab_10_link"><a href="lab_10.html">Historial</a></li>
+@NONEWLINE@
+  <li id="lab_11_link"><a href="lab_11.html">Alias</a></li>
+@NONEWLINE@
+  <li id="lab_12_link"><a href="lab_12.html">Obtener versiones anteriores</a></li>
+@NONEWLINE@
+  <li id="lab_13_link"><a href="lab_13.html">Etiquetar versiones</a></li>
+@NONEWLINE@
+  <li id="lab_14_link"><a href="lab_14.html">Deshacer cambios locales (antes de preparar)</a></li>
+@NONEWLINE@
+  <li id="lab_15_link"><a href="lab_15.html">Deshacer cambios preparados (antes de hacer commit)</a></li>
+@NONEWLINE@
+  <li id="lab_16_link"><a href="lab_16.html">Deshacer cambios confirmados</a></li>
+@NONEWLINE@
+  <li id="lab_17_link"><a href="lab_17.html">Eliminar commits de una rama</a></li>
+@NONEWLINE@
+  <li id="lab_18_link"><a href="lab_18.html">Eliminar la etiqueta oops</a></li>
+@NONEWLINE@
+  <li id="lab_19_link"><a href="lab_19.html">Modificar commits</a></li>
+@NONEWLINE@
+  <li id="lab_20_link"><a href="lab_20.html">Mover ficheros</a></li>
+@NONEWLINE@
+  <li id="lab_21_link"><a href="lab_21.html">Más estructura</a></li>
+@NONEWLINE@
+  <li id="lab_22_link"><a href="lab_22.html">Interioridades de Git: El directorio .git</a></li>
+@NONEWLINE@
+  <li id="lab_23_link"><a href="lab_23.html">Interioridades de Git: Trabajar directamente con los objetos de Git</a></li>
+@NONEWLINE@
+  <li id="lab_24_link"><a href="lab_24.html">Crear una rama</a></li>
+@NONEWLINE@
+  <li id="lab_25_link"><a href="lab_25.html">Moverse entre ramas</a></li>
+@NONEWLINE@
+  <li id="lab_26_link"><a href="lab_26.html">Cambios en main</a></li>
+@NONEWLINE@
+  <li id="lab_27_link"><a href="lab_27.html">Ver ramas divergentes</a></li>
+@NONEWLINE@
+  <li id="lab_28_link"><a href="lab_28.html">Fusionar</a></li>
+@NONEWLINE@
+  <li id="lab_29_link"><a href="lab_29.html">Crear un conflicto</a></li>
+@NONEWLINE@
+  <li id="lab_30_link"><a href="lab_30.html">Resolver conflictos</a></li>
+@NONEWLINE@
+  <li id="lab_31_link"><a href="lab_31.html">Rebase VS fusión</a></li>
+@NONEWLINE@
+  <li id="lab_32_link"><a href="lab_32.html">Restablecer la rama greet</a></li>
+@NONEWLINE@
+  <li id="lab_33_link"><a href="lab_33.html">Restablecer la rama main</a></li>
+@NONEWLINE@
+  <li id="lab_34_link"><a href="lab_34.html">Hacer rebase</a></li>
+@NONEWLINE@
+  <li id="lab_35_link"><a href="lab_35.html">Fusionar de vuelta en main</a></li>
+@NONEWLINE@
+  <li id="lab_36_link"><a href="lab_36.html">Múltiples repositorios</a></li>
+@NONEWLINE@
+  <li id="lab_37_link"><a href="lab_37.html">Clonar repositorios</a></li>
+@NONEWLINE@
+  <li id="lab_38_link"><a href="lab_38.html">Revisar el repositorio clonado</a></li>
+@NONEWLINE@
+  <li id="lab_39_link"><a href="lab_39.html">¿Qué es origin?</a></li>
+@NONEWLINE@
+  <li id="lab_40_link"><a href="lab_40.html">Ramas remotas</a></li>
+@NONEWLINE@
+  <li id="lab_41_link"><a href="lab_41.html">Cambiar el repositorio original</a></li>
+@NONEWLINE@
+  <li id="lab_42_link"><a href="lab_42.html">Obtener cambios con fetch</a></li>
+@NONEWLINE@
+  <li id="lab_43_link"><a href="lab_43.html">Fusionar los cambios descargados</a></li>
+@NONEWLINE@
+  <li id="lab_44_link"><a href="lab_44.html">Traer cambios con pull</a></li>
+@NONEWLINE@
+  <li id="lab_45_link"><a href="lab_45.html">Añadir una rama de seguimiento</a></li>
+@NONEWLINE@
+  <li id="lab_46_link"><a href="lab_46.html">Repositorios desnudos</a></li>
+@NONEWLINE@
+  <li id="lab_47_link"><a href="lab_47.html">Añadir un repositorio remoto</a></li>
+@NONEWLINE@
+  <li id="lab_48_link"><a href="lab_48.html">Enviar un cambio con push</a></li>
+@NONEWLINE@
+  <li id="lab_49_link"><a href="lab_49.html">Traer los cambios compartidos</a></li>
+@NONEWLINE@
+  <li id="lab_50_link"><a href="lab_50.html">Alojar tus repositorios Git</a></li>
+@NONEWLINE@
+  <li id="lab_51_link"><a href="lab_51.html">Compartir repositorios</a></li>
+@NONEWLINE@
+  <li id="lab_52_link"><a href="lab_52.html">Temas avanzados / futuros</a></li>
+@NONEWLINE@
+  <li id="lab_53_link"><a href="lab_53.html">Gracias</a></li>
+@NONEWLINE@
+
+          </ol>
+        </nav>
+      </div>
+
+      <div id="content" tabindex="-1">
+        <h1 class="lab_title"><em>lab 17</em>  Eliminar commits de una rama</h1>
+<h2>Objetivos</h2>
+<ul>
+	<li>Aprender a eliminar los commits más recientes de una rama</li>
+</ul>
+<p>El comando <code>revert</code> de la sección anterior es un comando potente que nos permite deshacer los efectos de cualquier commit del repositorio. Sin embargo, tanto el commit original como el commit que lo &#8220;deshace&#8221; son visibles en el historial de la rama (con el comando <code>git log</code>).</p>
+<p>A menudo hacemos un commit y nos damos cuenta enseguida de que era un error. Estaría bien tener un comando para &#8220;retirar lo dicho&#8221; que nos permitiera hacer como si el commit incorrecto nunca hubiera existido. Ese comando incluso evitaría que el commit erróneo apareciera en el historial de <code>git log</code>. Sería como si el commit erróneo nunca hubiera ocurrido.</p>
+<h2>El comando <code>reset</code></h2>
+<p>Ya hemos visto el comando <code>reset</code> y lo hemos usado para hacer que el área de preparación coincida con un commit dado (en el lab anterior usamos el commit <span class="caps">HEAD</span>).</p>
+<p>Cuando se le pasa una referencia a un commit (es decir, un hash o un nombre de rama o etiqueta), el comando <code>reset</code>&#8230;</p>
+<ol>
+	<li>Reescribe la rama actual para que apunte al commit indicado</li>
+	<li>Opcionalmente, restablece el área de preparación para que coincida con el commit indicado</li>
+	<li>Opcionalmente, restablece el directorio de trabajo para que coincida con el commit indicado</li>
+</ol>
+<h2>Revisa nuestro historial</h2>
+<p>Echemos un vistazo rápido a nuestro historial de commits.</p>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git hist</pre>
+<h3><b>Salida:</b></h3>
+<pre class="sample">$ git hist
+* b6120d7 2026-09-28 | Revert "Oops, we didn't want this commit" (HEAD -&gt; main) [Jim Weirich]
+* 936f37f 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
+* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
+* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+<p>Vemos que tenemos un commit &#8220;Oops&#8221; y un commit &#8220;Revert Oops&#8221; como los dos últimos commits de esta rama. Vamos a eliminarlos usando reset.</p>
+<h2>Primero, marca esta rama</h2>
+<p>Pero antes de eliminar los commits, vamos a marcar el último commit con una etiqueta para poder encontrarlo de nuevo.</p>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git tag oops</pre>
+<h2>Haz reset a antes de Oops</h2>
+<p>Mirando el historial del log (arriba), vemos que el commit etiquetado como &#8216;v1&#8217; es el commit justo anterior al commit erróneo. Vamos a hacer reset de la rama a ese punto. Como ese commit está etiquetado, podemos usar el nombre de la etiqueta en el comando reset (si no estuviera etiquetado, podríamos usar simplemente el valor hash).</p>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git reset --hard v1
+git hist</pre>
+<h3><b>Salida:</b></h3>
+<pre class="sample">$ git reset --hard v1
+HEAD is now at 30bb300 Added a comment
+$ git hist
+* 30bb300 2026-09-28 | Added a comment (HEAD -&gt; main, tag: v1) [Jim Weirich]
+* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
+* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+<p>Nuestra rama main apunta ahora al commit v1, y los commits Oops y Revert Oops ya no están en la rama. El parámetro <code>--hard</code> indica que el directorio de trabajo debe actualizarse para ser coherente con la nueva cabeza de la rama.</p>
+<h2>Nunca se pierde nada</h2>
+<p>Pero ¿qué ha pasado con los commits erróneos? Resulta que los commits siguen en el repositorio. De hecho, todavía podemos hacer referencia a ellos. Recuerda que al principio de este lab etiquetamos el commit de reversión con la etiqueta &#8220;oops&#8221;. Veamos <em>todos</em> los commits.</p>
+<h3><b>Ejecuta:</b></h3>
+<pre class="instructions">git hist --all</pre>
+<h3><b>Salida:</b></h3>
+<pre class="sample">$ git hist --all
+* b6120d7 2026-09-28 | Revert "Oops, we didn't want this commit" (tag: oops) [Jim Weirich]
+* 936f37f 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
+* 30bb300 2026-09-28 | Added a comment (HEAD -&gt; main, tag: v1) [Jim Weirich]
+* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
+* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+<p>Aquí vemos que los commits erróneos no han desaparecido. Siguen en el repositorio. Lo que pasa es que ya no aparecen en la rama main. Si no los hubiéramos etiquetado, seguirían en el repositorio, pero no habría forma de referenciarlos salvo usando sus hashes. Los commits sin referencias permanecen en el repositorio hasta que el sistema ejecuta el recolector de basura (garbage collection).</p>
+<h2>Peligros de reset</h2>
+<p>Hacer reset en ramas locales suele ser seguro. Normalmente cualquier &#8220;accidente&#8221; se puede arreglar volviendo a hacer reset al commit deseado.</p>
+<p>Sin embargo, si la rama se comparte en repositorios remotos, hacer reset puede confundir a otros usuarios que comparten esa rama.</p>
+        <nav class="foot-navigation">
+      <a href="lab_16.html">
+      <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>
+      Anterior
+    </a>
+  
+      <a href="lab_18.html">
+      <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>
+      Siguiente
+    </a>
+  </nav>
+
+      </div>
+    </div>
+  </body>
+</html>
