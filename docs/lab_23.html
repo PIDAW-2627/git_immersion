@@ -10,16 +10,6 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" media="screen" href="reset.css"> 
     <link rel="stylesheet" media="screen" href="screen.css"> 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1142510-7']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
     <script type="text/javascript" src="UI.js"></script>
   </head>
 
@@ -108,7 +98,7 @@
 <p>Esto debería mostrar el último commit hecho en el repositorio.  Es probable que el hash SHA1 de tu sistema sea distinto del mío, pero deberías ver algo parecido a esto.</p>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist --max-count=1
-* 4ccb106 2026-09-28 | Added main.py. (HEAD -&gt; main) [Jim Weirich]</pre>
+* 438b620 2026-09-28 | Added main.py. (HEAD -&gt; main) [Jim Weirich]</pre>
 <h2>Volcar el último commit</h2>
 <p>Usando el hash SHA1 del commit mostrado arriba&#8230;</p>
 <h3><b>Ejecuta:</b></h3>
@@ -116,13 +106,13 @@
 git cat-file -p &lt;hash&gt;</pre>
 <p>Esta es mi salida&#8230;</p>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ git cat-file -t 4ccb106
+<pre class="sample">$ git cat-file -t 438b620
 commit
-$ git cat-file -p 4ccb106
+$ git cat-file -p 438b620
 tree 45e0479d7bc1b23aff1469f636914e9dd07f58a7
-parent 6696e059a54c86a506fe00199ec289c078a91a5d
-author Jim Weirich &lt;jim (at) edgecase.com&gt; 1790589853 +0000
-committer Jim Weirich &lt;jim (at) edgecase.com&gt; 1790589853 +0000
+parent 77dc242ec1e77fb5942a78a189dc70cf70d9dca2
+author Jim Weirich &lt;jim (at) edgecase.com&gt; 1790590242 +0000
+committer Jim Weirich &lt;jim (at) edgecase.com&gt; 1790590242 +0000
 
 Added main.py.
 </pre>

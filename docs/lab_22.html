@@ -10,16 +10,6 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" media="screen" href="reset.css"> 
     <link rel="stylesheet" media="screen" href="screen.css"> 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1142510-7']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
     <script type="text/javascript" src="UI.js"></script>
   </head>
 
@@ -115,16 +105,16 @@ HEAD		branches   description	index  logs  refs
 <pre class="instructions">ls -C .git/objects</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ ls -C .git/objects
-03  12	21  45	51  66	78  9e	ab  b6	c7  d6	e1  e8	info
-06  13	31  4c	56  6c	86  a8	ad  b8	d2  df	e5  ec	pack
+13  31	45  56	6c  78	9e  a9	b6  c7	d6  e5	f9  info
+15  43	51  58	77  86	a8  ab	c6  d2	df  ec	fe  pack
 </pre>
 <p>Deberías ver un montón de directorios con nombres de 2 letras.  Los nombres de los directorios son las dos primeras letras del hash sha1 del objeto almacenado en git.</p>
 <h2>Más a fondo en el almacén de objetos</h2>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">ls -C .git/objects/&lt;dir&gt;</pre>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ ls -C .git/objects/03
-0f7aafe56cf7d9fa7ac0467ba3cd2895184beb
+<pre class="sample">$ ls -C .git/objects/13
+956843b171c232495bc238e175faee03c12264
 </pre>
 <p>Mira dentro de uno de los directorios de dos letras.  Deberías ver algunos archivos con nombres de 38 caracteres.  Son los archivos que contienen los objetos almacenados en git.  Están comprimidos y codificados, así que mirar su contenido directamente no sirve de mucho, pero enseguida los examinaremos más de cerca.</p>
 <h2>El archivo de configuración</h2>
@@ -158,7 +148,7 @@ $ ls .git/refs/tags
 v1
 v1-beta
 $ cat .git/refs/tags/v1
-030f7aafe56cf7d9fa7ac0467ba3cd2895184beb
+5870e0e4e8d952a3b294b037a3fc522c3a5dbd62
 </pre>
 <p>Deberías reconocer los archivos del subdirectorio tags.  Cada archivo corresponde a una etiqueta que creaste antes con el comando <code>git tag</code>. Su contenido es simplemente el hash del commit asociado a la etiqueta.</p>
 <p>El directorio heads es parecido, pero se usa para las ramas en lugar de para las etiquetas.  De momento solo tenemos una rama, así que lo único que verás en este directorio es main.</p>

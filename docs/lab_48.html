@@ -10,16 +10,6 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" media="screen" href="reset.css"> 
     <link rel="stylesheet" media="screen" href="screen.css"> 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1142510-7']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
     <script type="text/javascript" src="UI.js"></script>
   </head>
 
@@ -117,7 +107,7 @@ git commit -m "Added shared comment to readme"</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git push shared main
 To ../hello.git
-   cb046c1..ec6f8af  main -&gt; main
+   ac1e681..0dcb46f  main -&gt; main
 </pre>
 <p class="note"><strong><span class="caps">NOTA</span>:</strong> Hemos tenido que indicar explícitamente la rama main que recibía el push. Es posible configurarlo para que sea automático, pero yo <em>nunca</em> me acuerdo de los comandos para hacerlo. Echa un vistazo a la gema &#8220;Git Remote Branch&#8221; para gestionar fácilmente las ramas remotas.</p>
         <nav class="foot-navigation">

@@ -10,16 +10,6 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" media="screen" href="reset.css"> 
     <link rel="stylesheet" media="screen" href="screen.css"> 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1142510-7']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
     <script type="text/javascript" src="UI.js"></script>
   </head>
 
@@ -130,7 +120,7 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at e15e6ef Added a default value
+HEAD is now at 15d9d4e Added a default value
 $ cat hello.py
 import sys
 
@@ -148,11 +138,11 @@ print(f"Hello, {name}!")
 git checkout v1-beta</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git checkout v1
-Previous HEAD position was e15e6ef Added a default value
-HEAD is now at 030f7aa Added a comment
+Previous HEAD position was 15d9d4e Added a default value
+HEAD is now at 5870e0e Added a comment
 $ git checkout v1-beta
-Previous HEAD position was 030f7aa Added a comment
-HEAD is now at e15e6ef Added a default value
+Previous HEAD position was 5870e0e Added a comment
+HEAD is now at 15d9d4e Added a default value
 </pre>
 <h2>Ver las etiquetas con el comando <code>tag</code></h2>
 <p>Puedes ver qué etiquetas hay disponibles con el comando <code>git tag</code>.</p>
@@ -169,10 +159,10 @@ v1-beta
 <pre class="instructions">git hist main --all</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist main --all
-* 030f7aa 2026-09-28 | Added a comment (tag: v1, main) [Jim Weirich]
-* e15e6ef 2026-09-28 | Added a default value (HEAD, tag: v1-beta) [Jim Weirich]
-* 067de2d 2026-09-28 | Using sys.argv [Jim Weirich]
-* ad11021 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 5870e0e 2026-09-28 | Added a comment (tag: v1, main) [Jim Weirich]
+* 15d9d4e 2026-09-28 | Added a default value (HEAD, tag: v1-beta) [Jim Weirich]
+* b66c896 2026-09-28 | Using sys.argv [Jim Weirich]
+* 4387add 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Puedes ver las dos etiquetas (<code>v1</code> y <code>v1-beta</code>) en la salida del log, junto con el nombre de la rama (<code>main</code>). Además, <code>HEAD</code> te muestra el commit en el que estás ahora mismo (que en este momento es <code>v1-beta</code>).</p>
         <nav class="foot-navigation">
       <a href="lab_12.html">

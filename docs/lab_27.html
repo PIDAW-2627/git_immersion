@@ -10,16 +10,6 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" media="screen" href="reset.css"> 
     <link rel="stylesheet" media="screen" href="screen.css"> 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1142510-7']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
     <script type="text/javascript" src="UI.js"></script>
   </head>
 
@@ -106,18 +96,18 @@
 <pre class="instructions">git hist --all</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist --all
-* 3b28f4d 2026-09-28 | Updated main.py (greet) [Jim Weirich]
-* dbe90bc 2026-09-28 | Hello uses Greeter [Jim Weirich]
-* f380160 2026-09-28 | Added greeter class [Jim Weirich]
-| * ab4b7c3 2026-09-28 | Added README (HEAD -&gt; main) [Jim Weirich]
+* d869161 2026-09-28 | Updated main.py (greet) [Jim Weirich]
+* 02fcd37 2026-09-28 | Hello uses Greeter [Jim Weirich]
+* c9d0fe3 2026-09-28 | Added greeter class [Jim Weirich]
+| * 88fba6f 2026-09-28 | Added README (HEAD -&gt; main) [Jim Weirich]
 |/  
-* 4ccb106 2026-09-28 | Added main.py. [Jim Weirich]
-* 6696e05 2026-09-28 | Moved hello.py to lib [Jim Weirich]
-* b8b311e 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 030f7aa 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* e15e6ef 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 067de2d 2026-09-28 | Using sys.argv [Jim Weirich]
-* ad11021 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 438b620 2026-09-28 | Added main.py. [Jim Weirich]
+* 77dc242 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* c6b15ab 2026-09-28 | Add an author/email comment [Jim Weirich]
+* 5870e0e 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 15d9d4e 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* b66c896 2026-09-28 | Using sys.argv [Jim Weirich]
+* 4387add 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Aquí tenemos la primera ocasión de ver en acción la opción <code>--graph</code> de <code>git hist</code>. Añadir la opción <code>--graph</code> a <code>git log</code> hace que dibuje el árbol de commits usando caracteres <span class="caps">ASCII</span> sencillos.  Podemos ver ambas ramas (greet y main), y que la rama main es el <span class="caps">HEAD</span> actual. El ancestro común de ambas ramas es el commit &#8220;Added main.py.&#8221;.</p>
 <p>La opción <code>--all</code> garantiza que veamos todas las ramas.  Por defecto solo se muestra la rama actual.</p>
         <nav class="foot-navigation">

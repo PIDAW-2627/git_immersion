@@ -10,16 +10,6 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" media="screen" href="reset.css"> 
     <link rel="stylesheet" media="screen" href="screen.css"> 
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-1142510-7']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
     <script type="text/javascript" src="UI.js"></script>
   </head>
 
@@ -123,8 +113,8 @@ git commit -m "Oops, we didn't want this commit"</pre>
 <p>Esto te abrirá el editor. Puedes editar el mensaje de commit por defecto o dejarlo tal cual. Guarda y cierra el fichero. Deberías ver&#8230;</p>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git revert HEAD --no-edit
-[main 214b4b7] Revert "Oops, we didn't want this commit"
- Date: Mon Sep 28 10:04:12 2026 +0000
+[main a9bf330] Revert "Oops, we didn't want this commit"
+ Date: Mon Sep 28 10:10:42 2026 +0000
  1 file changed, 1 insertion(+), 1 deletion(-)
 </pre>
 <p>Como estábamos deshaciendo el último commit que hicimos, pudimos usar <code>HEAD</code> como argumento de revert. Podemos revertir cualquier commit anterior del historial simplemente indicando su valor hash.</p>
@@ -135,12 +125,12 @@ git commit -m "Oops, we didn't want this commit"</pre>
 <pre class="instructions">git hist</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist
-* 214b4b7 2026-09-28 | Revert "Oops, we didn't want this commit" (HEAD -&gt; main) [Jim Weirich]
-* e862d1b 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
-* 030f7aa 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* e15e6ef 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 067de2d 2026-09-28 | Using sys.argv [Jim Weirich]
-* ad11021 2026-09-28 | First Commit [Jim Weirich]</pre>
+* a9bf330 2026-09-28 | Revert "Oops, we didn't want this commit" (HEAD -&gt; main) [Jim Weirich]
+* f9c42ca 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
+* 5870e0e 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 15d9d4e 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* b66c896 2026-09-28 | Using sys.argv [Jim Weirich]
+* 4387add 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Esta técnica funciona con cualquier commit (aunque puede que tengas que resolver conflictos). Es segura incluso en ramas que se comparten públicamente en repositorios remotos.</p>
 <h2>A continuación</h2>
 <p>Ahora vamos a ver una técnica que sirve para eliminar los commits más recientes del historial del repositorio.</p>
