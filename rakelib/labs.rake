@@ -69,7 +69,7 @@ module Labs
           gathered_line = line.strip
         elsif line =~ /^Execute:$/i
           mode = :gather1
-          labs[lab_index] << "h3. **Execute:**\n\n"
+          labs[lab_index] << "h3. **Ejecuta:**\n\n"
           gathered_line = "pre(instructions)."
         elsif line =~ /^File:\s+(\S+)$/i
           file_name = $1
@@ -77,7 +77,7 @@ module Labs
           gathered_line = "<pre class=\"file\">"
           mode = :file
         elsif line =~ /^Output:\s*$/
-          labs[lab_index] << "h3. **Output:**\n\n"
+          labs[lab_index] << "h3. **Salida:**\n\n"
           gathered_line = "<pre class=\"sample\">"
           mode = :file
         elsif line =~ /^Set: +\w+=.*$/

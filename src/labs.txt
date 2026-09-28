@@ -1,74 +1,74 @@
 ----------------------------------------------------------------------
-h1. Setup
+h1. Configuración
 
-h2. Goals
+h2. Objetivos
 
-* To setup git and ruby so that it is ready for work.
+* Configurar git y ruby para que estén listos para trabajar.
 
-h2. Setup Name and Email
+h2. Configura tu nombre y tu email
 
-p. If you have never used git before, you need to do some setup first.
-Run the following commands so that git knows your name and email.  If
-you have git already setup, you can skip down to the line ending
-section.
+p. Si nunca has usado git, primero tienes que hacer una pequeña configuración.
+Ejecuta los siguientes comandos para que git conozca tu nombre y tu email. Si
+ya tienes git configurado, puedes saltar directamente a la sección de
+finales de línea.
 
 execute:
 git config --global user.name "Your Name"
 git config --global user.email "your_email@whatever.com"
 
-h2. Setup Line Ending Preferences
+h2. Configura las preferencias de final de línea
 
-Also, for Unix/Mac users:
+Además, si usas Unix/Mac:
 
 execute:
 git config --global core.autocrlf input
 git config --global core.safecrlf true
 
-And for Windows users:
+Y si usas Windows:
 
 execute:
 git config --global core.autocrlf true
 git config --global core.safecrlf true
 
-h2. Setup Ruby
+h2. Configura Ruby
 
-p. For this tutorial you need a working Ruby interpreter. If you haven´t one
-installed yet, it is time to set it up now:
+p. Para este tutorial necesitas un intérprete de Ruby que funcione. Si todavía no
+tienes uno instalado, es el momento de hacerlo:
 
 "https://www.ruby-lang.org/en/downloads/":https://www.ruby-lang.org/en/downloads/
 
 ----------------------------------------------------------------------
-h1. More Setup
+h1. Más configuración
 
-h2. Goals
+h2. Objetivos
 
-* Get the tutorial materials setup and ready to run.
+* Preparar los materiales del tutorial para poder empezar.
 
-h2. Get the Tutorial package
+h2. Descarga el paquete del tutorial
 
-* Download from: "https://gitimmersion.com/git_tutorial.zip":https://gitimmersion.com/git_tutorial.zip
+* Descárgalo desde: "https://gitimmersion.com/git_tutorial.zip":https://gitimmersion.com/git_tutorial.zip
 
-h2. Unzip the tutorial
+h2. Descomprime el tutorial
 
-p. The tutorial package should have a main directory "git_tutorial"
-with three sub-directories:
+p. El paquete del tutorial debería tener un directorio principal "git_tutorial"
+con tres subdirectorios:
 
-* html -- These html files.  Point your browser to html/index.html
-* work -- An empty working directory.  Create your repos in here.
-* repos -- Prepackaged Git repositories so you can jump into the tutorial at any point.  If you get stuck, just copy the desired lab into your working directory.
+* html -- Estos archivos html. Abre html/index.html en tu navegador.
+* work -- Un directorio de trabajo vacío. Crea aquí tus repositorios.
+* repos -- Repositorios Git ya preparados para que puedas incorporarte al tutorial en cualquier punto. Si te atascas, copia el lab que quieras en tu directorio de trabajo.
 
 ----------------------------------------------------------------------
-h1. Create a Project
+h1. Crear un proyecto
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to create a git repository from scratch.
+* Aprender a crear un repositorio git desde cero.
 
-h2. Create a "Hello, World" program
+h2. Crea un programa "Hello, World"
 
-p. Starting in the empty working directory, create an empty directory
-named "hello", then create a file named @hello.rb@ with the contents
-below.
+p. Partiendo del directorio de trabajo vacío, crea un directorio vacío
+llamado "hello" y, dentro, crea un archivo llamado @hello.rb@ con el
+contenido siguiente.
 
 Execute:
 mkdir hello
@@ -78,10 +78,10 @@ File: hello.rb
 puts "Hello, World"
 EOF
 
-h2. Create the Repository
+h2. Crea el repositorio
 
-p. You now have a directory with a single file.  To create a git
-repository from that directory, run the git init command.
+p. Ahora tienes un directorio con un único archivo. Para crear un
+repositorio git a partir de ese directorio, ejecuta el comando git init.
 
 Execute:
 git init
@@ -93,9 +93,9 @@ Output:
 =init
 EOF
 
-h2. Add the program to the repository
+h2. Añade el programa al repositorio
 
-Now let's add the "Hello, World" program to the repository.
+Ahora vamos a añadir el programa "Hello, World" al repositorio.
 
 Execute:
 git add hello.rb
@@ -103,7 +103,7 @@ git add hello.rb
 git commit -m "First Commit"
 =commit
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =add
@@ -111,87 +111,87 @@ Output:
 EOF
 
 ----------------------------------------------------------------------
-h1. Checking Status
+h1. Comprobar el estado
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to check the status of the repository
+* Aprender a comprobar el estado del repositorio
 
-h2. Check the status of the repository
+h2. Comprueba el estado del repositorio
 
-p. Use the @git status@ command to check the current status of the
-repository.
+p. Usa el comando @git status@ para comprobar el estado actual del
+repositorio.
 
 Execute:
 git status
 =status
 
-p. You should see
+p. Deberías ver
 
 Output:
 =status
 EOF
 
-p. The status command reports that there is nothing to commit.  This
-means that the repository has all the current state of the working
-directory.  There are no outstanding changes to record.
+p. El comando status indica que no hay nada de lo que hacer commit. Esto
+significa que el repositorio contiene todo el estado actual del directorio
+de trabajo. No hay cambios pendientes de registrar.
 
-p. We will use the @git status@ command to continue to monitor the
-state between the repository and the working directory.
+p. Seguiremos usando el comando @git status@ para vigilar el
+estado del repositorio frente al directorio de trabajo.
 
 ----------------------------------------------------------------------
-h1. Making Changes
+h1. Hacer cambios
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to monitor the state of the working directory
+* Aprender a vigilar el estado del directorio de trabajo
 
-h2. Change the "Hello, World" program.
+h2. Modifica el programa "Hello, World".
 
-p. It's time to change our hello program to take an argument from the
-command line.  Change the file to be:
+p. Es hora de modificar nuestro programa hello para que reciba un argumento
+desde la línea de comandos. Cambia el archivo para que quede así:
 
 File: hello.rb
 puts "Hello, #{ARGV.first}!"
 EOF
 
-h2. Check the status
+h2. Comprueba el estado
 
-p. Now check the status of the working directory.
+p. Ahora comprueba el estado del directorio de trabajo.
 
 Execute:
 !git status
 =status
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =status
 EOF
 
-p. The first thing to notice is that git knows that the @hello.rb@
-file has been modified, but git has not yet been notified of these
-changes.
+p. Lo primero que hay que observar es que git sabe que el archivo @hello.rb@
+ha sido modificado, pero todavía no se le ha indicado a git que registre
+estos cambios.
 
-p. Also notice that the status message gives you hints about what you
-need to do next.  If you want to add these changes to the repository,
-then use the @git add@ command.  Otherwise the @git restore@ command
-can be used to discard the changes.
+p. Fíjate también en que el mensaje de estado te da pistas sobre qué
+tienes que hacer a continuación. Si quieres añadir estos cambios al repositorio,
+usa el comando @git add@. Si no, puedes usar el comando @git restore@
+para descartar los cambios.
 
-h2. Up Next
+h2. A continuación
 
-p. Let's stage the change.
+p. Vamos a preparar el cambio (añadirlo al staging).
 
 ----------------------------------------------------------------------
-h1. Staging Changes
+h1. Preparar cambios
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to stage changes for later commits
+* Aprender a preparar cambios (staging) para futuros commits
 
-h2. Add Changes
+h2. Añade los cambios
 
-p. Now tell git to stage the changes.  Check the status
+p. Ahora dile a git que prepare los cambios. Comprueba el estado.
 
 Execute:
 git add hello.rb
@@ -199,39 +199,39 @@ git add hello.rb
 git status
 =status
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =add
 =status
 EOF
 
-p. The change to the @hello.rb@ file has been staged.  This means that
-git now knows about the change, but the change hasn't been
-_permanently_ recorded in the repository yet.  The next commit
-operation will include the staged changes.
+p. El cambio en el archivo @hello.rb@ se ha preparado. Esto significa que
+git ya conoce el cambio, pero este todavía no se ha registrado de forma
+_permanente_ en el repositorio. La próxima operación de commit
+incluirá los cambios preparados.
 
-p. If you decide you _don't_ want to commit that change after all, the
-status command reminds you that the @git restore@ command can be used to
-unstage that change.
+p. Si al final decides que _no_ quieres hacer commit de ese cambio, el
+comando status te recuerda que puedes usar el comando @git restore@ para
+sacar ese cambio del área de preparación (staging).
 
 ----------------------------------------------------------------------
-h1. Staging and Committing
+h1. Preparar y hacer commit
 
-p. A separate staging step in git is in line with the philosophy of
-getting out of the way until you need to deal with source control.
-You can continue to make changes to your working directory, and then
-at the point you want to interact with source control, git allows you
-to record your changes in small commits that record exactly what you
-did.
+p. Tener un paso de preparación separado en git encaja con la filosofía de
+no molestarte hasta que necesites ocuparte del control de versiones.
+Puedes seguir haciendo cambios en tu directorio de trabajo y, en el
+momento en que quieras interactuar con el control de versiones, git te permite
+registrar tus cambios en commits pequeños que reflejan exactamente lo que
+has hecho.
 
-p. For example, suppose you edited three files (@a.rb@, @b.rb@, and
-@c.rb@).  Now you want to commit all the changes, but you want the
-changes in @a.rb@ and @b.rb@ to be a single commit, while the changes
-to @c.rb@ are not logically related to the first two files and should
-be a separate commit.
+p. Por ejemplo, supón que has editado tres archivos (@a.rb@, @b.rb@ y
+@c.rb@). Ahora quieres hacer commit de todos los cambios, pero quieres que
+los cambios de @a.rb@ y @b.rb@ formen un solo commit, mientras que los cambios
+de @c.rb@ no tienen relación lógica con los dos primeros archivos y deberían
+ir en un commit aparte.
 
-p. You could do the following:
+p. Podrías hacer lo siguiente:
 
 pre(instructions).
 git add a.rb
@@ -242,45 +242,45 @@ pre(instructions).
 git add c.rb
 git commit -m "Unrelated change to c"
 
-p. By separating staging and committing, you have the ability to
-easily fine tune what goes into each commit.
+p. Al separar la preparación del commit, puedes ajustar con
+facilidad qué entra en cada commit.
 
 ----------------------------------------------------------------------
-h1. Committing Changes
+h1. Hacer commit de los cambios
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to commit changes to the repository
+* Aprender a hacer commit de los cambios en el repositorio
 
-h2. Commit the change
+h2. Haz commit del cambio
 
-p. Ok, enough about staging.  Let's commit what we have staged to the
-repository.
+p. Bueno, ya basta de hablar del staging. Vamos a hacer commit de lo que hemos
+preparado en el repositorio.
 
-p. When you used @git commit@ previously to commit the initial version
-of the @hello.rb@ file to the repository, you included the @-m@ flag
-that gave a comment on the command line.  The commit command will
-allow you to interactively edit a comment for the commit.  Let's try
-that now.
+p. Antes, cuando usaste @git commit@ para hacer commit de la versión inicial
+del archivo @hello.rb@ en el repositorio, incluiste la opción @-m@,
+que permite escribir un comentario en la línea de comandos. El comando commit
+también te permite editar el comentario del commit de forma interactiva. Vamos a
+probarlo ahora.
 
-p. If you omit the @-m@ flag from the command line, git will pop you
-into the editor of your choice.  The editor is chosen from the
-following list (in priority order):
+p. Si omites la opción @-m@ en la línea de comandos, git te abrirá
+el editor que hayas elegido. El editor se escoge de la
+siguiente lista (por orden de prioridad):
 
-* GIT_EDITOR environment variable
-* core.editor configuration setting
-* VISUAL environment variable
-* EDITOR environment variable
+* la variable de entorno GIT_EDITOR
+* la opción de configuración core.editor
+* la variable de entorno VISUAL
+* la variable de entorno EDITOR
 
-p. I have the EDITOR variable set to @emacsclient@.
+p. Yo tengo la variable EDITOR configurada con @emacsclient@.
 
-p. So commit now and check the status.
+p. Así que haz commit ahora y comprueba el estado.
 
 Execute:
 -git commit
 +git commit -m "Using ARGV"
 
-p. You should see the following in your editor:
+p. Deberías ver lo siguiente en tu editor:
 
 Output:
 |
@@ -294,8 +294,8 @@ Output:
 #
 EOF
 
-p. On the first line, enter the comment: "Using ARGV".  Save the file
-and exit the editor.  You should see ...
+p. En la primera línea, escribe el comentario: "Using ARGV". Guarda el archivo
+y sal del editor. Deberías ver...
 
 Output:
 git commit
@@ -304,49 +304,49 @@ Waiting for Emacs...
  1 files changed, 1 insertions(+), 1 deletions(-)
 EOF
 
-p. The "Waiting for Emacs..." line comes from the @emacsclient@
-program which sends the file to a running emacs program and waits for
-the file to be closed.  The rest of the output is the standard commit
-messages.
+p. La línea "Waiting for Emacs..." viene del programa @emacsclient@,
+que envía el archivo a un emacs en ejecución y espera a que
+se cierre el archivo. El resto de la salida son los mensajes
+habituales de commit.
 
-h2. Check the status
+h2. Comprueba el estado
 
-p. Finally let's check the status again.
+p. Por último, volvamos a comprobar el estado.
 
 Execute:
 !git status
 =status
 
-You should see ...
+Deberías ver...
 
 Output:
 =status
 EOF
 
-p. The working directory is clean and ready for you to continue.
+p. El directorio de trabajo está limpio y listo para que continúes.
 
 ----------------------------------------------------------------------
-h1. Changes, not Files
+h1. Cambios, no archivos
 
-h2. Goals
+h2. Objetivos
 
-* Learn that git works with changes, not files.
+* Aprender que git trabaja con cambios, no con archivos.
 
-p. Most source control systems work with files.  You add a file to
-source control and the system will track changes to the file from that
-point on.
+p. La mayoría de los sistemas de control de versiones trabajan con archivos. Añades un archivo
+al control de versiones y el sistema registra los cambios en ese archivo a partir de
+ese momento.
 
-p. Git focuses on the changes to a file rather than the file itself.
-When you say @git add file@, you are not telling git to add the file
-to the repository.  Rather you are saying that git should make note of
-the current state of that file to be committed later.
+p. Git se centra en los cambios de un archivo, más que en el archivo en sí.
+Cuando escribes @git add file@, no le estás diciendo a git que añada el archivo
+al repositorio. Lo que le dices es que tome nota del
+estado actual de ese archivo para incluirlo más adelante en un commit.
 
-p. We will attempt to explore that difference in this lab.
+p. En este lab intentaremos explorar esa diferencia.
 
-h2. First Change: Allow a default name
+h2. Primer cambio: permitir un nombre por defecto
 
-p. Change the "Hello, World" program to have a default value if a
-command line argument is not supplied.
+p. Modifica el programa "Hello, World" para que tenga un valor por defecto si no se
+le pasa ningún argumento en la línea de comandos.
 
 File: hello.rb
 name = ARGV.first || "World"
@@ -354,16 +354,16 @@ name = ARGV.first || "World"
 puts "Hello, #{name}!"
 EOF
 
-h2. Add this Change
+h2. Añade este cambio
 
-p. Now add this change to the git's staging area.
+p. Ahora añade este cambio al área de preparación (staging) de git.
 
 Execute:
 git add hello.rb
 
-h2. Second change: Add a comment
+h2. Segundo cambio: añadir un comentario
 
-p. Now add a comment to the "Hello, World" program.
+p. Ahora añade un comentario al programa "Hello, World".
 
 File: hello.rb
 # Default is "World"
@@ -372,29 +372,29 @@ name = ARGV.first || "World"
 puts "Hello, #{name}!"
 EOF
 
-h2. Check the current status
+h2. Comprueba el estado actual
 
 Execute:
 !git status
 =status
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =status
 EOF
 
-p. Notice how @hello.rb@ is listed twice in the status.  The first
-change (adding a default) is staged and is ready to be committed.  The
-second change (adding a comment) is unstaged.  If you were to commit
-right now, the comment would not be saved in the repository.
+p. Fíjate en que @hello.rb@ aparece dos veces en el estado. El primer
+cambio (añadir un valor por defecto) está preparado y listo para el commit. El
+segundo cambio (añadir un comentario) no está preparado. Si hicieras commit
+ahora mismo, el comentario no se guardaría en el repositorio.
 
-p. Let's try that.
+p. Vamos a probarlo.
 
-h2. Committing
+h2. Hacer commit
 
-p. Commit the staged change (the default value), and then recheck the
-status.
+p. Haz commit del cambio preparado (el valor por defecto) y vuelve a comprobar
+el estado.
 
 Execute:
 git commit -m "Added a default value"
@@ -402,91 +402,91 @@ git commit -m "Added a default value"
 git status
 =status2
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =commit
 =status2
 EOF
 
-p. The status command is telling you that @hello.rb@ has unrecorded changes,
-but is no longer in the staging area.
+p. El comando status te indica que @hello.rb@ tiene cambios sin registrar,
+pero ya no está en el área de preparación.
 
-h2. Add the Second Change
+h2. Añade el segundo cambio
 
-p. Now add the second change to staging area, then run git status.
+p. Ahora añade el segundo cambio al área de preparación y ejecuta git status.
 
 Execute:
 git add .
 !git status
 =status3
 
-p(note). *Note:* We used the current directory ('.') as the
-file to add.  This is a really convenient shortcut for adding in all
-the changes to the files in the current directory and below.  But
-since it adds everything, it is a _really_ good idea to check the status
-before doing an <tt>add .</tt>, just to make sure you don't add any
-file that is not intended.
+p(note). *Nota:* Hemos usado el directorio actual ('.') como el
+archivo que añadir. Es un atajo muy cómodo para añadir todos
+los cambios de los archivos del directorio actual y de sus subdirectorios. Pero,
+como lo añade todo, es _muy_ buena idea comprobar el estado
+antes de hacer un <tt>add .</tt>, para asegurarte de que no añades ningún
+archivo que no querías.
 
-p(note). I wanted you to see the "add ." trick, but we will
-continue to add explicit files in the rest of this tutorial just to be
-safe.
+p(note). Quería que conocieras el truco de "add .", pero en el resto del
+tutorial seguiremos añadiendo los archivos de forma explícita, por
+seguridad.
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =status3
 EOF
 
-p. Now the second change has been staged and is ready to commit.
+p. Ahora el segundo cambio está preparado y listo para el commit.
 
-h2. Commit the Second Change
+h2. Haz commit del segundo cambio
 
 Execute:
 git commit -m "Added a comment"
 
 ----------------------------------------------------------------------
-h1. History
+h1. Historial
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to view the history of the project.
+* Aprender a ver el historial del proyecto.
 
-p. Getting a listing of what changes have been made is the function of
-the @git log@ command.
+p. Obtener una lista de los cambios que se han hecho es la función
+del comando @git log@.
 
 Execute:
 git log
 =log
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =log
 EOF
 
-p. Here is a list of all four commits that we have made to the
-repository so far.
+p. Aquí tienes la lista de los cuatro commits que hemos hecho en el
+repositorio hasta ahora.
 
-h2. One Line Histories
+h2. Historial en una línea
 
-p. You have a great deal of control over exactly what the @log@ command
-displays.  I like the one line format:
+p. Tienes mucho control sobre lo que muestra exactamente el comando @log@.
+A mí me gusta el formato de una sola línea:
 
 Execute:
 git log --pretty=oneline
 =oneline
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =oneline
 EOF
 
-h2. Controlling Which Entries are Displayed
+h2. Controlar qué entradas se muestran
 
-p. There are a lot of options for selecting which entries are
-displayed in the log.  Play around with the following options:
+p. Hay muchas opciones para seleccionar qué entradas se
+muestran en el log. Prueba con las siguientes opciones:
 
 pre(instructions).
 git log --pretty=oneline --max-count=2
@@ -495,63 +495,63 @@ git log --pretty=oneline --until='5 minutes ago'
 git log --pretty=oneline --author=<your name>
 git log --pretty=oneline --all
 
-p. See man git-log for all the details.
+p. Consulta man git-log para ver todos los detalles.
 
-h2. Getting Fancy
+h2. Rizando el rizo
 
-p. Here's what I use to review the changes made in the last week.
-I'll add @--author=jim@ if I only want to see changes I made.
+p. Esto es lo que uso yo para revisar los cambios hechos en la última semana.
+Añado @--author=jim@ si solo quiero ver los cambios que he hecho yo.
 
 pre(instructions).
 git log --all --pretty=format:'%h %cd %s (%an)' --since='7 days ago'
 
-h2. The Ultimate Log Format
+h2. El formato de log definitivo
 
-p. Over time, I've decided that I like the following log format for
-most of my work.
+p. Con el tiempo, he decidido que me gusta el siguiente formato de log para
+la mayor parte de mi trabajo.
 
 Execute:
 git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 =ultimate
 
-It looks like this:
+Tiene este aspecto:
 
 Output:
 =ultimate
 EOF
 
-p. Let's look at it in detail:
+p. Veámoslo en detalle:
 
-* @--pretty=format:"..."@ defines the format of the output.
-* @%h@ is the abbreviated hash of the commit
-* @%ad@ is the author date
-* @%s@ is the comment
-* @%d@ are any decorations on that commit (e.g. branch heads or tags)
-* @%an@ is the author name
-* @--graph@ informs git to display the commit tree in an ASCII graph layout
-* @--date=short@ keeps the date format nice and short
+* @--pretty=format:"..."@ define el formato de la salida.
+* @%h@ es el hash abreviado del commit
+* @%ad@ es la fecha del autor
+* @%s@ es el comentario
+* @%d@ son las decoraciones de ese commit (p. ej., cabezas de rama o etiquetas)
+* @%an@ es el nombre del autor
+* @--graph@ indica a git que muestre el árbol de commits como un gráfico ASCII
+* @--date=short@ mantiene el formato de fecha bonito y corto
 
-p. This is a lot to type every time you want to see the log.
-Fortunately we will learn about git aliases in the next lab.
+p. Es mucho que escribir cada vez que quieras ver el log.
+Por suerte, en el próximo lab aprenderemos a usar los alias de git.
 
-h2. Other Tools
+h2. Otras herramientas
 
-p. Both <code>gitx</code> (for Macs) and <code>gitk</code> (any
-platform) are useful in exploring log history.
+p. Tanto <code>gitx</code> (para Mac) como <code>gitk</code> (cualquier
+plataforma) son útiles para explorar el historial del log.
 
 ----------------------------------------------------------------------
-h1. Aliases
+h1. Alias
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to setup aliases and shortcuts for git commands
+* Aprender a configurar alias y atajos para los comandos de git
 
-h2. Common Aliases
+h2. Alias habituales
 
-p. @git status@, @git add@, @git commit@, and @git checkout@ are such
-common commands that it is useful to have abbreviations for them.
+p. @git status@, @git add@, @git commit@ y @git checkout@ son comandos
+tan habituales que resulta útil tener abreviaturas para ellos.
 
-p. Add the following to the .gitconfig file in your $HOME directory.
+p. Añade lo siguiente al archivo .gitconfig de tu directorio $HOME.
 
 file: .gitconfig
 [alias]
@@ -564,41 +564,41 @@ file: .gitconfig
   dump = cat-file -p
 EOF
 
-p. We've covered the commit and status commands already.  And we just
-covered the @log@ command in the previous lab. The @checkout@ command
-will be coming up soon.
+p. Ya hemos visto los comandos commit y status. Y acabamos de
+ver el comando @log@ en el lab anterior. El comando @checkout@
+llegará pronto.
 
-p. With these aliases defined in the @.gitconfig@ file you can type
-@git co@ wherever you used to have to type @git checkout@.  Likewise
-with @git st@ for @git status@ and @git ci@ for @git commit@.  And
-best of all, @git hist@ will allow you to avoid the really long @log@
-command.
+p. Con estos alias definidos en el archivo @.gitconfig@ puedes escribir
+@git co@ donde antes tenías que escribir @git checkout@. Lo mismo
+con @git st@ para @git status@ y @git ci@ para @git commit@. Y lo
+mejor de todo: @git hist@ te permitirá evitar el larguísimo
+comando @log@.
 
-p. Go ahead and give the new commands a try.
+p. Adelante, prueba los nuevos comandos.
 
-h2. Define the @hist@ alias in your @.gitconfig@ file
+h2. Define el alias @hist@ en tu archivo @.gitconfig@
 
-p. For the most part, I will continue to type out the full command in
-these instructions.  The only exception is that I will use the @hist@
-alias defined above anytime we need to see the git log output.  Make
-sure you have a @hist@ alias setup in your @.gitconfig@ file before
-continuing if you wish to follow along.
+p. En general, seguiré escribiendo el comando completo en
+estas instrucciones. La única excepción es que usaré el alias @hist@
+definido arriba siempre que necesitemos ver la salida de git log. Asegúrate
+de tener configurado un alias @hist@ en tu archivo @.gitconfig@ antes de
+continuar si quieres seguir el tutorial paso a paso.
 
-h2. @Type@ and @Dump@
+h2. @Type@ y @Dump@
 
-p. We've added a few aliases for commands we haven't covered yet. The
-@git branch@ command will be coming up soon.  And the @git cat-file@
-command is useful for exploring git, which we will see in a little
-while.
+p. Hemos añadido algunos alias para comandos que aún no hemos visto. El
+comando @git branch@ llegará pronto. Y el comando @git cat-file@
+es útil para explorar git, como veremos dentro de un
+rato.
 
-h2. Shell Aliases (Optional)
+h2. Alias de la shell (opcional)
 
-p(note). *Note:* This section is for folks running a posix-like shell.
-Windows users and other non-posix shell users can feel free to skip to
-the next lab.
+p(note). *Nota:* Esta sección es para quienes usan una shell tipo posix.
+Si usas Windows u otra shell no posix, puedes saltar directamente al
+siguiente lab.
 
-p. If your shell supports aliases or shortcuts, then you can add
-aliases at that level too.  Here are the ones I use:
+p. Si tu shell admite alias o atajos, también puedes añadir
+alias a ese nivel. Estos son los que uso yo:
 
 file: .profile
 alias gs='git status '
@@ -614,43 +614,43 @@ alias got='git '
 alias get='git '
 EOF
 
-p. The @gco@ abbreviation for @git checkout@ is particularly nice.  It
-allows me to type:
+p. La abreviatura @gco@ para @git checkout@ es especialmente práctica. Me
+permite escribir:
 
 pre(instructions). gco <branch>
 
-p. to checkout a particular branch.
+p. para cambiar a una rama concreta.
 
-p. And yes, I do mistype @git@ as @get@ or @got@ often enough to
-create aliases for them.
+p. Y sí, escribo mal @git@ como @get@ o @got@ con la frecuencia suficiente
+como para crearles alias.
 
 ----------------------------------------------------------------------
-h1. Getting Old Versions
+h1. Obtener versiones anteriores
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to checkout any previous snapshot into the working directory.
+* Aprender a hacer checkout de cualquier instantánea anterior en el directorio de trabajo.
 
-p. Going back in history is very easy.  The checkout command will copy
-any snapshot from the repository to the working directory.
+p. Volver atrás en el historial es muy fácil. El comando checkout copia
+cualquier instantánea del repositorio en el directorio de trabajo.
 
-h2. Get the hashes for previous versions
+h2. Obtén los hashes de las versiones anteriores
 
 Execute:
 git hist
 =log
 
-p(note). *Note:* You did remember to define @hist@ in your
-@.gitconfig@ file, right?  If not, review the lab on aliases.
+p(note). *Nota:* Te acordaste de definir @hist@ en tu fichero
+@.gitconfig@, ¿verdad? Si no, repasa el lab sobre alias.
 
 Output:
 =log
 EOF
 
-p. Examine the log output and find the hash for the first commit.  It
-should be the last line of the @git hist@ output.  Use that hash code
-(the first 7 characters are enough) in the command below.  Then check
-the contents of the hello.rb file.
+p. Examina la salida del log y busca el hash del primer commit.
+Debería ser la última línea de la salida de @git hist@. Usa ese hash
+(con los 7 primeros caracteres basta) en el comando de abajo. Después
+comprueba el contenido del fichero hello.rb.
 
 Set: hash=hash_for("First Commit")
 Execute:
@@ -659,29 +659,29 @@ git checkout <hash>
 cat hello.rb
 =cat
 
-p(note). *Note:* The commands given here are Unix commands and
-work on both Mac and Linux boxes.  Unfortunately, Windows users will
-have to translate to their native commands.
+p(note). *Nota:* Los comandos que se muestran aquí son comandos de Unix
+y funcionan tanto en Mac como en Linux. Por desgracia, si usas Windows
+tendrás que traducirlos a los comandos equivalentes de tu sistema.
 
-p(note). *Note:* Many commands depend on the hash values in the
-repository.  Since your hash values will vary from mine, whenever you
-see something like &lt;hash&gt; or &lt;treehash&gt; in the command,
-substitute in the proper hash value for your repository.
+p(note). *Nota:* Muchos comandos dependen de los valores hash del
+repositorio. Como tus hashes serán distintos de los míos, siempre que
+veas algo como &lt;hash&gt; o &lt;treehash&gt; en un comando,
+sustitúyelo por el valor hash correspondiente de tu repositorio.
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =checkout
 =cat
 EOF
 
-p. The output of the @checkout@ command explains the situation pretty
-well.  Older versions of git will complain about not being on a local
-branch.  In any case, don't worry about that for now.
+p. La salida del comando @checkout@ explica bastante bien la situación.
+Las versiones antiguas de git se quejarán de que no estás en una rama
+local. En cualquier caso, de momento no te preocupes por eso.
 
-p. Notice the contents of the hello.rb file are the original contents.
+p. Fíjate en que el contenido del fichero hello.rb es el contenido original.
 
-h2. Return the latest version in the main branch
+h2. Vuelve a la última versión de la rama main
 
 Execute:
 git checkout main
@@ -689,43 +689,43 @@ git checkout main
 cat hello.rb
 =cat2
 
-p. You should see ...
+p. Deberías ver...
 
 Output:
 =checkout2
 =cat2
 EOF
 
-p. 'main' is the name of the default branch.  By checking out a branch
-by name, you go to the latest version of that branch.
+p. 'main' es el nombre de la rama por defecto. Al hacer checkout de una
+rama por su nombre, vas a la última versión de esa rama.
 
 ----------------------------------------------------------------------
-h1. Tagging versions
+h1. Etiquetar versiones
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to tag commits with names for future reference
+* Aprender a etiquetar commits con nombres para poder consultarlos más adelante
 
-p. Let's call the current version of the hello program version 1 (v1).
+p. Vamos a llamar a la versión actual del programa hello versión 1 (v1).
 
-h2. Tagging version 1
+h2. Etiquetar la versión 1
 
 Execute:
 git tag v1
 =tag
 
-p. Now you can refer to the current version of the program as v1.
+p. Ahora puedes referirte a la versión actual del programa como v1.
 
-h2. Tagging Previous Versions
+h2. Etiquetar versiones anteriores
 
-p. Let's tag the version immediately prior to the current version
-v1-beta.  First we need to checkout the previous version.  Rather than
-look up the hash, we will use the @^@ notation to indicate "the parent
-of v1".
+p. Vamos a etiquetar la versión inmediatamente anterior a la actual como
+v1-beta. Primero tenemos que hacer checkout de la versión anterior. En vez
+de buscar el hash, usaremos la notación @^@ para indicar "el padre
+de v1".
 
-p(note). If the @v1@^ notation gives you any trouble, you can also try
-@v1~1@, which will reference the same version.  This notation means
-"the first ancestor of v1".
+p(note). Si la notación @v1@^ te da algún problema, también puedes probar
+con @v1~1@, que hace referencia a la misma versión. Esta notación significa
+"el primer antecesor de v1".
 
 Execute:
 git checkout v1^
@@ -738,15 +738,15 @@ Output:
 =cat
 EOF
 
-p. See, this is the version with the default value _before_ we added
-the comment.  Let's make this v1-beta.
+p. ¿Ves? Esta es la versión con el valor por defecto _antes_ de añadir
+el comentario. Vamos a convertirla en v1-beta.
 
 Execute:
 git tag v1-beta
 
-h2. Checking Out by Tag Name
+h2. Hacer checkout por nombre de etiqueta
 
-p. Now try going back and forth between the two tagged versions.
+p. Ahora prueba a moverte entre las dos versiones etiquetadas.
 
 Execute:
 git checkout v1
@@ -759,9 +759,9 @@ Output:
 =cov1beta
 EOF
 
-h2. Viewing Tags using the @tag@ command
+h2. Ver las etiquetas con el comando @tag@
 
-p. You can see what tags are available using the @git tag@ command.
+p. Puedes ver qué etiquetas hay disponibles con el comando @git tag@.
 
 Execute:
 git tag
@@ -771,9 +771,9 @@ Output:
 =tag2
 EOF
 
-h2. Viewing Tags in the Logs
+h2. Ver las etiquetas en el log
 
-p. You can also check for tags in the log.
+p. También puedes consultar las etiquetas en el log.
 
 Execute:
 git hist main --all
@@ -783,31 +783,31 @@ Output:
 =hist
 EOF
 
-p. You can see both tags (@v1@ and @v1-beta@) listed in the log
-output, along with the branch name (@main@).  Also @HEAD@ shows you
-the currently checked out commit (which is @v1-beta@ at the moment).
+p. Puedes ver las dos etiquetas (@v1@ y @v1-beta@) en la salida del
+log, junto con el nombre de la rama (@main@). Además, @HEAD@ te muestra
+el commit en el que estás ahora mismo (que en este momento es @v1-beta@).
 
 ----------------------------------------------------------------------
-h1. Undoing Local Changes (before staging)
+h1. Deshacer cambios locales (antes de preparar)
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to revert changes in the working directory
+* Aprender a revertir cambios en el directorio de trabajo
 
-h2. Checkout main
+h2. Haz checkout de main
 
-p. Make sure you are on the latest commit in main before proceeding.
+p. Asegúrate de estar en el último commit de main antes de continuar.
 
 Execute:
 git checkout main
 
-h2. Change hello.rb
+h2. Modifica hello.rb
 
-p. Sometimes you have modified a file in your local working directory
-and you wish to just revert to what has already been committed.  The
-checkout command will handle that.
+p. A veces has modificado un fichero en tu directorio de trabajo local
+y simplemente quieres volver a lo que ya estaba confirmado en un commit.
+El comando checkout se encarga de eso.
 
-Change hello.rb to have a bad comment.
+Modifica hello.rb para que tenga un comentario incorrecto.
 
 File: hello.rb
 # This is a bad comment.  We want to revert it.
@@ -816,9 +816,9 @@ name = ARGV.first || "World"
 puts "Hello, #{name}!"
 EOF
 
-h2. Check the Status
+h2. Comprueba el estado
 
-p. First, check the status of the working directory.
+p. Primero, comprueba el estado del directorio de trabajo.
 
 Execute:
 !git status
@@ -828,13 +828,13 @@ Output:
 =status
 EOF
 
-p. We see that the @hello.rb@ file has been modified, but hasn't been
-staged yet.
+p. Vemos que el fichero @hello.rb@ se ha modificado, pero todavía no
+se ha añadido al área de preparación (staging).
 
-h2. Revert the changes in the working directory
+h2. Revierte los cambios en el directorio de trabajo
 
-p. Use the @checkout@ command to checkout the repository's version of
-the @hello.rb@ file.
+p. Usa el comando @checkout@ para recuperar la versión del repositorio
+del fichero @hello.rb@.
 
 Execute:
 git checkout hello.rb
@@ -850,20 +850,20 @@ Output:
 =cat
 EOF
 
-p. The status command shows us that there are no outstanding changes
-in the working directory.  And the "bad comment" is no longer part of
-the file contents.
+p. El comando status nos muestra que no hay cambios pendientes en el
+directorio de trabajo. Y el "comentario incorrecto" ya no forma parte
+del contenido del fichero.
 
 ----------------------------------------------------------------------
-h1. Undoing Staged Changes (before committing)
+h1. Deshacer cambios preparados (antes de hacer commit)
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to revert changes that have been staged
+* Aprender a revertir cambios que ya se han añadido al área de preparación
 
-h2. Change the file and stage the change
+h2. Modifica el fichero y prepara el cambio
 
-p. Modify the @hello.rb@ file to have a bad comment
+p. Modifica el fichero @hello.rb@ para que tenga un comentario incorrecto
 
 File: hello.rb
 # This is an unwanted but staged comment
@@ -872,14 +872,14 @@ name = ARGV.first || "World"
 puts "Hello, #{name}!"
 EOF
 
-p. And then go ahead and stage it.
+p. Y a continuación, añádelo al área de preparación.
 
 Execute:
 git add hello.rb
 
-h2. Check the Status
+h2. Comprueba el estado
 
-p. Check the status of your unwanted change.
+p. Comprueba el estado de tu cambio no deseado.
 
 Execute:
 git status
@@ -889,13 +889,13 @@ Output:
 =status
 EOF
 
-p. The status output shows that the change has been staged and is
-ready to be committed.
+p. La salida de status muestra que el cambio se ha preparado y está
+listo para confirmarse con un commit.
 
-h2. Reset the Staging Area
+h2. Restablece el área de preparación
 
-p. The @reset@ command resets the staging area to be whatever is in
-HEAD.  This clears the staging area of the change we just staged.
+p. El comando @reset@ restablece el área de preparación para que coincida
+con lo que hay en HEAD. Así se limpia del staging el cambio que acabamos de preparar.
 
 Execute:
 git reset HEAD hello.rb
@@ -905,15 +905,15 @@ Output:
 =reset
 EOF
 
-p. The @reset@ command (by default) doesn't change the working
-directory.  So the working directory still has the unwanted comment in
-it.  We can use  the @checkout@ command of the previous lab to remove
-the unwanted change from the working directory.
+p. El comando @reset@ (por defecto) no modifica el directorio de
+trabajo. Así que el directorio de trabajo todavía contiene el comentario
+no deseado. Podemos usar el comando @checkout@ del lab anterior para
+eliminar el cambio no deseado del directorio de trabajo.
 
-p(note). *Note*: You could also have used the @git restore@ command to restore
-just the single file.
+p(note). *Nota*: También podrías haber usado el comando @git restore@ para
+restaurar solo ese fichero.
 
-h2. Checkout the Committed Version
+h2. Haz checkout de la versión confirmada
 
 Execute:
 git checkout hello.rb
@@ -924,28 +924,28 @@ Output:
 =status2
 EOF
 
-p. And our working directory is clean once again.
+p. Y nuestro directorio de trabajo vuelve a estar limpio.
 
 ----------------------------------------------------------------------
-h1. Undoing Committed Changes
+h1. Deshacer cambios confirmados
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to revert changes that have been committed to a local repository.
+* Aprender a revertir cambios que ya se han confirmado en un repositorio local.
 
-h2. Undoing Commits
+h2. Deshacer commits
 
-p. Sometimes you realized that a change that you have already
-committed was not correct and you wish to undo that commit.  There are
-several ways of handling that issue, and the way we are going to use
-in this lab is always safe.
+p. A veces te das cuenta de que un cambio que ya has confirmado
+no era correcto y quieres deshacer ese commit. Hay varias formas
+de resolver este problema, y la que vamos a usar en este lab
+es siempre segura.
 
-p. Essentially we will undo the commit by creating a new commit that
-reverses the unwanted changes.
+p. Básicamente, desharemos el commit creando un nuevo commit que
+invierte los cambios no deseados.
 
-h2. Change the file and commit it.
+h2. Modifica el fichero y haz commit.
 
-p. Change the @hello.rb@ file to the following.
+p. Cambia el fichero @hello.rb@ por lo siguiente.
 
 File: hello.rb
 # This is an unwanted but committed change
@@ -958,34 +958,34 @@ Execute:
 git add hello.rb
 git commit -m "Oops, we didn't want this commit"
 
-h2. Create a Reverting Commit
+h2. Crea un commit de reversión
 
-p. To undo a committed change, we need to generate a commit that
-removes the changes introduced by our unwanted commit.
+p. Para deshacer un cambio confirmado, necesitamos generar un commit que
+elimine los cambios introducidos por el commit no deseado.
 
 Execute:
 -git revert HEAD
 +git revert HEAD --no-edit
 =revert
 
-p. This will pop you into the editor.  You can edit the default commit
-message or leave it as is.  Save and close the file. You should see ...
+p. Esto te abrirá el editor. Puedes editar el mensaje de commit por defecto
+o dejarlo tal cual. Guarda y cierra el fichero. Deberías ver...
 
 Output:
 =revert
 EOF
 
-p. Since we were undoing the very last commit we made, we were able to
-use @HEAD@ as the argument to revert.  We can revert any arbitrary
-commit earlier in history by simply specifying its hash value.
+p. Como estábamos deshaciendo el último commit que hicimos, pudimos
+usar @HEAD@ como argumento de revert. Podemos revertir cualquier commit
+anterior del historial simplemente indicando su valor hash.
 
-p(note). *Note:* The @--no-edit@ in the output can be ignored.
-It was necessary to generate the output without opening the editor.
+p(note). *Nota:* Puedes ignorar el @--no-edit@ que aparece en la salida.
+Era necesario para generar la salida sin abrir el editor.
 
-h2. Check the log
+h2. Revisa el log
 
-p. Checking the log shows both the unwanted and the reverting commits
-in our repository.
+p. Al revisar el log se ven tanto el commit no deseado como el de reversión
+en nuestro repositorio.
 
 Execute:
 git hist
@@ -995,50 +995,50 @@ Output:
 =hist
 EOF
 
-p. This technique will work with any commit (although you may have to
-resolve conflicts).  It is safe to use even on branches that are
-publicly shared on remote repositories.
+p. Esta técnica funciona con cualquier commit (aunque puede que tengas que
+resolver conflictos). Es segura incluso en ramas que se comparten
+públicamente en repositorios remotos.
 
-h2. Up Next
+h2. A continuación
 
-p. Next, let's look at a technique that can be used to remove the most
-recent commits from the repository history.
+p. Ahora vamos a ver una técnica que sirve para eliminar los commits
+más recientes del historial del repositorio.
 
 ----------------------------------------------------------------------
-h1. Removing Commits from a Branch
+h1. Eliminar commits de una rama
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to remove the most recent commits from a branch
+* Aprender a eliminar los commits más recientes de una rama
 
-p. The @revert@ command of the previous section is a powerful command
-that lets us undo the effects of any commit in the repository.
-However, both the original commit and the "undoing" commit are visible
-in the branch history (using the @git log@ command).
+p. El comando @revert@ de la sección anterior es un comando potente
+que nos permite deshacer los efectos de cualquier commit del repositorio.
+Sin embargo, tanto el commit original como el commit que lo "deshace" son visibles
+en el historial de la rama (con el comando @git log@).
 
-p. Often we make a commit and immediately realize that it was a
-mistake.  It would be nice to have a "take back" command that would
-allow us to pretend that the incorrect commit never happened.  The
-"take back" command would even prevent the bad commit from showing up
-the @git log@ history.  It would be as if the bad commit never
-happened.
+p. A menudo hacemos un commit y nos damos cuenta enseguida de que era un
+error. Estaría bien tener un comando para "retirar lo dicho" que nos
+permitiera hacer como si el commit incorrecto nunca hubiera existido. Ese
+comando incluso evitaría que el commit erróneo apareciera en
+el historial de @git log@. Sería como si el commit erróneo nunca
+hubiera ocurrido.
 
-h2. The @reset@ command
+h2. El comando @reset@
 
-p. We've already seen the @reset@ command and have used it to set the
-staging area to be consistent with a given commit (we used the HEAD
-commit in our previous lab).
+p. Ya hemos visto el comando @reset@ y lo hemos usado para hacer que el
+área de preparación coincida con un commit dado (en el lab anterior usamos
+el commit HEAD).
 
-p. When given a commit reference (i.e. a hash, branch or tag name),
-the @reset@ command will ...
+p. Cuando se le pasa una referencia a un commit (es decir, un hash o un nombre de rama o etiqueta),
+el comando @reset@...
 
-# Rewrite the current branch to point to the specified commit
-# Optionally reset the staging area to match the specified commit
-# Optionally reset the working directory to match the specified commit
+# Reescribe la rama actual para que apunte al commit indicado
+# Opcionalmente, restablece el área de preparación para que coincida con el commit indicado
+# Opcionalmente, restablece el directorio de trabajo para que coincida con el commit indicado
 
-h2. Check Our History
+h2. Revisa nuestro historial
 
-p. Let's do a quick check of our commit history.
+p. Echemos un vistazo rápido a nuestro historial de commits.
 
 Execute:
 git hist
@@ -1048,25 +1048,25 @@ Output:
 =hist
 EOF
 
-p. We see that we have an "Oops" commit and a "Revert Oops" commit as
-the last two commits made in this branch.  Let's remove them using
+p. Vemos que tenemos un commit "Oops" y un commit "Revert Oops" como
+los dos últimos commits de esta rama. Vamos a eliminarlos usando
 reset.
 
-h2. First, Mark this Branch
+h2. Primero, marca esta rama
 
-p. But before we remove the commits, let's mark the latest commit with
-a tag so we can find it again.
+p. Pero antes de eliminar los commits, vamos a marcar el último commit con
+una etiqueta para poder encontrarlo de nuevo.
 
 Execute:
 git tag oops
 
-h2. Reset to Before Oops
+h2. Haz reset a antes de Oops
 
-p. Looking at the log history (above), we see that the commit tagged
-'v1' is the commit right before the bad commit.  Let's reset the
-branch to that point.  Since that branch is tagged, we can use the tag
-name in the reset command (if it wasn't tagged, we could just use the
-hash value).
+p. Mirando el historial del log (arriba), vemos que el commit etiquetado
+como 'v1' es el commit justo anterior al commit erróneo. Vamos a hacer reset de la
+rama a ese punto. Como ese commit está etiquetado, podemos usar el nombre
+de la etiqueta en el comando reset (si no estuviera etiquetado, podríamos usar
+simplemente el valor hash).
 
 Execute:
 git reset --hard v1
@@ -1079,17 +1079,17 @@ Output:
 =hist2
 EOF
 
-p. Our main branch now points to the v1 commit and the Oops commit
-and the Revert Oops commit are no longer in the branch.  The @--hard@
-parameter indicates that the working directory should be updated to be
-consistent with the new branch head.
+p. Nuestra rama main apunta ahora al commit v1, y los commits Oops
+y Revert Oops ya no están en la rama. El parámetro @--hard@
+indica que el directorio de trabajo debe actualizarse para ser
+coherente con la nueva cabeza de la rama.
 
-h2. Nothing is Ever Lost
+h2. Nunca se pierde nada
 
-p. But what happened to the bad commits?  It turns out that the
-commits are still in the repository.  In fact, we can still reference
-them.  Remember that at the beginning of this lab we tagged the
-reverting commit with the tag "oops".  Let's look at _all_ the commits.
+p. Pero ¿qué ha pasado con los commits erróneos? Resulta que los
+commits siguen en el repositorio. De hecho, todavía podemos hacer
+referencia a ellos. Recuerda que al principio de este lab etiquetamos el
+commit de reversión con la etiqueta "oops". Veamos _todos_ los commits.
 
 Execute:
 git hist --all
@@ -1099,33 +1099,33 @@ Output:
 =hist3
 EOF
 
-p. Here we see that the bad commits haven't disappeared.  They are
-still in the repository.  It's just that they are no longer listed in
-the main branch.  If we hadn't tagged them, they would still be in
-the repository, but there would be no way to reference them other than
-using their hash names.  Commits that are unreferenced remain in the
-repository until the system runs the garbage collection software.
+p. Aquí vemos que los commits erróneos no han desaparecido. Siguen
+en el repositorio. Lo que pasa es que ya no aparecen en
+la rama main. Si no los hubiéramos etiquetado, seguirían en
+el repositorio, pero no habría forma de referenciarlos salvo
+usando sus hashes. Los commits sin referencias permanecen en el
+repositorio hasta que el sistema ejecuta el recolector de basura (garbage collection).
 
-h2. Dangers of Reset
+h2. Peligros de reset
 
-p. Resets on local branches are generally safe.  Any "accidents" can
-usually be recovered from by just resetting again with the desired
-commit.
+p. Hacer reset en ramas locales suele ser seguro. Normalmente cualquier
+"accidente" se puede arreglar volviendo a hacer reset al
+commit deseado.
 
-p. However, if the branch is shared on remote repositories, resetting
-can confuse other users sharing the branch.
+p. Sin embargo, si la rama se comparte en repositorios remotos, hacer reset
+puede confundir a otros usuarios que comparten esa rama.
 
 ----------------------------------------------------------------------
-h1. Remove the oops tag
+h1. Eliminar la etiqueta oops
 
-h2. Goals
+h2. Objetivos
 
-* Remove the oops tag (housekeeping)
+* Eliminar la etiqueta oops (limpieza)
 
-h2. Removing tag oops
+h2. Eliminar la etiqueta oops
 
-p. The oops tag has served its purpose.  Let's remove it and allow the
-commits it referenced to be garbage collected.
+p. La etiqueta oops ya ha cumplido su función. Vamos a eliminarla para que
+los commits a los que hacía referencia puedan ser eliminados por el recolector de basura.
 
 Execute:
 git tag -d oops
@@ -1138,18 +1138,18 @@ Output:
 =hist
 EOF
 
-p. The oops tag is no longer listed in the repository.
+p. La etiqueta oops ya no aparece en el repositorio.
 
 ----------------------------------------------------------------------
-h1. Amending Commits
+h1. Modificar commits
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to amend an existing commit
+* Aprender a modificar (amend) un commit existente
 
-h2. Change the program then commit
+h2. Cambia el programa y haz commit
 
-p. Add an author comment to the program.
+p. Añade al programa un comentario con el autor.
 
 File: hello.rb
 # Default is World
@@ -1163,11 +1163,11 @@ Execute:
 git add hello.rb
 git commit -m "Add an author comment"
 
-h2. Oops, Should have an Email
+h2. Vaya, debería incluir un email
 
-p. After you make the commit, you realize that any good author comment
-should have an email included.  Update the hello program to include an
-email.
+p. Después de hacer el commit, te das cuenta de que un buen comentario de autor
+debería incluir un email. Actualiza el programa hello para que incluya
+un email.
 
 File: hello.rb
 # Default is World
@@ -1177,10 +1177,10 @@ name = ARGV.first || "World"
 puts "Hello, #{name}!"
 EOF
 
-h2. Amend the Previous Commit
+h2. Modifica el commit anterior
 
-p. We really don't want a separate commit for just the email.  Let's
-amend the previous commit to include the email change.
+p. La verdad es que no queremos un commit aparte solo para el email. Vamos a
+modificar (amend) el commit anterior para que incluya el cambio del email.
 
 Execute:
 git add hello.rb
@@ -1194,7 +1194,7 @@ Output:
 EOF
 
 
-h2. Review the History
+h2. Revisa el historial
 
 Execute:
 git hist
@@ -1204,22 +1204,22 @@ Output:
 =hist
 EOF
 
-p. We can see the original "author" commit is now gone, and it is
-replaced by the "author/email" commit.  You can achieve the same
-effect by resetting the branch back one commit and then recommitting
-the new changes.
+p. Podemos ver que el commit original de "author" ha desaparecido y
+lo ha sustituido el commit "author/email". Puedes conseguir el mismo
+efecto haciendo reset de la rama un commit hacia atrás y volviendo a
+hacer commit de los nuevos cambios.
 
 ----------------------------------------------------------------------
-h1. Moving Files
+h1. Mover ficheros
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to move a file within a repository.
+* Aprender a mover un fichero dentro de un repositorio.
 
-h2. Move the hello.rb file into a lib directory.
+h2. Mueve el fichero hello.rb a un directorio lib.
 
-p. We are now going to build up the structure of our little
-repository.  Let's move the program into a lib directory.
+p. Ahora vamos a ir construyendo la estructura de nuestro pequeño
+repositorio. Movamos el programa a un directorio lib.
 
 Execute:
 mkdir lib
@@ -1235,57 +1235,57 @@ Output:
 =status
 EOF
 
-p. By using git to do the move, we inform git of 2 things
+p. Al usar git para hacer el movimiento, le informamos de 2 cosas
 
-# That the file @hello.rb@ has been deleted.
-# The file @lib/hello.rb@ has been created.
+# Que el fichero @hello.rb@ se ha eliminado.
+# Que el fichero @lib/hello.rb@ se ha creado.
 
-p. Both of these bits of information are immediately staged and ready
-to be committed.  The git status command reports that the file has been
-moved.
+p. Ambos datos se añaden de inmediato al área de preparación y quedan listos
+para confirmarse con un commit. El comando git status indica que el fichero se ha
+movido.
 
-h2. Another way of moving files
+h2. Otra forma de mover ficheros
 
-p. One of the nice things about git is that you can forget about
-source control until the point you are ready to start committing code.
-What would happen if we used the operating system command to move the
-file instead of the git command?
+p. Una de las ventajas de git es que puedes olvidarte del control
+de versiones hasta el momento en que estés listo para empezar a hacer commit del código.
+¿Qué pasaría si usáramos el comando del sistema operativo para mover el
+fichero en lugar del comando de git?
 
-p. It turns out the following set of commands is identical to what we
-just did.  It's a bit more work, but the result is the same.
+p. Resulta que el siguiente conjunto de comandos es equivalente a lo que
+acabamos de hacer. Supone algo más de trabajo, pero el resultado es el mismo.
 
-p(command). We could have done:
+p(command). Podríamos haber hecho:
 
 pre(instructions). mkdir lib
 mv hello.rb lib
 git add lib/hello.rb
 git rm hello.rb
 
-h2. Commit the new directory
+h2. Haz commit del nuevo directorio
 
-p. Let's commit this move.
+p. Hagamos commit de este movimiento.
 
 Execute:
 git commit -m "Moved hello.rb to lib"
 
 ----------------------------------------------------------------------
-h1. More Structure
+h1. Más estructura
 
-h2. Goals
+h2. Objetivos
 
-* Add another file to our repository
+* Añadir otro fichero a nuestro repositorio
 
-h2. Now add a Rakefile
+h2. Ahora añade un Rakefile
 
-p. This lab assumes you have installed *rake*. Please
-do that before continuing. Check for your specific Operating System.
-Otherwise execute:
+p. Este lab da por hecho que tienes instalado *rake*. Por favor,
+instálalo antes de continuar. Consulta cómo hacerlo en tu sistema operativo.
+Si no, ejecuta:
 
 Execute:
 gem install rake
 
-p. Let's add a Rakefile to our repository.  The following one will do
-nicely.
+p. Vamos a añadir un Rakefile a nuestro repositorio. El siguiente nos
+servirá perfectamente.
 
 File: Rakefile
 #!/usr/bin/ruby -wKU
@@ -1297,13 +1297,13 @@ task :run do
 end
 EOF
 
-p. Add and commit the change.
+p. Añade el cambio y haz commit.
 
 Execute:
 git add Rakefile
 git commit -m "Added a Rakefile."
 
-p. You should be able to use Rake to run your hello program now.
+p. Ahora deberías poder usar Rake para ejecutar tu programa hello.
 
 Execute:
 rake
@@ -1314,16 +1314,16 @@ Output:
 EOF
 
 ----------------------------------------------------------------------
-h1. Git Internals: The .git directory
+h1. Interioridades de Git: El directorio .git
 
-h2. Goals
+h2. Objetivos
 
-* Learn about the structure of the @.git@ directory
+* Conocer la estructura del directorio @.git@
 
-h2. The @.git@ Directory
+h2. El directorio @.git@
 
-p. Time to do some exploring.  First, from the root of your project
-directory...
+p. Es hora de explorar un poco.  Primero, desde el directorio raíz de tu
+proyecto...
 
 Execute:
 ls -C .git
@@ -1333,10 +1333,10 @@ Output:
 =lsgit
 EOF
 
-p. This is the magic directory where all the git "stuff" is stored.
-Let's peek in the objects directory.
+p. Este es el directorio mágico donde se guardan todas las "cosas" de git.
+Echemos un vistazo al directorio objects.
 
-h2. The Object Store
+h2. El almacén de objetos
 
 Execute:
 ls -C .git/objects
@@ -1346,11 +1346,11 @@ Output:
 =lsobjs
 EOF
 
-p. You should see a bunch of directories with 2 letter names.  The
-directory names are the first two letters of the sha1 hash of the
-object stored in git.
+p. Deberías ver un montón de directorios con nombres de 2 letras.  Los
+nombres de los directorios son las dos primeras letras del hash sha1 del
+objeto almacenado en git.
 
-h2. Deeper into the Object Store
+h2. Más a fondo en el almacén de objetos
 
 Set: dir=`ls .git/objects | head -1`.strip
 Execute:
@@ -1361,13 +1361,13 @@ Output:
 =lsobjs2
 EOF
 
-p. Look in one of the two-letter directories.  You should see some
-files with 38-character names.  These are the files that contain the
-objects stored in git.  These files are compressed and encoded, so
-looking at their contents directly won't be very helpful, but we will
-take a closer look in a bit.
+p. Mira dentro de uno de los directorios de dos letras.  Deberías ver algunos
+archivos con nombres de 38 caracteres.  Son los archivos que contienen los
+objetos almacenados en git.  Están comprimidos y codificados, así que
+mirar su contenido directamente no sirve de mucho, pero enseguida
+los examinaremos más de cerca.
 
-h2. Config File
+h2. El archivo de configuración
 
 Execute:
 cat .git/config
@@ -1377,11 +1377,11 @@ Output:
 =cat
 EOF
 
-p. This is a project-specific configuration file.  Config entries in
-here will override the config entries in the @.gitconfig@ file in your
-home directory, at least for this project.
+p. Este es un archivo de configuración específico del proyecto.  Las entradas de
+configuración que pongas aquí sobrescriben las del archivo @.gitconfig@ de tu
+directorio personal, al menos para este proyecto.
 
-h2. Branches and Tags
+h2. Ramas y etiquetas
 
 Execute:
 ls .git/refs
@@ -1400,15 +1400,15 @@ Output:
 =refv1
 EOF
 
-p. You should recognize the files in the tags subdirectory.  Each file
-corresponds to a tag you created with the @git tag@ command earlier.
-Its content is just the hash of the commit tied to the tag.
+p. Deberías reconocer los archivos del subdirectorio tags.  Cada archivo
+corresponde a una etiqueta que creaste antes con el comando @git tag@.
+Su contenido es simplemente el hash del commit asociado a la etiqueta.
 
-p. The heads directory is similar, but is used for branches rather
-than tags.  We only have one branch at the moment, so all you will see
-is main in this directory.
+p. El directorio heads es parecido, pero se usa para las ramas en lugar
+de para las etiquetas.  De momento solo tenemos una rama, así que lo único que verás
+en este directorio es main.
 
-h2. The HEAD File
+h2. El archivo HEAD
 
 Execute:
 cat .git/HEAD
@@ -1418,36 +1418,36 @@ Output:
 =head
 EOF
 
-p. The HEAD file contains a reference to the current branch.  It
-should be a reference to main at this point.
+p. El archivo HEAD contiene una referencia a la rama actual.  En este
+momento debería ser una referencia a main.
 
 ----------------------------------------------------------------------
-h1. Git Internals: Working directly with Git Objects
+h1. Interioridades de Git: Trabajar directamente con los objetos de Git
 
-h2. Goals
+h2. Objetivos
 
-* Explore the structure of the object store
-* Learn how to use the SHA1 hashes to find content in the repository
+* Explorar la estructura del almacén de objetos
+* Aprender a usar los hashes SHA1 para encontrar contenido en el repositorio
 
-p. Now let's use some tools to probe git objects directly.
+p. Ahora vamos a usar algunas herramientas para examinar directamente los objetos de git.
 
-h2. Finding the Latest Commit
+h2. Encontrar el último commit
 
 Execute:
 git hist --max-count=1
 =log
 
-p. This should show the latest commit made in the repository.  The
-SHA1 hash on your system is probably different from what is on mine,
-but you should see something like this.
+p. Esto debería mostrar el último commit hecho en el repositorio.  Es
+probable que el hash SHA1 de tu sistema sea distinto del mío,
+pero deberías ver algo parecido a esto.
 
 Output:
 =log
 EOF
 
-h2. Dumping the Latest Commit
+h2. Volcar el último commit
 
-Using the SHA1 hash from the commit listed above ...
+Usando el hash SHA1 del commit mostrado arriba...
 
 Set: hash=hash_for("Added a Rakefile")
 Execute:
@@ -1456,41 +1456,41 @@ git cat-file -t <hash>
 git cat-file -p <hash>
 =dump
 
-Here's my output ...
+Esta es mi salida...
 
 Output:
 =type
 =dump
 EOF
 
-p(note). *NOTE:* If you defined the 'type' and 'dump' aliases from
-the aliases lab, then you can type @git type@ and @git dump@ rather
-than the longer cat-file commands (which I never remember).
+p(note). *NOTA:* Si definiste los alias 'type' y 'dump' en
+el lab de alias, puedes escribir @git type@ y @git dump@ en lugar
+de los comandos cat-file, más largos (que yo nunca recuerdo).
 
-p. This is the dump of the commit object that is at the head of the
-main branch.  It looks a lot like the commit object from the
-presentation earlier.
+p. Este es el volcado del objeto commit que está en la cabeza de la
+rama main.  Se parece mucho al objeto commit de la
+presentación anterior.
 
-h2. Finding the Tree
+h2. Encontrar el árbol
 
-p. We can dump the directory tree referenced in the commit.  This
-should be a description of the (top level) files in our project (for
-that commit).  Use the SHA1 hash from the "tree" line listed above.
+p. Podemos volcar el árbol (tree) de directorios al que hace referencia el commit.  Debería
+ser una descripción de los archivos (del nivel superior) de nuestro proyecto (para
+ese commit).  Usa el hash SHA1 de la línea "tree" mostrada arriba.
 
 Set: treehash=hash_in(var['hash'], 'tree')
 Execute:
 git cat-file -p <treehash>
 =treedump
 
-p. Here's what my tree looks like...
+p. Así es como se ve mi árbol...
 
 Output:
 =treedump
 EOF
 
-p. Yep, I see the Rakefile and the lib directory.
+p. Efectivamente, veo el Rakefile y el directorio lib.
 
-h2. Dumping the lib directory
+h2. Volcar el directorio lib
 
 Set: libhash=hash_in(var['treehash'], 'lib')
 Execute:
@@ -1501,9 +1501,9 @@ Output:
 =libdump
 EOF
 
-p. There's the @hello.rb@ file.
+p. Ahí está el archivo @hello.rb@.
 
-h2. Dumping the @hello.rb@ file
+h2. Volcar el archivo @hello.rb@
 
 Set: rbhash=hash_in(var['libhash'], 'hello')
 Execute:
@@ -1514,42 +1514,42 @@ Output:
 =rbdump
 EOF
 
-p. There you have it.  We've dumped commit objects, tree objects and
-blob objects directly from the git repository.  That's all there is to
-it, blobs, trees and commits.
+p. Ahí lo tienes.  Hemos volcado objetos commit, objetos árbol y
+objetos blob directamente desde el repositorio git.  No hay nada más:
+blobs, árboles y commits.
 
-h2. Explore On You Own
+h2. Explora por tu cuenta
 
-p. Explore the git repo manually on your own.  See if you can find the
-original hello.rb file from the very first commit by manually
-following the SHA1 hash references starting in the latest commit.
+p. Explora el repositorio git manualmente por tu cuenta.  Intenta encontrar el
+archivo hello.rb original del primerísimo commit siguiendo manualmente
+las referencias de hash SHA1 a partir del último commit.
 
 ----------------------------------------------------------------------
-h1. Creating a Branch
+h1. Crear una rama
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to create a local branch in a repository
+* Aprender a crear una rama local en un repositorio
 
-p. It's time to do a major rewrite of the hello world functionality.
-Since this might take awhile, you'll want to put these changes into a
-separate branch to isolate them from changes in main.
+p. Ha llegado el momento de reescribir a fondo la funcionalidad de hello world.
+Como esto puede llevar un rato, te conviene poner estos cambios en una
+rama aparte para aislarlos de los cambios en main.
 
-h2. Create a Branch
+h2. Crear una rama
 
-p. Let's call our new branch 'greet'.
+p. Llamemos a nuestra nueva rama 'greet'.
 
 Execute:
 git checkout -b greet
 !git status
 
-p(note). *NOTE:* @git checkout -b <branchname>@ is a shortcut for @git
-branch <branchname>@ followed by a @git checkout <branchname>@.
+p(note). *NOTA:* @git checkout -b <branchname>@ es un atajo de @git
+branch <branchname>@ seguido de @git checkout <branchname>@.
 
-p. Notice that the git status command reports that you are on the
-'greet' branch.
+p. Fíjate en que el comando git status indica que estás en la rama
+'greet'.
 
-h2. Changes for Greet: Add a Greeter class.
+h2. Cambios para greet: Añadir una clase Greeter.
 
 File: lib/greeter.rb
 class Greeter
@@ -1566,9 +1566,9 @@ Execute:
 git add lib/greeter.rb
 git commit -m "Added greeter class"
 
-h2. Changes for Greet: Modify the main program
+h2. Cambios para greet: Modificar el programa principal
 
-p. Update the hello.rb file to use greeter
+p. Actualiza el archivo hello.rb para que use greeter
 
 File: lib/hello.rb
 require 'greeter'
@@ -1584,9 +1584,9 @@ Execute:
 git add lib/hello.rb
 git commit -m "Hello uses Greeter"
 
-h2. Changes for Greet: Update the Rakefile
+h2. Cambios para greet: Actualizar el Rakefile
 
-p. Update the Rakefile to use an external ruby process
+p. Actualiza el Rakefile para que use un proceso ruby externo
 
 File: Rakefile
 #!/usr/bin/ruby -wKU
@@ -1602,19 +1602,19 @@ Execute:
 git add Rakefile
 git commit -m "Updated Rakefile"
 
-h2. Up Next
+h2. A continuación
 
-p. We now have a new branch called *greet* with 3 new commits on it.
-Next we will learn how to navigate and switch between branches.
+p. Ahora tenemos una nueva rama llamada *greet* con 3 commits nuevos.
+A continuación aprenderemos a movernos y cambiar entre ramas.
 
 ----------------------------------------------------------------------
-h1. Navigating Branches
+h1. Moverse entre ramas
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to navigate between the branches of a repository
+* Aprender a moverse entre las ramas de un repositorio
 
-p. You now have two branches in your project:
+p. Ahora tienes dos ramas en tu proyecto:
 
 Execute:
 git hist --all
@@ -1624,9 +1624,9 @@ Output:
 =log
 EOF
 
-h2. Switch to the Main Branch
+h2. Cambiar a la rama main
 
-p. Just use the @git checkout@ command to switch between branches.
+p. Usa simplemente el comando @git checkout@ para cambiar de rama.
 
 Execute:
 git checkout main
@@ -1639,10 +1639,10 @@ Output:
 =cat
 EOF
 
-p. You are now on the main branch.  You can tell because the
-hello.rb file doesn't use the @Greeter@ class.
+p. Ahora estás en la rama main.  Lo sabes porque el archivo
+hello.rb no usa la clase @Greeter@.
 
-h2. Switch Back to the Greet Branch.
+h2. Volver a la rama greet.
 
 Execute:
 git checkout greet
@@ -1655,47 +1655,47 @@ Output:
 =cat2
 EOF
 
-p. The contents of the @lib/hello.rb@ confirms we are back on the
-*greet* branch.
+p. El contenido de @lib/hello.rb@ confirma que hemos vuelto a la rama
+*greet*.
 
 ----------------------------------------------------------------------
-h1. Changes in Main
+h1. Cambios en main
 
-h2. Goals
+h2. Objetivos
 
-* Learning how to deal with multiple branches with different (and possibly conflicting) changes.
+* Aprender a trabajar con varias ramas que tienen cambios distintos (y posiblemente en conflicto).
 
-p. While you were changing the greet branch, someone else decided to
-update the main branch.  They added a README.
+p. Mientras tú modificabas la rama greet, otra persona decidió
+actualizar la rama main.  Ha añadido un README.
 
-h2. Switch to the main branch.
+h2. Cambia a la rama main.
 
 Execute:
 git checkout main
 
-h2. Create the README.
+h2. Crea el README.
 
 File: README
 This is the Hello World example from the git tutorial.
 EOF
 
-h2. Commit the README to main.
+h2. Haz commit del README en main.
 
 Execute:
 git add README
 git commit -m "Added README"
 
 ----------------------------------------------------------------------
-h1. Viewing Diverging Branches
+h1. Ver ramas divergentes
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to view diverging branches in a repository.
+* Aprender a ver las ramas divergentes de un repositorio.
 
-h2. View the Current Branches
+h2. Ver las ramas actuales
 
-p. We now have two diverging branches in the repository.  Use the
-following log command to view the branches and how they diverge.
+p. Ahora tenemos dos ramas divergentes en el repositorio.  Usa el
+siguiente comando de log para ver las ramas y cómo divergen.
 
 Execute:
 git hist --all
@@ -1705,26 +1705,26 @@ Output:
 =log
 EOF
 
-p. Here is our first chance to see the @--graph@ option on @git hist@ in
-action. Adding the @--graph@ option to @git log@ causes it to draw the
-commit tree using simple ASCII characters.  We can see both branches
-(greet and main), and that the main branch is the current HEAD.
-The common ancestor to both branches is the "Added a Rakefile" branch.
+p. Aquí tenemos la primera ocasión de ver en acción la opción @--graph@ de @git hist@.
+Añadir la opción @--graph@ a @git log@ hace que dibuje el
+árbol de commits usando caracteres ASCII sencillos.  Podemos ver ambas ramas
+(greet y main), y que la rama main es el HEAD actual.
+El ancestro común de ambas ramas es el commit "Added a Rakefile".
 
-p. The @--all@ flag makes sure that we see all the branches.  The
-default is to show only the current branch.
+p. La opción @--all@ garantiza que veamos todas las ramas.  Por
+defecto solo se muestra la rama actual.
 
 ----------------------------------------------------------------------
-h1. Merging
+h1. Fusionar
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to merge two diverging branches to bring the changes back into a single branch.
+* Aprender a fusionar (merge) dos ramas divergentes para reunir los cambios en una sola rama.
 
-h2. Merge the branches
+h2. Fusionar las ramas
 
-p. Merging brings the changes in two branches together.  Let's go back
-to the greet branch and merge main onto greet.
+p. Fusionar reúne los cambios de dos ramas.  Volvamos
+a la rama greet y fusionemos main en greet.
 
 Execute:
 git checkout greet
@@ -1740,28 +1740,28 @@ Output:
 =hist
 EOF
 
-p. By merging main into your greet branch periodically, you can pick
-up any changes to main and keep your changes in greet compatible
-with changes in the mainline.
+p. Si fusionas main en tu rama greet periódicamente, puedes incorporar
+cualquier cambio de main y mantener tus cambios de greet compatibles
+con los cambios de la línea principal.
 
-p. However, it does produce ugly commit graphs. Later we will look at
-the option of rebasing rather than merging.
+p. Sin embargo, esto produce grafos de commits bastante feos. Más adelante veremos
+la opción de hacer rebase en lugar de fusionar.
 
-h2. Up Next
+h2. A continuación
 
-p. But first, what if the changes in main conflict with the changes
-in greet?
+p. Pero antes, ¿qué pasa si los cambios de main entran en conflicto con los cambios
+de greet?
 
 ----------------------------------------------------------------------
-h1. Creating a Conflict
+h1. Crear un conflicto
 
-h2. Goals
+h2. Objetivos
 
-* Create a conflicting change in the main branch.
+* Crear un cambio conflictivo en la rama main.
 
-h2. Switch back to main and create a conflict
+h2. Vuelve a main y crea un conflicto
 
-p. Switch back to the main branch and make this change:
+p. Vuelve a la rama main y haz este cambio:
 
 Execute:
 git checkout main
@@ -1777,7 +1777,7 @@ Execute:
 git add lib/hello.rb
 git commit -m "Made interactive"
 
-h2. View the Branches
+h2. Ver las ramas
 
 Execute:
 git hist --all
@@ -1787,25 +1787,25 @@ Output:
 =log
 EOF
 
-p. main at commit "Added README" has been merged to the greet
-branch, but there is now an additional commit on main that has not
-been merged back to greet.
+p. main, en el commit "Added README", se ha fusionado en la rama
+greet, pero ahora hay un commit adicional en main que no se ha
+fusionado de vuelta en greet.
 
-h2. Up Next
+h2. A continuación
 
-p. The latest change in main conflicts with some existing changes in
-greet.  Next we will resolve those changes.
+p. El último cambio de main entra en conflicto con algunos cambios existentes en
+greet.  A continuación resolveremos esos cambios.
 
 ----------------------------------------------------------------------
-h1. Resolving Conflicts
+h1. Resolver conflictos
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to handle conflicts during a merge
+* Aprender a gestionar los conflictos durante una fusión
 
-h2. Merge main to greet
+h2. Fusionar main en greet
 
-p. Now go back to the greet branch and try to merge the new main.
+p. Ahora vuelve a la rama greet e intenta fusionar el nuevo main.
 
 Execute:
 git checkout greet
@@ -1820,7 +1820,7 @@ CONFLICT (content): Merge conflict in lib/hello.rb
 Automatic merge failed; fix conflicts and then commit the result.
 EOF
 
-If you open lib/hello.rb, you will see:
+Si abres lib/hello.rb, verás:
 
 file: lib/hello.rb
 <<<<<<< HEAD
@@ -1841,13 +1841,13 @@ puts "Hello, #{my_name}!"
 >>>>>>> main
 EOF
 
-p. The first section is the version on the head of the current branch
-(greet).  The second section is the version on the main branch.
+p. La primera sección es la versión de la cabeza de la rama actual
+(greet).  La segunda sección es la versión de la rama main.
 
-h2. Fix the Conflict
+h2. Arreglar el conflicto
 
-p. You need to manually resolve the conflict.  Modify @lib/hello.rb@
-to be the following.
+p. Tienes que resolver el conflicto manualmente.  Modifica @lib/hello.rb@
+para que quede así.
 
 File: lib/hello.rb
 require 'greeter'
@@ -1859,7 +1859,7 @@ greeter = Greeter.new(my_name)
 puts greeter.greet
 EOF
 
-h2. Commit the Conflict Resolution
+h2. Hacer commit de la resolución del conflicto
 
 Execute:
 git add lib/hello.rb
@@ -1872,46 +1872,46 @@ Output:
 =commit
 EOF
 
-h2. Advanced Merging
+h2. Fusión avanzada
 
-p. git doesn't provide any graphical merge tools, but it will gladly
-work with any third party merge tool you wish to use.  See
+p. git no incluye ninguna herramienta gráfica de fusión, pero funciona sin problema
+con cualquier herramienta de fusión de terceros que quieras usar.  Consulta
 "https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_external_merge_tools":https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_external_merge_tools
-for a description of using the Perforce merge tool with git.
+para ver una descripción de cómo usar la herramienta de fusión de Perforce con git.
 
 ----------------------------------------------------------------------
-h1. Rebasing VS Merging
+h1. Rebase VS fusión
 
-h2. Goals
+h2. Objetivos
 
-* Learn the differences between rebasing and merging.
+* Aprender las diferencias entre hacer rebase y fusionar.
 
-h2. Discussion
+h2. Discusión
 
-p. Let's explore the differences between merging and rebasing.  In
-order to do so, we need to rewind the repository back in time before
-the first merge, and then redo the same steps, but using rebasing
-rather than merging.
+p. Vamos a explorar las diferencias entre fusionar y hacer rebase.  Para
+ello, tenemos que rebobinar el repositorio a un momento anterior a
+la primera fusión y después repetir los mismos pasos, pero usando rebase
+en lugar de fusionar.
 
-p. We will make use the of the @reset@ command to wind the branches
-back in time.
+p. Usaremos el comando @reset@ para llevar las ramas
+atrás en el tiempo.
 
 ----------------------------------------------------------------------
-h1. Resetting the Greet Branch
+h1. Restablecer la rama greet
 
-h2. Goals
+h2. Objetivos
 
-* Reset the greet branch to the point before the first merge.
+* Restablecer la rama greet al punto anterior a la primera fusión.
 
-h2. Reset the greet branch
+h2. Restablecer la rama greet
 
-p. Let's go back in time on the greet branch to the point _before_ we
-merged main onto it.  We can *reset* a branch to any commit we want.
-Essentially this is modifying the branch pointer to point to anywhere
-in the commit tree.
+p. Vamos a retroceder en el tiempo en la rama greet hasta el punto _anterior_ a
+fusionar main en ella.  Podemos hacer *reset* de una rama a cualquier commit que queramos.
+En esencia, esto consiste en modificar el puntero de la rama para que apunte a cualquier punto
+del árbol de commits.
 
-p. In this case we want to back greet up to the point prior to the
-merge with main.  We need to find the last commit before the merge.
+p. En este caso queremos llevar greet de vuelta al punto anterior a la
+fusión con main.  Tenemos que encontrar el último commit antes de la fusión.
 
 Execute:
 git checkout greet
@@ -1924,9 +1924,9 @@ Output:
 =log
 EOF
 
-p. That's a bit hard to read, but looking at the data we see that the
-"Updated Rakefile" commit was the last commit on the greet branch
-before merging.  Let's reset the greet branch to that commit.
+p. Cuesta un poco leerlo, pero mirando los datos vemos que el
+commit "Updated Rakefile" fue el último commit de la rama greet
+antes de la fusión.  Vamos a restablecer la rama greet a ese commit.
 
 Set: hash=hash_for("Updated Rakefile")
 Execute:
@@ -1937,10 +1937,10 @@ Output:
 =reset
 EOF
 
-h2. Check the branch.
+h2. Comprobar la rama.
 
-p. Look at the log for the greet branch.  We no longer have the merge
-commits in its history.
+p. Mira el log de la rama greet.  Ya no aparecen los commits de
+fusión en su historial.
 
 Execute:
 git hist --all
@@ -1951,19 +1951,19 @@ Output:
 EOF
 
 ----------------------------------------------------------------------
-h1. Resetting the Main Branch
+h1. Restablecer la rama main
 
-h2. Goals
+h2. Objetivos
 
-* Reset the main branch to the point before the conflicting commit.
+* Restablecer la rama main al punto anterior al commit conflictivo.
 
-h2. Reset the main branch
+h2. Restablecer la rama main
 
-p. When we added the interactive mode to the main branch, we made a
-change that conflicted with changes in the greet branch. Let's rewind
-the main branch to a point before the conflicting change.  This
-allows us to demonstrate the rebase command without worrying about
-conflicts.
+p. Cuando añadimos el modo interactivo a la rama main, hicimos un
+cambio que entraba en conflicto con los cambios de la rama greet. Vamos a rebobinar
+la rama main a un punto anterior al cambio conflictivo.  Así
+podremos mostrar el comando rebase sin preocuparnos por
+los conflictos.
 
 Execute:
 git checkout main
@@ -1974,9 +1974,9 @@ Output:
 =log
 EOF
 
-p. The 'Added README' commit is the one directly before the
-conflicting interactive mode.  We will reset the main branch to
-'Added README' commit.
+p. El commit 'Added README' es el inmediatamente anterior al
+modo interactivo conflictivo.  Restableceremos la rama main al
+commit 'Added README'.
 
 Set: hash=hash_for("Added README")
 Execute:
@@ -1984,25 +1984,25 @@ git reset --hard <hash>
 git hist --all
 =log2
 
-p. Review the log.  It should look like the repository has been wound
-back in time to the point before we merged anything.
+p. Revisa el log.  Debería parecer que el repositorio ha retrocedido
+en el tiempo hasta el punto anterior a cualquier fusión.
 
 Output:
 =log2
 EOF
 
 ----------------------------------------------------------------------
-h1. Rebasing
+h1. Hacer rebase
 
-h2. Goals
+h2. Objetivos
 
-* Use the rebase command rather than the merge command.
+* Usar el comando rebase en lugar del comando merge.
 
-p. Ok, we are back in time before the first merge and we want to get
-the changes in main into our greet branch.
+p. Bien, hemos vuelto a un momento anterior a la primera fusión y queremos llevar
+los cambios de main a nuestra rama greet.
 
-p. This time we will use the rebase command instead of the merge
-command to bring in the changes from the main branch.
+p. Esta vez usaremos el comando rebase en lugar del comando merge
+para traer los cambios de la rama main.
 
 Execute:
 git checkout greet
@@ -2023,33 +2023,33 @@ $
 =log
 EOF
 
-h2. Merge VS Rebase
+h2. Merge VS rebase
 
-p. The final result of the rebase is very similar to the merge.  The
-greet branch now contains all of its changes, as well as all the
-changes from the main branch.  However, the commit tree is quite
-different.  The commit tree for the greet branch has been rewritten so
-that the main branch is a part of the commit history.  This leaves
-the chain of commits linear and much easier to read.
+p. El resultado final del rebase es muy parecido al de la fusión.  La
+rama greet contiene ahora todos sus cambios, además de todos los
+cambios de la rama main.  Sin embargo, el árbol de commits es bastante
+distinto.  El árbol de commits de la rama greet se ha reescrito de forma
+que la rama main forma parte del historial de commits.  Así
+la cadena de commits queda lineal y es mucho más fácil de leer.
 
-h2. When to Rebase, When to Merge?
+h2. ¿Cuándo hacer rebase y cuándo fusionar?
 
-p. Don't use rebase ...
+p. No uses rebase...
 
-# If the branch is public and shared with others.  Rewriting publicly shared branches will tend to screw up other members of the team.
-# When the _exact_ history of the commit branch is important (since rebase rewrites the commit history).
+# Si la rama es pública y está compartida con otras personas.  Reescribir ramas compartidas públicamente suele causar problemas al resto del equipo.
+# Cuando el historial _exacto_ de la rama de commits es importante (ya que rebase reescribe el historial de commits).
 
-p. Given the above guidelines, I tend to use rebase for short-lived,
-local branches and merge for branches in the public repository.
+p. Siguiendo estas pautas, yo suelo usar rebase para ramas locales de
+vida corta y fusionar para las ramas del repositorio público.
 
 ----------------------------------------------------------------------
-h1. Merging Back to Main
+h1. Fusionar de vuelta en main
 
-h2. Goals
+h2. Objetivos
 
-* We've kept our greet branch up to date with main (via rebase), now let's merge the greet changes back into the main branch.
+* Hemos mantenido nuestra rama greet al día con main (mediante rebase); ahora vamos a fusionar los cambios de greet de vuelta en la rama main.
 
-h2. Merge greet into main
+h2. Fusionar greet en main
 
 Execute:
 git checkout main
@@ -2063,14 +2063,14 @@ $
 =merge
 EOF
 
-p. Because the head of main is a direct ancestor of the head of the
-greet branch, git is able to do a fast-forward merge.  When
-fast-forwarding, the branch pointer is simply moved forward to point
-to the same commit as the greeter branch.
+p. Como la cabeza de main es un ancestro directo de la cabeza de la
+rama greet, git puede hacer una fusión fast-forward (avance rápido).  Al
+hacer fast-forward, el puntero de la rama simplemente avanza para apuntar
+al mismo commit que la rama greet.
 
-p. There will never be conflicts in a fast-forward merge.
+p. En una fusión fast-forward nunca habrá conflictos.
 
-h2. Review the logs
+h2. Revisar los logs
 
 Execute:
 git hist
@@ -2080,44 +2080,44 @@ Output:
 =log
 EOF
 
-p. The greet and main branches are now identical.
+p. Las ramas greet y main son ahora idénticas.
 
 ----------------------------------------------------------------------
-h1. Multiple Repositories
+h1. Múltiples repositorios
 
-p. Up to this point we have been working with a single git repository.
-However, git excels at working with multiple repositories.  These
-extra repositories may be stored locally, or may be accessed across a
-network connection.
+p. Hasta ahora hemos trabajado con un único repositorio git.
+Sin embargo, git destaca precisamente al trabajar con varios repositorios. Estos
+repositorios adicionales pueden estar almacenados en local o ser accesibles
+a través de una conexión de red.
 
-p. In the next section we will create a new repository called
-"cloned_hello".  We will show how to move changes from one repository
-to another, and how to handle conflicts when they arise between
-two repositories.
+p. En la siguiente sección crearemos un nuevo repositorio llamado
+"cloned_hello". Veremos cómo llevar cambios de un repositorio
+a otro y cómo resolver los conflictos que surjan entre
+dos repositorios.
 
  !git_clone.png!
 
 
-p. For now, we will be working with local repositories
-(i.e. repositories stored on your local hard disk), however most of
-the things learned in this section will apply to multiple repositories
-whether they are stored locally or remotely over a network.
+p. De momento trabajaremos con repositorios locales
+(es decir, repositorios almacenados en tu disco duro), aunque casi todo
+lo que aprendas en esta sección se aplica a múltiples repositorios,
+tanto si están en local como en remoto a través de una red.
 
-p. *NOTE:* We are going be making changes to both copies of our
-repositories.  Make sure you pay attention to which repository you are
-in at each step of the following labs.
+p. *NOTA:* Vamos a hacer cambios en las dos copias de nuestros
+repositorios. Presta atención a en qué repositorio te encuentras
+en cada paso de los siguientes labs.
 
 ----------------------------------------------------------------------
-h1. Cloning Repositories
+h1. Clonar repositorios
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to make copies of repositories.
+* Aprender a hacer copias de repositorios.
 
-h2. Go to the work directory
+h2. Ve al directorio work
 
-p. Go to the working directory and make a clone of your hello
-repository.
+p. Ve al directorio de trabajo y haz un clon de tu repositorio
+hello.
 
 Execute:
 cd ..
@@ -2127,7 +2127,7 @@ pwd
 ls
 =ls
 
-p{color:red}. *NOTE: Now in the work directory.*
+p{color:red}. *NOTA: Ahora estás en el directorio work.*
 
 Output:
 =cd
@@ -2135,12 +2135,12 @@ Output:
 =ls
 EOF
 
-p. At this point you should be in your "work" directory.  There should
-be a single repository here named "hello".
+p. En este punto deberías estar en tu directorio "work". Debería haber
+un único repositorio llamado "hello".
 
-h2. Create a clone of the hello repository
+h2. Crea un clon del repositorio hello
 
-p. Let's make a clone of the repository.
+p. Vamos a hacer un clon del repositorio.
 
 Execute:
 git clone hello cloned_hello
@@ -2157,20 +2157,20 @@ Output:
 =ls2
 EOF
 
-p. There should now be two repositories in your work directory: the
-original "hello" repository and the newly cloned "cloned_hello"
-repository.
+p. Ahora debería haber dos repositorios en tu directorio work: el
+repositorio original "hello" y el repositorio
+recién clonado "cloned_hello".
 
 ----------------------------------------------------------------------
-h1. Review the Cloned Repository
+h1. Revisar el repositorio clonado
 
-h2. Goals
+h2. Objetivos
 
-* Learn about branches on remote repositories.
+* Aprender sobre las ramas de los repositorios remotos.
 
-h2. Look at the cloned repository
+h2. Echa un vistazo al repositorio clonado
 
-p. Let's take a look at the cloned repository.
+p. Veamos el repositorio clonado.
 
 Execute:
 cd cloned_hello
@@ -2183,11 +2183,11 @@ Output:
 =ls
 EOF
 
-p. You should see a list of all the files in the top level of the
-original repository (@README@, @Rakefile@ and @lib@).
+p. Deberías ver una lista con todos los archivos del nivel superior del
+repositorio original (@README@, @Rakefile@ y @lib@).
 
 
-h2. Review the Repository History
+h2. Revisa el historial del repositorio
 
 Execute:
 git hist --all
@@ -2197,24 +2197,24 @@ Output:
 =log
 EOF
 
-p. You should now see a list of all the commits in the new
-repository, and it should (more or less) match the history of commits
-in the original repository.  The only difference should be in the
-names of the branches.
+p. Ahora deberías ver una lista con todos los commits del nuevo
+repositorio, y debería coincidir (más o menos) con el historial de commits
+del repositorio original. La única diferencia debería estar en los
+nombres de las ramas.
 
-h2. Remote branches
+h2. Ramas remotas
 
-p. You should see a *main* branch (along with *HEAD*) in the history
-list.  But you will also have a number of strangely named branches
-(*origin/main*, *origin/greet* and *origin/HEAD*).  We'll talk about
-them in a bit.
+p. Deberías ver una rama *main* (junto con *HEAD*) en el
+historial. Pero también tendrás varias ramas con nombres extraños
+(*origin/main*, *origin/greet* y *origin/HEAD*). Hablaremos de
+ellas en breve.
 
 ----------------------------------------------------------------------
-h1. What is Origin?
+h1. ¿Qué es origin?
 
-h2. Goals
+h2. Objetivos
 
-* Learn about naming remote repositories.
+* Aprender cómo se nombran los repositorios remotos.
 
 Execute:
 git remote
@@ -2224,8 +2224,8 @@ Output:
 =remote
 EOF
 
-p. We see that the cloned repository knows about a remote repository
-named origin.  Let's see if we can get more information about origin:
+p. Vemos que el repositorio clonado conoce un repositorio remoto
+llamado origin. Veamos si podemos obtener más información sobre origin:
 
 Execute:
 git remote show origin
@@ -2235,22 +2235,22 @@ Output:
 =show
 EOF
 
-p. Now we see that the remote repository "origin" is simply the original
-*hello* repository.  Remote repositories typically live on a separate
-machine, possibly a centralized server.  As we can see here, however,
-they can just as well point to a repository on the same machine.
-There is nothing particularly special about the name "origin",
-however the convention is to use the name "origin" for
-the primary centralized repository (if there is one).
+p. Ahora vemos que el repositorio remoto "origin" es simplemente el repositorio
+*hello* original. Normalmente los repositorios remotos están en otra
+máquina, posiblemente un servidor centralizado. Sin embargo, como vemos aquí,
+también pueden apuntar a un repositorio de la misma máquina.
+El nombre "origin" no tiene nada de especial,
+aunque por convención se usa "origin" para
+el repositorio centralizado principal (si lo hay).
 
 ----------------------------------------------------------------------
-h1. Remote Branches
+h1. Ramas remotas
 
-h2. Goals
+h2. Objetivos
 
-* Learn about local VS remote branches
+* Aprender la diferencia entre ramas locales y ramas remotas
 
-p. Let's look at the branches available in our cloned repository.
+p. Veamos qué ramas hay disponibles en nuestro repositorio clonado.
 
 Execute:
 git branch
@@ -2260,13 +2260,13 @@ Output:
 =branch
 EOF
 
-p. That's it, only the main branch is listed.  Where is the greet
-branch?  The *git* *branch* command only lists the local branches by
-default.
+p. Ya está, solo aparece la rama main. ¿Dónde está la rama
+greet? Por defecto, el comando *git* *branch* solo muestra las ramas
+locales.
 
-h2. List Remote Branches
+h2. Listar las ramas remotas
 
-p. Try this to see all the branches:
+p. Prueba esto para ver todas las ramas:
 
 Execute:
 git branch -a
@@ -2276,52 +2276,52 @@ Output:
 =branch_a
 EOF
 
-p. Git has all the commits from the original repository, but branches
-in the remote repository are not treated as local branches here.  If
-we want our own *greet* branch, we need to create it ourselves. We
-will see how to do that in a minute.
+p. Git tiene todos los commits del repositorio original, pero las ramas
+del repositorio remoto no se tratan aquí como ramas locales. Si
+queremos nuestra propia rama *greet*, tenemos que crearla nosotros. Enseguida
+veremos cómo hacerlo.
 
 ----------------------------------------------------------------------
-h1. Change the Original Repository
+h1. Cambiar el repositorio original
 
-h2. Goals
+h2. Objetivos
 
-* Make some changes to the original repository so we can try to pull the changes
+* Hacer algunos cambios en el repositorio original para poder intentar traer (pull) esos cambios
 
-h2. Make a change in the original *hello* repository
+h2. Haz un cambio en el repositorio *hello* original
 
 Execute:
 cd ../hello
 +pwd
 # (You should be in the original hello repository now)
 
-p{color:red}. *NOTE: Now in the _hello_ repo*
+p{color:red}. *NOTA: Ahora estás en el repositorio _hello_*
 
-p. Make the following changes to README:
+p. Haz los siguientes cambios en README:
 
 File: README
 This is the Hello World example from the git tutorial.
 (changed in original)
 EOF
 
-p. Now add and commit this change
+p. Ahora añade el cambio y haz commit
 
 Execute:
 git add README
 git commit -m "Changed README in original repo"
 
-h2. Up Next
+h2. A continuación
 
-p. The original repository now has later changes that are not in the
-cloned version.  Next we will pull those changes across to the cloned
-repository.
+p. El repositorio original tiene ahora cambios más recientes que no están en la
+versión clonada. A continuación traeremos esos cambios al repositorio
+clonado.
 
 ----------------------------------------------------------------------
-h1. Fetching Changes
+h1. Obtener cambios con fetch
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to pull changes from a remote repository.
+* Aprender a traer cambios de un repositorio remoto.
 
 Execute:
 cd ../cloned_hello
@@ -2331,32 +2331,32 @@ git fetch
 git hist --all
 =hist
 
-p(note red). *NOTE: Now in the _cloned_hello_ repo*
+p(note red). *NOTA: Ahora estás en el repositorio _cloned_hello_*
 
 Output:
 =fetch
 =hist
 EOF
 
-p. At this point the repository has all the commits from the original
-repository, but they are not integrated into the cloned
-repository's local branches.
+p. En este punto el repositorio tiene todos los commits del repositorio
+original, pero no están integrados en las ramas locales del
+repositorio clonado.
 
-p. Find the "Changed README in original repo" commit in the history
-above.  Notice that the commit includes "origin/main" and
+p. Busca el commit "Changed README in original repo" en el historial
+de arriba. Fíjate en que el commit incluye "origin/main" y
 "origin/HEAD".
 
-p. Now look at the "Updated Rakefile" commit.  You will see that
-the local main branch points to this commit, not to the new commit
-that we just fetched.
+p. Ahora mira el commit "Updated Rakefile". Verás que
+la rama main local apunta a este commit, no al nuevo commit
+que acabamos de obtener con fetch.
 
-p. The upshot of this is that the "git fetch" command will fetch new
-commits from the remote repository, but it will not merge these
-commits into the local branches.
+p. En resumen, el comando "git fetch" descarga los nuevos
+commits del repositorio remoto, pero no fusiona esos
+commits en las ramas locales.
 
-h2. Check the README
+h2. Comprueba el README
 
-We can demonstrate that the cloned README is unchanged.
+Podemos comprobar que el README clonado no ha cambiado.
 
 Execute:
 cat README
@@ -2366,16 +2366,16 @@ $ cat README
 This is the Hello World example from the git tutorial.
 EOF
 
-p. See, no changes.
+p. ¿Lo ves? No hay cambios.
 
 ----------------------------------------------------------------------
-h1. Merging Pulled Changes
+h1. Fusionar los cambios descargados
 
-h2. Goals
+h2. Objetivos
 
-* Learn to get the pulled changes into the current branch and working directory.
+* Aprender a llevar los cambios descargados a la rama actual y al directorio de trabajo.
 
-h2. Merge the fetched changes into local main
+h2. Fusiona (merge) los cambios obtenidos en la rama main local
 
 Execute:
 git merge origin/main
@@ -2385,9 +2385,9 @@ Output:
 =merge
 EOF
 
-h2. Check the README again
+h2. Vuelve a comprobar el README
 
-p. We should see the changes now.
+p. Ahora deberíamos ver los cambios.
 
 Execute:
 cat README
@@ -2398,46 +2398,46 @@ This is the Hello World example from the git tutorial.
 (changed in original)
 EOF
 
-p. There are the changes.  Even though "git fetch" does not merge the
-changes, we can still manually merge the changes from the remote
-repository.
+p. Ahí están los cambios. Aunque "git fetch" no fusiona los
+cambios, podemos fusionar manualmente los cambios del repositorio
+remoto.
 
-h2. Up Next
+h2. A continuación
 
-p. Next let's take a look at combining the fetch & merge process into
-a single command.
+p. Ahora veamos cómo combinar el proceso de fetch y merge en
+un único comando.
 
 ----------------------------------------------------------------------
-h1. Pulling Changes
+h1. Traer cambios con pull
 
-h2. Goals
+h2. Objetivos
 
-* Learn that @git pull@ is equivalent to a @git fetch@ followed by a @git merge@.
+* Aprender que @git pull@ equivale a un @git fetch@ seguido de un @git merge@.
 
-h2. Discussion
+h2. Explicación
 
-p. We're not going to go through the process of creating another
-change and pulling it again, but we do want you to know that doing:
+p. No vamos a repetir el proceso de crear otro
+cambio y traerlo de nuevo, pero sí queremos que sepas que hacer:
 
 pre(instructions). git pull
 
-is indeed equivalent to the two steps:
+equivale exactamente a estos dos pasos:
 
 pre(instructions). git fetch
 git merge origin/main
 
 ----------------------------------------------------------------------
-h1. Adding a Tracking Branch
+h1. Añadir una rama de seguimiento
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to add a local branch that tracks a remote branch.
+* Aprender a añadir una rama local que sigue a una rama remota.
 
-p. The branches starting with remotes/origin are branches from the
-original repo.  Notice that you don't have a branch called greet
-anymore, but it knows that the original repo had a greet branch.
+p. Las ramas que empiezan por remotes/origin son ramas del
+repositorio original. Fíjate en que ya no tienes una rama llamada greet,
+pero git sabe que el repositorio original tenía una rama greet.
 
-h2. Add a local branch that tracks a remote branch.
+h2. Añade una rama local que siga a una rama remota (tracking branch).
 
 Execute:
 git branch --track greet origin/greet
@@ -2453,19 +2453,19 @@ Output:
 =log
 EOF
 
-p. We can now see the greet branch in the branch list and in the log.
+p. Ahora podemos ver la rama greet en la lista de ramas y en el log.
 
 ----------------------------------------------------------------------
-h1. Bare Repositories
+h1. Repositorios desnudos
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to create bare repositories.
+* Aprender a crear repositorios desnudos (bare).
 
-p. Bare repositories (without working directories) are usually used for
-sharing.
+p. Los repositorios desnudos (sin directorio de trabajo) se suelen usar para
+compartir.
 
-h2. Create a bare repository.
+h2. Crea un repositorio desnudo.
 
 Execute:
 cd ..
@@ -2475,47 +2475,47 @@ git clone --bare hello hello.git
 ls hello.git
 =ls
 
-p{color:red}. *NOTE: Now in the work directory*
+p{color:red}. *NOTA: Ahora estás en el directorio work*
 
 Output:
 =clone
 =ls
 EOF
 
-p. The convention is that repositories ending in '.git' are bare
-repositories.  We can see that there is no working directory in the
-hello.git repo.  Essentially it is nothing but the .git directory of a
-non-bare repo.
+p. Por convención, los repositorios que terminan en '.git' son repositorios
+desnudos. Podemos ver que no hay directorio de trabajo en el
+repositorio hello.git. En esencia, no es más que el directorio .git de un
+repositorio no desnudo.
 
 ----------------------------------------------------------------------
-h1. Adding a Remote Repository
+h1. Añadir un repositorio remoto
 
-h2. Goals
+h2. Objetivos
 
-* Add the bare repository as a remote to our original repository.
+* Añadir el repositorio desnudo como remoto de nuestro repositorio original.
 
-p. Let's add the hello.git repo to our original repo.
+p. Vamos a añadir el repositorio hello.git a nuestro repositorio original.
 
 Execute:
 cd hello
 +pwd
 git remote add shared ../hello.git
 
-p{color:red}. *NOTE: Now in the +hello+ repository.*
+p{color:red}. *NOTA: Ahora estás en el repositorio +hello+.*
 
 ----------------------------------------------------------------------
-h1. Pushing a Change
+h1. Enviar un cambio con push
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to push a change to a remote repository.
+* Aprender a hacer push de un cambio a un repositorio remoto.
 
-p. Since bare repositories are usually shared on some sort of network
-server, it is usually difficult to cd into the repo and pull changes.
-So we need to push our changes into other repositories.
+p. Como los repositorios desnudos suelen compartirse en algún tipo de servidor
+de red, normalmente es difícil hacer cd al repositorio y traer los cambios.
+Así que tenemos que hacer push de nuestros cambios a otros repositorios.
 
-p. Let's start by creating a change to be pushed.  Edit the README and
-commit it
+p. Empecemos creando un cambio para enviarlo. Edita el README y
+haz commit
 
 File: README
 This is the Hello World example from the git tutorial.
@@ -2527,41 +2527,41 @@ git checkout main
 git add README
 git commit -m "Added shared comment to readme"
 
-p. Now push the change to the shared repo.
+p. Ahora haz push del cambio al repositorio compartido.
 
 Execute:
 git push shared main
 =push
 
-p. _shared_ is the name of the repository receiving the changes we are
-pushing. (Remember, we added it as a remote in the previous lab.)
+p. _shared_ es el nombre del repositorio que recibe los cambios que
+enviamos. (Recuerda que lo añadimos como remoto en el lab anterior).
 
 Output:
 =push
 EOF
 
-p(note). *NOTE:* We had to explicitly name the branch main that was
-receiving the push.  It is possible to set it up automatically, but I
-_never_ remember the commands to do that.  Check out the "Git Remote
-Branch" gem for easy management of remote branches.
+p(note). *NOTA:* Hemos tenido que indicar explícitamente la rama main que
+recibía el push. Es posible configurarlo para que sea automático, pero yo
+_nunca_ me acuerdo de los comandos para hacerlo. Echa un vistazo a la gema "Git Remote
+Branch" para gestionar fácilmente las ramas remotas.
 
 ----------------------------------------------------------------------
-h1. Pulling Shared Changes
+h1. Traer los cambios compartidos
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to pull changes from a shared repository.
+* Aprender a traer cambios de un repositorio compartido.
 
-p. Quick hop over to the clone repository and let's pull down the
-changes just pushed to the shared repo.
+p. Salta rápidamente al repositorio clonado y traigamos los
+cambios que acabamos de enviar al repositorio compartido.
 
 Execute:
 cd ../cloned_hello
 +pwd
 
-p{color:red}. *NOTE: Now in the _cloned_hello_ repo.*
+p{color:red}. *NOTA: Ahora estás en el repositorio _cloned_hello_.*
 
-p. Continue with...
+p. Continúa con...
 
 Execute:
 git remote add shared ../hello.git
@@ -2570,22 +2570,22 @@ git pull shared main
 cat README
 
 ----------------------------------------------------------------------
-h1. Hosting your Git Repositories
+h1. Alojar tus repositorios Git
 
-h2. Goals
+h2. Objetivos
 
-* Learn how to setup git server for sharing repositories.
+* Aprender a configurar un servidor git para compartir repositorios.
 
-p. There are many ways to share git repositories over the network.
-Here is a quick and dirty way.
+p. Hay muchas formas de compartir repositorios git a través de la red.
+Aquí tienes una forma rápida y sencilla.
 
-h2. Start up the git server
+h2. Arranca el servidor git
 
 execute:
 # (From the work directory)
 git daemon --verbose --export-all --base-path=.
 
-p. Now, in a separate terminal window, go to your work directory
+p. Ahora, en otra ventana de terminal, ve a tu directorio work
 
 execute:
 # (From the work directory)
@@ -2593,45 +2593,45 @@ git clone git://localhost/hello.git network_hello
 cd network_hello
 ls
 
-p. You should see a copy of hello project.
+p. Deberías ver una copia del proyecto hello.
 
-h2. Pushing to the Git Daemon
+h2. Hacer push al daemon de Git
 
-p. If you want to push to the git daemon repository, add
-@--enable=receive-pack@ to the git daemon command.  Be careful because
-there is no authentication on this server, anyone could push to your
-repository.
-
-----------------------------------------------------------------------
-h1. Sharing Repos
-
-h2. Goals
-
-* Learn to share repos across WIFI.
-
-p. See if your neighbor is running the git daemon.  Exchange IP
-addresses and see if you can pull from each other's repositories.
-
-p(note). *NOTE:* The gitjour gem is really useful in sharing
-ad-hoc repositories.
+p. Si quieres hacer push al repositorio del daemon de git, añade
+@--enable=receive-pack@ al comando git daemon. Ten cuidado, porque
+este servidor no tiene autenticación: cualquiera podría hacer push a tu
+repositorio.
 
 ----------------------------------------------------------------------
-h1. Advanced / Future Topics
+h1. Compartir repositorios
 
-p. Here are some topics you might want to research on your own:
+h2. Objetivos
 
-* Protocols
-* SSH Setup
-* Remote Branch Management
-* Finding Buggy Commits (git bisect)
-* Workflows
-* Non-command line tools (gitx, gitk, magit)
-* Working with GitHub
+* Aprender a compartir repositorios a través de WIFI.
+
+p. Comprueba si tu compañero tiene el daemon de git en marcha. Intercambiad las direcciones
+IP y comprobad si podéis traer cambios de los repositorios del otro.
+
+p(note). *NOTA:* La gema gitjour es muy útil para compartir
+repositorios de forma improvisada.
 
 ----------------------------------------------------------------------
-h1. Thank You
+h1. Temas avanzados / futuros
 
-p. Thank you for trying out the Git Immersion Labs.  Feel free to send
-comments to jim.weirich@gmail.com.
+p. Estos son algunos temas que quizá quieras investigar por tu cuenta:
+
+* Protocolos
+* Configuración de SSH
+* Gestión de ramas remotas
+* Encontrar commits con errores (git bisect)
+* Flujos de trabajo
+* Herramientas que no son de línea de comandos (gitx, gitk, magit)
+* Trabajar con GitHub
+
+----------------------------------------------------------------------
+h1. Gracias
+
+p. Gracias por probar los Git Immersion Labs. No dudes en enviar
+comentarios a jim.weirich@gmail.com.
 
 ----------------------------------------------------------------------
