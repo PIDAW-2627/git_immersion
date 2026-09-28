@@ -157,19 +157,19 @@
 <h2>Añade los cambios</h2>
 <p>Ahora dile a git que prepare los cambios. Comprueba el estado.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add hello.rb
+<pre class="instructions">git add hello.py
 git status</pre>
 <p>Deberías ver&#8230;</p>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ git add hello.rb
+<pre class="sample">$ git add hello.py
 $ git status
 On branch main
 Changes to be committed:
   (use "git restore --staged &lt;file&gt;..." to unstage)
-	modified:   hello.rb
+	modified:   hello.py
 
 </pre>
-<p>El cambio en el archivo <code>hello.rb</code> se ha preparado. Esto significa que git ya conoce el cambio, pero este todavía no se ha registrado de forma <em>permanente</em> en el repositorio. La próxima operación de commit incluirá los cambios preparados.</p>
+<p>El cambio en el archivo <code>hello.py</code> se ha preparado. Esto significa que git ya conoce el cambio, pero este todavía no se ha registrado de forma <em>permanente</em> en el repositorio. La próxima operación de commit incluirá los cambios preparados.</p>
 <p>Si al final decides que <em>no</em> quieres hacer commit de ese cambio, el comando status te recuerda que puedes usar el comando <code>git restore</code> para sacar ese cambio del área de preparación (staging).</p>
         <nav class="foot-navigation">
       <a href="lab_05.html">

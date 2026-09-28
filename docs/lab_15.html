@@ -155,16 +155,18 @@
 	<li>Aprender a revertir cambios que ya se han añadido al área de preparación</li>
 </ul>
 <h2>Modifica el fichero y prepara el cambio</h2>
-<p>Modifica el fichero <code>hello.rb</code> para que tenga un comentario incorrecto</p>
-<h3 class="file-heading"><em>hello.rb</em></h3>
-<pre class="file"># This is an unwanted but staged comment
-name = ARGV.first || "World"
+<p>Modifica el fichero <code>hello.py</code> para que tenga un comentario incorrecto</p>
+<h3 class="file-heading"><em>hello.py</em></h3>
+<pre class="file">import sys
 
-puts "Hello, #{name}!"
+# This is an unwanted but staged comment
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <p>Y a continuación, añádelo al área de preparación.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add hello.rb</pre>
+<pre class="instructions">git add hello.py</pre>
 <h2>Comprueba el estado</h2>
 <p>Comprueba el estado de tu cambio no deseado.</p>
 <h3><b>Ejecuta:</b></h3>
@@ -174,24 +176,24 @@ puts "Hello, #{name}!"
 On branch main
 Changes to be committed:
   (use "git restore --staged &lt;file&gt;..." to unstage)
-	modified:   hello.rb
+	modified:   hello.py
 
 </pre>
 <p>La salida de status muestra que el cambio se ha preparado y está listo para confirmarse con un commit.</p>
 <h2>Restablece el área de preparación</h2>
 <p>El comando <code>reset</code> restablece el área de preparación para que coincida con lo que hay en <span class="caps">HEAD</span>. Así se limpia del staging el cambio que acabamos de preparar.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git reset HEAD hello.rb</pre>
+<pre class="instructions">git reset HEAD hello.py</pre>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ git reset HEAD hello.rb
+<pre class="sample">$ git reset HEAD hello.py
 Unstaged changes after reset:
-M	hello.rb
+M	hello.py
 </pre>
 <p>El comando <code>reset</code> (por defecto) no modifica el directorio de trabajo. Así que el directorio de trabajo todavía contiene el comentario no deseado. Podemos usar el comando <code>checkout</code> del lab anterior para eliminar el cambio no deseado del directorio de trabajo.</p>
 <p class="note"><strong>Nota</strong>: También podrías haber usado el comando <code>git restore</code> para restaurar solo ese fichero.</p>
 <h2>Haz checkout de la versión confirmada</h2>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git checkout hello.rb
+<pre class="instructions">git checkout hello.py
 git status</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git status

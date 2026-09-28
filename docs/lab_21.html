@@ -154,30 +154,25 @@
 <ul>
 	<li>Añadir otro fichero a nuestro repositorio</li>
 </ul>
-<h2>Ahora añade un Rakefile</h2>
-<p>Este lab da por hecho que tienes instalado <strong>rake</strong>. Por favor, instálalo antes de continuar. Consulta cómo hacerlo en tu sistema operativo. Si no, ejecuta:</p>
-<h3><b>Ejecuta:</b></h3>
-<pre class="instructions">gem install rake</pre>
-<p>Vamos a añadir un Rakefile a nuestro repositorio. El siguiente nos servirá perfectamente.</p>
-<h3 class="file-heading"><em>Rakefile</em></h3>
-<pre class="file">#!/usr/bin/ruby -wKU
+<h2>Ahora añade un script main.py</h2>
+<p>Vamos a añadir a la raíz del repositorio un script <code>main.py</code> que sirva como punto de entrada para ejecutar nuestro programa. El siguiente nos servirá perfectamente.</p>
+<h3 class="file-heading"><em>main.py</em></h3>
+<pre class="file">#!/usr/bin/env python3
+# Entry point: runs the hello program
 
-task :default =&gt; :run
+import runpy
 
-task :run do
-  require './lib/hello'
-end
+runpy.run_path("lib/hello.py")
 </pre>
 <p>Añade el cambio y haz commit.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add Rakefile
-git commit -m "Added a Rakefile."</pre>
-<p>Ahora deberías poder usar Rake para ejecutar tu programa hello.</p>
+<pre class="instructions">git add main.py
+git commit -m "Added main.py."</pre>
+<p>Ahora deberías poder usar <code>main.py</code> para ejecutar tu programa hello.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">rake</pre>
+<pre class="instructions">python main.py</pre>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ rake
-Calling `DidYouMean::SPELL_CHECKERS.merge!(error_name =&gt; spell_checker)' has been deprecated. Please call `DidYouMean.correct_error(error_name, spell_checker)' instead.
+<pre class="sample">$ python main.py
 Hello, World!
 </pre>
         <nav class="foot-navigation">

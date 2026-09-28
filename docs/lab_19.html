@@ -156,35 +156,39 @@
 </ul>
 <h2>Cambia el programa y haz commit</h2>
 <p>Añade al programa un comentario con el autor.</p>
-<h3 class="file-heading"><em>hello.rb</em></h3>
-<pre class="file"># Default is World
-# Author: Jim Weirich
-name = ARGV.first || "World"
+<h3 class="file-heading"><em>hello.py</em></h3>
+<pre class="file">import sys
 
-puts "Hello, #{name}!"
+# Default is World
+# Author: Jim Weirich
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add hello.rb
+<pre class="instructions">git add hello.py
 git commit -m "Add an author comment"</pre>
 <h2>Vaya, debería incluir un email</h2>
 <p>Después de hacer el commit, te das cuenta de que un buen comentario de autor debería incluir un email. Actualiza el programa hello para que incluya un email.</p>
-<h3 class="file-heading"><em>hello.rb</em></h3>
-<pre class="file"># Default is World
-# Author: Jim Weirich (jim@somewhere.com)
-name = ARGV.first || "World"
+<h3 class="file-heading"><em>hello.py</em></h3>
+<pre class="file">import sys
 
-puts "Hello, #{name}!"
+# Default is World
+# Author: Jim Weirich (jim@somewhere.com)
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <h2>Modifica el commit anterior</h2>
 <p>La verdad es que no queremos un commit aparte solo para el email. Vamos a modificar (amend) el commit anterior para que incluya el cambio del email.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add hello.rb
+<pre class="instructions">git add hello.py
 git commit --amend -m "Add an author/email comment"</pre>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ git add hello.rb
+<pre class="sample">$ git add hello.py
 $ git commit --amend -m "Add an author/email comment"
-[main 54f902a] Add an author/email comment
- Date: Mon Sep 28 09:54:55 2026 +0000
+[main 524aa94] Add an author/email comment
+ Date: Mon Sep 28 10:00:26 2026 +0000
  1 file changed, 2 insertions(+), 1 deletion(-)
 </pre>
 <h2>Revisa el historial</h2>
@@ -192,11 +196,11 @@ $ git commit --amend -m "Add an author/email comment"
 <pre class="instructions">git hist</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist
-* 54f902a 2026-09-28 | Add an author/email comment (HEAD -&gt; main) [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 524aa94 2026-09-28 | Add an author/email comment (HEAD -&gt; main) [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Podemos ver que el commit original de &#8220;author&#8221; ha desaparecido y lo ha sustituido el commit &#8220;author/email&#8221;. Puedes conseguir el mismo efecto haciendo reset de la rama un commit hacia atrás y volviendo a hacer commit de los nuevos cambios.</p>
         <nav class="foot-navigation">
       <a href="lab_18.html">

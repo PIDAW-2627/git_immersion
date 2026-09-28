@@ -161,15 +161,15 @@
 git hist</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist
-* 7ef14d3 2026-09-28 | Made interactive (HEAD -&gt; main) [Jim Weirich]
-* 6a51570 2026-09-28 | Added README [Jim Weirich]
-* 75f4ce9 2026-09-28 | Added a Rakefile. [Jim Weirich]
-* e81eacb 2026-09-28 | Moved hello.rb to lib [Jim Weirich]
-* 54f902a 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 9de866d 2026-09-28 | Made interactive (HEAD -&gt; main) [Jim Weirich]
+* dea973a 2026-09-28 | Added README [Jim Weirich]
+* 8a866ce 2026-09-28 | Added main.py. [Jim Weirich]
+* e9b28cd 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* 524aa94 2026-09-28 | Add an author/email comment [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>El commit &#8216;Added <span class="caps">README</span>&#8217; es el inmediatamente anterior al modo interactivo conflictivo.  Restableceremos la rama main al commit &#8216;Added <span class="caps">README</span>&#8217;.</p>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">git reset --hard &lt;hash&gt;
@@ -177,18 +177,18 @@ git hist --all</pre>
 <p>Revisa el log.  Debería parecer que el repositorio ha retrocedido en el tiempo hasta el punto anterior a cualquier fusión.</p>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist --all
-* 340b158 2026-09-28 | Updated Rakefile (greet) [Jim Weirich]
-* 90fffe1 2026-09-28 | Hello uses Greeter [Jim Weirich]
-* 6916ae7 2026-09-28 | Added greeter class [Jim Weirich]
-| * 6a51570 2026-09-28 | Added README (HEAD -&gt; main) [Jim Weirich]
+* 30ff817 2026-09-28 | Updated main.py (greet) [Jim Weirich]
+* e673679 2026-09-28 | Hello uses Greeter [Jim Weirich]
+* dec0b70 2026-09-28 | Added greeter class [Jim Weirich]
+| * dea973a 2026-09-28 | Added README (HEAD -&gt; main) [Jim Weirich]
 |/  
-* 75f4ce9 2026-09-28 | Added a Rakefile. [Jim Weirich]
-* e81eacb 2026-09-28 | Moved hello.rb to lib [Jim Weirich]
-* 54f902a 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 8a866ce 2026-09-28 | Added main.py. [Jim Weirich]
+* e9b28cd 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* 524aa94 2026-09-28 | Add an author/email comment [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
         <nav class="foot-navigation">
       <a href="lab_32.html">
       <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>

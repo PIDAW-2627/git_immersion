@@ -159,49 +159,53 @@
 <pre class="instructions">git hist --all</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist --all
-* 340b158 2026-09-28 | Updated Rakefile (HEAD -&gt; greet) [Jim Weirich]
-* 90fffe1 2026-09-28 | Hello uses Greeter [Jim Weirich]
-* 6916ae7 2026-09-28 | Added greeter class [Jim Weirich]
-* 75f4ce9 2026-09-28 | Added a Rakefile. (main) [Jim Weirich]
-* e81eacb 2026-09-28 | Moved hello.rb to lib [Jim Weirich]
-* 54f902a 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 30ff817 2026-09-28 | Updated main.py (HEAD -&gt; greet) [Jim Weirich]
+* e673679 2026-09-28 | Hello uses Greeter [Jim Weirich]
+* dec0b70 2026-09-28 | Added greeter class [Jim Weirich]
+* 8a866ce 2026-09-28 | Added main.py. (main) [Jim Weirich]
+* e9b28cd 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* 524aa94 2026-09-28 | Add an author/email comment [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <h2>Cambiar a la rama main</h2>
 <p>Usa simplemente el comando <code>git checkout</code> para cambiar de rama.</p>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">git checkout main
-cat lib/hello.rb</pre>
+cat lib/hello.py</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git checkout main
 Switched to branch 'main'
-$ cat lib/hello.rb
+$ cat lib/hello.py
+import sys
+
 # Default is World
 # Author: Jim Weirich (jim@somewhere.com)
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
 
-puts "Hello, #{name}!"
+print(f"Hello, {name}!")
 </pre>
-<p>Ahora estás en la rama main.  Lo sabes porque el archivo hello.rb no usa la clase <code>Greeter</code>.</p>
+<p>Ahora estás en la rama main.  Lo sabes porque el archivo hello.py no usa la clase <code>Greeter</code>.</p>
 <h2>Volver a la rama greet.</h2>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">git checkout greet
-cat lib/hello.rb</pre>
+cat lib/hello.py</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git checkout greet
 Switched to branch 'greet'
-$ cat lib/hello.rb
-require 'greeter'
+$ cat lib/hello.py
+import sys
+
+from greeter import Greeter
 
 # Default is World
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
 
-greeter = Greeter.new(name)
-puts greeter.greet
+greeter = Greeter(name)
+print(greeter.greet())
 </pre>
-<p>El contenido de <code>lib/hello.rb</code> confirma que hemos vuelto a la rama <strong>greet</strong>.</p>
+<p>El contenido de <code>lib/hello.py</code> confirma que hemos vuelto a la rama <strong>greet</strong>.</p>
         <nav class="foot-navigation">
       <a href="lab_24.html">
       <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>

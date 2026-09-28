@@ -151,12 +151,12 @@
       <div id="content" tabindex="-1">
         <h1 class="lab_title"><em>lab 7</em>  Preparar y hacer commit</h1>
 <p>Tener un paso de preparación separado en git encaja con la filosofía de no molestarte hasta que necesites ocuparte del control de versiones. Puedes seguir haciendo cambios en tu directorio de trabajo y, en el momento en que quieras interactuar con el control de versiones, git te permite registrar tus cambios en commits pequeños que reflejan exactamente lo que has hecho.</p>
-<p>Por ejemplo, supón que has editado tres archivos (<code>a.rb</code>, <code>b.rb</code> y <code>c.rb</code>). Ahora quieres hacer commit de todos los cambios, pero quieres que los cambios de <code>a.rb</code> y <code>b.rb</code> formen un solo commit, mientras que los cambios de <code>c.rb</code> no tienen relación lógica con los dos primeros archivos y deberían ir en un commit aparte.</p>
+<p>Por ejemplo, supón que has editado tres archivos (<code>a.py</code>, <code>b.py</code> y <code>c.py</code>). Ahora quieres hacer commit de todos los cambios, pero quieres que los cambios de <code>a.py</code> y <code>b.py</code> formen un solo commit, mientras que los cambios de <code>c.py</code> no tienen relación lógica con los dos primeros archivos y deberían ir en un commit aparte.</p>
 <p>Podrías hacer lo siguiente:</p>
-<pre class="instructions">git add a.rb
-git add b.rb
+<pre class="instructions">git add a.py
+git add b.py
 git commit -m "Changes for a and b"</pre>
-<pre class="instructions">git add c.rb
+<pre class="instructions">git add c.py
 git commit -m "Unrelated change to c"</pre>
 <p>Al separar la preparación del commit, puedes ajustar con facilidad qué entra en cada commit.</p>
         <nav class="foot-navigation">

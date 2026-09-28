@@ -4,6 +4,10 @@
 # a docs/, desde donde lo sirve GitHub Pages.
 set -e
 
+# Los labs ejecutan los ejemplos con `python`; la imagen solo trae `python3`.
+ln -sf /usr/bin/python3 /usr/local/bin/python
+export PYTHONDONTWRITEBYTECODE=1
+
 cp -r /src /app
 cd /app
 rm -rf auto samples git_tutorial/html git_tutorial/repos

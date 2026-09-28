@@ -163,47 +163,47 @@ git status</pre>
 <p class="note"><strong><span class="caps">NOTA</span>:</strong> <code>git checkout -b &lt;branchname&gt;</code> es un atajo de <code>git branch &lt;branchname&gt;</code> seguido de <code>git checkout &lt;branchname&gt;</code>.</p>
 <p>Fíjate en que el comando git status indica que estás en la rama &#8216;greet&#8217;.</p>
 <h2>Cambios para greet: Añadir una clase Greeter.</h2>
-<h3 class="file-heading"><em>lib/greeter.rb</em></h3>
-<pre class="file">class Greeter
-  def initialize(who)
-    @who = who
-  end
-  def greet
-    "Hello, #{@who}"
-  end
-end
+<h3 class="file-heading"><em>lib/greeter.py</em></h3>
+<pre class="file">class Greeter:
+    def __init__(self, who):
+        self.who = who
+
+    def greet(self):
+        return f"Hello, {self.who}"
 </pre>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add lib/greeter.rb
+<pre class="instructions">git add lib/greeter.py
 git commit -m "Added greeter class"</pre>
 <h2>Cambios para greet: Modificar el programa principal</h2>
-<p>Actualiza el archivo hello.rb para que use greeter</p>
-<h3 class="file-heading"><em>lib/hello.rb</em></h3>
-<pre class="file">require 'greeter'
+<p>Actualiza el archivo hello.py para que use greeter</p>
+<h3 class="file-heading"><em>lib/hello.py</em></h3>
+<pre class="file">import sys
+
+from greeter import Greeter
 
 # Default is World
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
 
-greeter = Greeter.new(name)
-puts greeter.greet
+greeter = Greeter(name)
+print(greeter.greet())
 </pre>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add lib/hello.rb
+<pre class="instructions">git add lib/hello.py
 git commit -m "Hello uses Greeter"</pre>
-<h2>Cambios para greet: Actualizar el Rakefile</h2>
-<p>Actualiza el Rakefile para que use un proceso ruby externo</p>
-<h3 class="file-heading"><em>Rakefile</em></h3>
-<pre class="file">#!/usr/bin/ruby -wKU
+<h2>Cambios para greet: Actualizar main.py</h2>
+<p>Actualiza <code>main.py</code> para que ejecute el programa en un proceso python externo</p>
+<h3 class="file-heading"><em>main.py</em></h3>
+<pre class="file">#!/usr/bin/env python3
+# Entry point: runs the hello program
 
-task :default =&gt; :run
+import subprocess
+import sys
 
-task :run do
-  ruby '-Ilib', 'lib/hello.rb'
-end
+subprocess.run([sys.executable, "lib/hello.py"] + sys.argv[1:])
 </pre>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add Rakefile
-git commit -m "Updated Rakefile"</pre>
+<pre class="instructions">git add main.py
+git commit -m "Updated main.py"</pre>
 <h2>A continuación</h2>
 <p>Ahora tenemos una nueva rama llamada <strong>greet</strong> con 3 commits nuevos. A continuación aprenderemos a movernos y cambiar entre ramas.</p>
         <nav class="foot-navigation">

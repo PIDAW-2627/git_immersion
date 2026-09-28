@@ -163,49 +163,51 @@ git merge main</pre>
 <pre class="sample">$ git checkout greet
 Switched to branch 'greet'
 $ git merge main
-Auto-merging lib/hello.rb
-CONFLICT (content): Merge conflict in lib/hello.rb
+Auto-merging lib/hello.py
+CONFLICT (content): Merge conflict in lib/hello.py
 Automatic merge failed; fix conflicts and then commit the result.
 </pre>
-<p>Si abres lib/hello.rb, verás:</p>
-<h3 class="file-heading"><em>lib/hello.rb</em></h3>
-<pre class="file">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-require 'greeter'
+<p>Si abres lib/hello.py, verás:</p>
+<h3 class="file-heading"><em>lib/hello.py</em></h3>
+<pre class="file">import sys
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+from greeter import Greeter
 
 # Default is World
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
 
-greeter = Greeter.new(name)
-puts greeter.greet
+greeter = Greeter(name)
+print(greeter.greet())
 =======
-# Default is World
+# Ask for the name if it is not given
+my_name = sys.argv[1] if len(sys.argv) &gt; 1 else input("What's your name? ")
 
-puts "What's your name"
-my_name = gets.strip
-
-puts "Hello, #{my_name}!"
+print(f"Hello, {my_name}!")
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; main
 </pre>
 <p>La primera sección es la versión de la cabeza de la rama actual (greet).  La segunda sección es la versión de la rama main.</p>
 <h2>Arreglar el conflicto</h2>
-<p>Tienes que resolver el conflicto manualmente.  Modifica <code>lib/hello.rb</code> para que quede así.</p>
-<h3 class="file-heading"><em>lib/hello.rb</em></h3>
-<pre class="file">require 'greeter'
+<p>Tienes que resolver el conflicto manualmente.  Modifica <code>lib/hello.py</code> para que quede así.</p>
+<h3 class="file-heading"><em>lib/hello.py</em></h3>
+<pre class="file">import sys
 
-puts "What's your name"
-my_name = gets.strip
+from greeter import Greeter
 
-greeter = Greeter.new(my_name)
-puts greeter.greet
+# Ask for the name if it is not given
+my_name = sys.argv[1] if len(sys.argv) &gt; 1 else input("What's your name? ")
+
+greeter = Greeter(my_name)
+print(greeter.greet())
 </pre>
 <h2>Hacer commit de la resolución del conflicto</h2>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add lib/hello.rb
+<pre class="instructions">git add lib/hello.py
 git commit -m "Merged main fixed conflict."</pre>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ git add lib/hello.rb
+<pre class="sample">$ git add lib/hello.py
 $ git commit -m "Merged main fixed conflict."
-[greet fb491a9] Merged main fixed conflict.
+[greet 265a1bd] Merged main fixed conflict.
 </pre>
 <h2>Fusión avanzada</h2>
 <p>git no incluye ninguna herramienta gráfica de fusión, pero funciona sin problema con cualquier herramienta de fusión de terceros que quieras usar.  Consulta <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_external_merge_tools">https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_external_merge_tools</a> para ver una descripción de cómo usar la herramienta de fusión de Perforce con git.</p>

@@ -10,6 +10,11 @@ código, las salidas de git y los mensajes de commit se mantienen en
 inglés, porque la generación de los labs los ejecuta y hace referencia a
 ellos.
 
+Además, el proyecto de ejemplo de los labs está escrito en Python en
+lugar de Ruby: `hello.py`, la clase `Greeter` en `lib/greeter.py` y un
+script `main.py` que sustituye al `Rakefile` original. La herramienta que
+genera los labs (`rake`) sigue siendo Ruby.
+
 ## Online
 
 Puedes consultar los labs originales (en inglés) en

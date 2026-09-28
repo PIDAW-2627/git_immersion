@@ -154,26 +154,26 @@
 <ul>
 	<li>Aprender a mover un fichero dentro de un repositorio.</li>
 </ul>
-<h2>Mueve el fichero hello.rb a un directorio lib.</h2>
+<h2>Mueve el fichero hello.py a un directorio lib.</h2>
 <p>Ahora vamos a ir construyendo la estructura de nuestro pequeño repositorio. Movamos el programa a un directorio lib.</p>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">mkdir lib
-git mv hello.rb lib
+git mv hello.py lib
 git status</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ mkdir lib
-$ git mv hello.rb lib
+$ git mv hello.py lib
 $ git status
 On branch main
 Changes to be committed:
   (use "git restore --staged &lt;file&gt;..." to unstage)
-	renamed:    hello.rb -&gt; lib/hello.rb
+	renamed:    hello.py -&gt; lib/hello.py
 
 </pre>
 <p>Al usar git para hacer el movimiento, le informamos de 2 cosas</p>
 <ol>
-	<li>Que el fichero <code>hello.rb</code> se ha eliminado.</li>
-	<li>Que el fichero <code>lib/hello.rb</code> se ha creado.</li>
+	<li>Que el fichero <code>hello.py</code> se ha eliminado.</li>
+	<li>Que el fichero <code>lib/hello.py</code> se ha creado.</li>
 </ol>
 <p>Ambos datos se añaden de inmediato al área de preparación y quedan listos para confirmarse con un commit. El comando git status indica que el fichero se ha movido.</p>
 <h2>Otra forma de mover ficheros</h2>
@@ -181,13 +181,13 @@ Changes to be committed:
 <p>Resulta que el siguiente conjunto de comandos es equivalente a lo que acabamos de hacer. Supone algo más de trabajo, pero el resultado es el mismo.</p>
 <p class="command">Podríamos haber hecho:</p>
 <pre class="instructions">mkdir lib
-mv hello.rb lib
-git add lib/hello.rb
-git rm hello.rb</pre>
+mv hello.py lib
+git add lib/hello.py
+git rm hello.py</pre>
 <h2>Haz commit del nuevo directorio</h2>
 <p>Hagamos commit de este movimiento.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git commit -m "Moved hello.rb to lib"</pre>
+<pre class="instructions">git commit -m "Moved hello.py to lib"</pre>
         <nav class="foot-navigation">
       <a href="lab_19.html">
       <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>

@@ -169,16 +169,16 @@ HEAD		branches   description	index  logs  refs
 <pre class="instructions">ls -C .git/objects</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ ls -C .git/objects
-09  15	27  30	43  59	6b  78	97  9c	b5  b8	e4  e8	  pack
-11  24	28  36	54  69	75  93	9b  af	b6  c4	e7  info
+13  31	51  56	6c  83	8a  9e	ab  b6	d0  d6	df  e9	info
+19  45	52  5d	78  86	9c  a8	b3  c7	d2  dd	e5  ec	pack
 </pre>
 <p>Deberías ver un montón de directorios con nombres de 2 letras.  Los nombres de los directorios son las dos primeras letras del hash sha1 del objeto almacenado en git.</p>
 <h2>Más a fondo en el almacén de objetos</h2>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">ls -C .git/objects/&lt;dir&gt;</pre>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ ls -C .git/objects/09
-6b74c56bfc6b40e754fc0725b8c70b2038b91e	9fb6f9d3a104feb32fcac22354c4d0e8a182c1
+<pre class="sample">$ ls -C .git/objects/13
+956843b171c232495bc238e175faee03c12264
 </pre>
 <p>Mira dentro de uno de los directorios de dos letras.  Deberías ver algunos archivos con nombres de 38 caracteres.  Son los archivos que contienen los objetos almacenados en git.  Están comprimidos y codificados, así que mirar su contenido directamente no sirve de mucho, pero enseguida los examinaremos más de cerca.</p>
 <h2>El archivo de configuración</h2>
@@ -212,7 +212,7 @@ $ ls .git/refs/tags
 v1
 v1-beta
 $ cat .git/refs/tags/v1
-30bb30095bc621154ebdfd32ca3c2a3540a9278f
+d099bc1f8b74dbf57a307e7077041604456e4c82
 </pre>
 <p>Deberías reconocer los archivos del subdirectorio tags.  Cada archivo corresponde a una etiqueta que creaste antes con el comando <code>git tag</code>. Su contenido es simplemente el hash del commit asociado a la etiqueta.</p>
 <p>El directorio heads es parecido, pero se usa para las ramas en lugar de para las etiquetas.  De momento solo tenemos una rama, así que lo único que verás en este directorio es main.</p>

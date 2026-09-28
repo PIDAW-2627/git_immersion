@@ -3,7 +3,7 @@ h1. Configuración
 
 h2. Objetivos
 
-* Configurar git y ruby para que estén listos para trabajar.
+* Configurar git y python para que estén listos para trabajar.
 
 h2. Configura tu nombre y tu email
 
@@ -30,12 +30,16 @@ execute:
 git config --global core.autocrlf true
 git config --global core.safecrlf true
 
-h2. Configura Ruby
+h2. Configura Python
 
-p. Para este tutorial necesitas un intérprete de Ruby que funcione. Si todavía no
+p. Para este tutorial necesitas un intérprete de Python 3 que funcione. Si todavía no
 tienes uno instalado, es el momento de hacerlo:
 
-"https://www.ruby-lang.org/en/downloads/":https://www.ruby-lang.org/en/downloads/
+"https://www.python.org/downloads/":https://www.python.org/downloads/
+
+p(note). *Nota:* En este tutorial ejecutamos los programas con el comando @python@.
+En algunos sistemas Linux y macOS el comando se llama @python3@; si es tu caso,
+úsalo en su lugar.
 
 ----------------------------------------------------------------------
 h1. Más configuración
@@ -67,15 +71,15 @@ h2. Objetivos
 h2. Crea un programa "Hello, World"
 
 p. Partiendo del directorio de trabajo vacío, crea un directorio vacío
-llamado "hello" y, dentro, crea un archivo llamado @hello.rb@ con el
+llamado "hello" y, dentro, crea un archivo llamado @hello.py@ con el
 contenido siguiente.
 
 Execute:
 mkdir hello
 cd hello
 
-File: hello.rb
-puts "Hello, World"
+File: hello.py
+print("Hello, World")
 EOF
 
 h2. Crea el repositorio
@@ -98,7 +102,7 @@ h2. Añade el programa al repositorio
 Ahora vamos a añadir el programa "Hello, World" al repositorio.
 
 Execute:
-git add hello.rb
+git add hello.py
 =add
 git commit -m "First Commit"
 =commit
@@ -151,8 +155,10 @@ h2. Modifica el programa "Hello, World".
 p. Es hora de modificar nuestro programa hello para que reciba un argumento
 desde la línea de comandos. Cambia el archivo para que quede así:
 
-File: hello.rb
-puts "Hello, #{ARGV.first}!"
+File: hello.py
+import sys
+
+print(f"Hello, {sys.argv[1]}!")
 EOF
 
 h2. Comprueba el estado
@@ -169,7 +175,7 @@ Output:
 =status
 EOF
 
-p. Lo primero que hay que observar es que git sabe que el archivo @hello.rb@
+p. Lo primero que hay que observar es que git sabe que el archivo @hello.py@
 ha sido modificado, pero todavía no se le ha indicado a git que registre
 estos cambios.
 
@@ -194,7 +200,7 @@ h2. Añade los cambios
 p. Ahora dile a git que prepare los cambios. Comprueba el estado.
 
 Execute:
-git add hello.rb
+git add hello.py
 =add
 git status
 =status
@@ -206,7 +212,7 @@ Output:
 =status
 EOF
 
-p. El cambio en el archivo @hello.rb@ se ha preparado. Esto significa que
+p. El cambio en el archivo @hello.py@ se ha preparado. Esto significa que
 git ya conoce el cambio, pero este todavía no se ha registrado de forma
 _permanente_ en el repositorio. La próxima operación de commit
 incluirá los cambios preparados.
@@ -225,21 +231,21 @@ momento en que quieras interactuar con el control de versiones, git te permite
 registrar tus cambios en commits pequeños que reflejan exactamente lo que
 has hecho.
 
-p. Por ejemplo, supón que has editado tres archivos (@a.rb@, @b.rb@ y
-@c.rb@). Ahora quieres hacer commit de todos los cambios, pero quieres que
-los cambios de @a.rb@ y @b.rb@ formen un solo commit, mientras que los cambios
-de @c.rb@ no tienen relación lógica con los dos primeros archivos y deberían
+p. Por ejemplo, supón que has editado tres archivos (@a.py@, @b.py@ y
+@c.py@). Ahora quieres hacer commit de todos los cambios, pero quieres que
+los cambios de @a.py@ y @b.py@ formen un solo commit, mientras que los cambios
+de @c.py@ no tienen relación lógica con los dos primeros archivos y deberían
 ir en un commit aparte.
 
 p. Podrías hacer lo siguiente:
 
 pre(instructions).
-git add a.rb
-git add b.rb
+git add a.py
+git add b.py
 git commit -m "Changes for a and b"
 
 pre(instructions).
-git add c.rb
+git add c.py
 git commit -m "Unrelated change to c"
 
 p. Al separar la preparación del commit, puedes ajustar con
@@ -258,7 +264,7 @@ p. Bueno, ya basta de hablar del staging. Vamos a hacer commit de lo que hemos
 preparado en el repositorio.
 
 p. Antes, cuando usaste @git commit@ para hacer commit de la versión inicial
-del archivo @hello.rb@ en el repositorio, incluiste la opción @-m@,
+del archivo @hello.py@ en el repositorio, incluiste la opción @-m@,
 que permite escribir un comentario en la línea de comandos. El comando commit
 también te permite editar el comentario del commit de forma interactiva. Vamos a
 probarlo ahora.
@@ -278,7 +284,7 @@ p. Así que haz commit ahora y comprueba el estado.
 
 Execute:
 -git commit
-+git commit -m "Using ARGV"
++git commit -m "Using sys.argv"
 
 p. Deberías ver lo siguiente en tu editor:
 
@@ -290,18 +296,18 @@ Output:
 # Changes to be committed:
 #   (use "git reset HEAD <file>..." to unstage)
 #
-#	modified:   hello.rb
+#	modified:   hello.py
 #
 EOF
 
-p. En la primera línea, escribe el comentario: "Using ARGV". Guarda el archivo
+p. En la primera línea, escribe el comentario: "Using sys.argv". Guarda el archivo
 y sal del editor. Deberías ver...
 
 Output:
 git commit
 Waiting for Emacs...
-[main 569aa96] Using ARGV
- 1 files changed, 1 insertions(+), 1 deletions(-)
+[main 569aa96] Using sys.argv
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 EOF
 
 p. La línea "Waiting for Emacs..." viene del programa @emacsclient@,
@@ -348,10 +354,12 @@ h2. Primer cambio: permitir un nombre por defecto
 p. Modifica el programa "Hello, World" para que tenga un valor por defecto si no se
 le pasa ningún argumento en la línea de comandos.
 
-File: hello.rb
-name = ARGV.first || "World"
+File: hello.py
+import sys
 
-puts "Hello, #{name}!"
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
+
+print(f"Hello, {name}!")
 EOF
 
 h2. Añade este cambio
@@ -359,17 +367,19 @@ h2. Añade este cambio
 p. Ahora añade este cambio al área de preparación (staging) de git.
 
 Execute:
-git add hello.rb
+git add hello.py
 
 h2. Segundo cambio: añadir un comentario
 
 p. Ahora añade un comentario al programa "Hello, World".
 
-File: hello.rb
-# Default is "World"
-name = ARGV.first || "World"
+File: hello.py
+import sys
 
-puts "Hello, #{name}!"
+# Default is "World"
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
+
+print(f"Hello, {name}!")
 EOF
 
 h2. Comprueba el estado actual
@@ -384,7 +394,7 @@ Output:
 =status
 EOF
 
-p. Fíjate en que @hello.rb@ aparece dos veces en el estado. El primer
+p. Fíjate en que @hello.py@ aparece dos veces en el estado. El primer
 cambio (añadir un valor por defecto) está preparado y listo para el commit. El
 segundo cambio (añadir un comentario) no está preparado. Si hicieras commit
 ahora mismo, el comentario no se guardaría en el repositorio.
@@ -409,7 +419,7 @@ Output:
 =status2
 EOF
 
-p. El comando status te indica que @hello.rb@ tiene cambios sin registrar,
+p. El comando status te indica que @hello.py@ tiene cambios sin registrar,
 pero ya no está en el área de preparación.
 
 h2. Añade el segundo cambio
@@ -650,13 +660,13 @@ EOF
 p. Examina la salida del log y busca el hash del primer commit.
 Debería ser la última línea de la salida de @git hist@. Usa ese hash
 (con los 7 primeros caracteres basta) en el comando de abajo. Después
-comprueba el contenido del fichero hello.rb.
+comprueba el contenido del fichero hello.py.
 
 Set: hash=hash_for("First Commit")
 Execute:
 git checkout <hash>
 =checkout
-cat hello.rb
+cat hello.py
 =cat
 
 p(note). *Nota:* Los comandos que se muestran aquí son comandos de Unix
@@ -679,14 +689,14 @@ p. La salida del comando @checkout@ explica bastante bien la situación.
 Las versiones antiguas de git se quejarán de que no estás en una rama
 local. En cualquier caso, de momento no te preocupes por eso.
 
-p. Fíjate en que el contenido del fichero hello.rb es el contenido original.
+p. Fíjate en que el contenido del fichero hello.py es el contenido original.
 
 h2. Vuelve a la última versión de la rama main
 
 Execute:
 git checkout main
 =checkout2
-cat hello.rb
+cat hello.py
 =cat2
 
 p. Deberías ver...
@@ -730,7 +740,7 @@ con @v1~1@, que hace referencia a la misma versión. Esta notación significa
 Execute:
 git checkout v1^
 =checkout
-cat hello.rb
+cat hello.py
 =cat
 
 Output:
@@ -801,19 +811,21 @@ p. Asegúrate de estar en el último commit de main antes de continuar.
 Execute:
 git checkout main
 
-h2. Modifica hello.rb
+h2. Modifica hello.py
 
 p. A veces has modificado un fichero en tu directorio de trabajo local
 y simplemente quieres volver a lo que ya estaba confirmado en un commit.
 El comando checkout se encarga de eso.
 
-Modifica hello.rb para que tenga un comentario incorrecto.
+Modifica hello.py para que tenga un comentario incorrecto.
 
-File: hello.rb
+File: hello.py
+import sys
+
 # This is a bad comment.  We want to revert it.
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
 
-puts "Hello, #{name}!"
+print(f"Hello, {name}!")
 EOF
 
 h2. Comprueba el estado
@@ -828,20 +840,20 @@ Output:
 =status
 EOF
 
-p. Vemos que el fichero @hello.rb@ se ha modificado, pero todavía no
+p. Vemos que el fichero @hello.py@ se ha modificado, pero todavía no
 se ha añadido al área de preparación (staging).
 
 h2. Revierte los cambios en el directorio de trabajo
 
 p. Usa el comando @checkout@ para recuperar la versión del repositorio
-del fichero @hello.rb@.
+del fichero @hello.py@.
 
 Execute:
-git checkout hello.rb
+git checkout hello.py
 =checkout
 !git status
 =status2
-cat hello.rb
+cat hello.py
 =cat
 
 Output:
@@ -863,19 +875,21 @@ h2. Objetivos
 
 h2. Modifica el fichero y prepara el cambio
 
-p. Modifica el fichero @hello.rb@ para que tenga un comentario incorrecto
+p. Modifica el fichero @hello.py@ para que tenga un comentario incorrecto
 
-File: hello.rb
+File: hello.py
+import sys
+
 # This is an unwanted but staged comment
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
 
-puts "Hello, #{name}!"
+print(f"Hello, {name}!")
 EOF
 
 p. Y a continuación, añádelo al área de preparación.
 
 Execute:
-git add hello.rb
+git add hello.py
 
 h2. Comprueba el estado
 
@@ -898,7 +912,7 @@ p. El comando @reset@ restablece el área de preparación para que coincida
 con lo que hay en HEAD. Así se limpia del staging el cambio que acabamos de preparar.
 
 Execute:
-git reset HEAD hello.rb
+git reset HEAD hello.py
 =reset
 
 Output:
@@ -916,7 +930,7 @@ restaurar solo ese fichero.
 h2. Haz checkout de la versión confirmada
 
 Execute:
-git checkout hello.rb
+git checkout hello.py
 git status
 =status2
 
@@ -945,17 +959,19 @@ invierte los cambios no deseados.
 
 h2. Modifica el fichero y haz commit.
 
-p. Cambia el fichero @hello.rb@ por lo siguiente.
+p. Cambia el fichero @hello.py@ por lo siguiente.
 
-File: hello.rb
+File: hello.py
+import sys
+
 # This is an unwanted but committed change
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
 
-puts "Hello, #{name}!"
+print(f"Hello, {name}!")
 EOF
 
 Execute:
-git add hello.rb
+git add hello.py
 git commit -m "Oops, we didn't want this commit"
 
 h2. Crea un commit de reversión
@@ -1151,16 +1167,18 @@ h2. Cambia el programa y haz commit
 
 p. Añade al programa un comentario con el autor.
 
-File: hello.rb
+File: hello.py
+import sys
+
 # Default is World
 # Author: Jim Weirich
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
 
-puts "Hello, #{name}!"
+print(f"Hello, {name}!")
 EOF
 
 Execute:
-git add hello.rb
+git add hello.py
 git commit -m "Add an author comment"
 
 h2. Vaya, debería incluir un email
@@ -1169,12 +1187,14 @@ p. Después de hacer el commit, te das cuenta de que un buen comentario de autor
 debería incluir un email. Actualiza el programa hello para que incluya
 un email.
 
-File: hello.rb
+File: hello.py
+import sys
+
 # Default is World
 # Author: Jim Weirich (jim@somewhere.com)
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
 
-puts "Hello, #{name}!"
+print(f"Hello, {name}!")
 EOF
 
 h2. Modifica el commit anterior
@@ -1183,7 +1203,7 @@ p. La verdad es que no queremos un commit aparte solo para el email. Vamos a
 modificar (amend) el commit anterior para que incluya el cambio del email.
 
 Execute:
-git add hello.rb
+git add hello.py
 =add
 git commit --amend -m "Add an author/email comment"
 =commit
@@ -1216,7 +1236,7 @@ h2. Objetivos
 
 * Aprender a mover un fichero dentro de un repositorio.
 
-h2. Mueve el fichero hello.rb a un directorio lib.
+h2. Mueve el fichero hello.py a un directorio lib.
 
 p. Ahora vamos a ir construyendo la estructura de nuestro pequeño
 repositorio. Movamos el programa a un directorio lib.
@@ -1224,7 +1244,7 @@ repositorio. Movamos el programa a un directorio lib.
 Execute:
 mkdir lib
 =mkdir
-git mv hello.rb lib
+git mv hello.py lib
 =move
 !git status
 =status
@@ -1237,8 +1257,8 @@ EOF
 
 p. Al usar git para hacer el movimiento, le informamos de 2 cosas
 
-# Que el fichero @hello.rb@ se ha eliminado.
-# Que el fichero @lib/hello.rb@ se ha creado.
+# Que el fichero @hello.py@ se ha eliminado.
+# Que el fichero @lib/hello.py@ se ha creado.
 
 p. Ambos datos se añaden de inmediato al área de preparación y quedan listos
 para confirmarse con un commit. El comando git status indica que el fichero se ha
@@ -1257,16 +1277,16 @@ acabamos de hacer. Supone algo más de trabajo, pero el resultado es el mismo.
 p(command). Podríamos haber hecho:
 
 pre(instructions). mkdir lib
-mv hello.rb lib
-git add lib/hello.rb
-git rm hello.rb
+mv hello.py lib
+git add lib/hello.py
+git rm hello.py
 
 h2. Haz commit del nuevo directorio
 
 p. Hagamos commit de este movimiento.
 
 Execute:
-git commit -m "Moved hello.rb to lib"
+git commit -m "Moved hello.py to lib"
 
 ----------------------------------------------------------------------
 h1. Más estructura
@@ -1275,42 +1295,35 @@ h2. Objetivos
 
 * Añadir otro fichero a nuestro repositorio
 
-h2. Ahora añade un Rakefile
+h2. Ahora añade un script main.py
 
-p. Este lab da por hecho que tienes instalado *rake*. Por favor,
-instálalo antes de continuar. Consulta cómo hacerlo en tu sistema operativo.
-Si no, ejecuta:
-
-Execute:
-gem install rake
-
-p. Vamos a añadir un Rakefile a nuestro repositorio. El siguiente nos
+p. Vamos a añadir a la raíz del repositorio un script @main.py@ que sirva
+como punto de entrada para ejecutar nuestro programa. El siguiente nos
 servirá perfectamente.
 
-File: Rakefile
-#!/usr/bin/ruby -wKU
+File: main.py
+#!/usr/bin/env python3
+# Entry point: runs the hello program
 
-task :default => :run
+import runpy
 
-task :run do
-  require './lib/hello'
-end
+runpy.run_path("lib/hello.py")
 EOF
 
 p. Añade el cambio y haz commit.
 
 Execute:
-git add Rakefile
-git commit -m "Added a Rakefile."
+git add main.py
+git commit -m "Added main.py."
 
-p. Ahora deberías poder usar Rake para ejecutar tu programa hello.
+p. Ahora deberías poder usar @main.py@ para ejecutar tu programa hello.
 
 Execute:
-rake
-=rake
+python main.py
+=run
 
 Output:
-=rake
+=run
 EOF
 
 ----------------------------------------------------------------------
@@ -1449,7 +1462,7 @@ h2. Volcar el último commit
 
 Usando el hash SHA1 del commit mostrado arriba...
 
-Set: hash=hash_for("Added a Rakefile")
+Set: hash=hash_for("Added main.py")
 Execute:
 git cat-file -t <hash>
 =type
@@ -1488,7 +1501,7 @@ Output:
 =treedump
 EOF
 
-p. Efectivamente, veo el Rakefile y el directorio lib.
+p. Efectivamente, veo el archivo main.py y el directorio lib.
 
 h2. Volcar el directorio lib
 
@@ -1501,9 +1514,9 @@ Output:
 =libdump
 EOF
 
-p. Ahí está el archivo @hello.rb@.
+p. Ahí está el archivo @hello.py@.
 
-h2. Volcar el archivo @hello.rb@
+h2. Volcar el archivo @hello.py@
 
 Set: rbhash=hash_in(var['libhash'], 'hello')
 Execute:
@@ -1521,7 +1534,7 @@ blobs, árboles y commits.
 h2. Explora por tu cuenta
 
 p. Explora el repositorio git manualmente por tu cuenta.  Intenta encontrar el
-archivo hello.rb original del primerísimo commit siguiendo manualmente
+archivo hello.py original del primerísimo commit siguiendo manualmente
 las referencias de hash SHA1 a partir del último commit.
 
 ----------------------------------------------------------------------
@@ -1551,56 +1564,56 @@ p. Fíjate en que el comando git status indica que estás en la rama
 
 h2. Cambios para greet: Añadir una clase Greeter.
 
-File: lib/greeter.rb
-class Greeter
-  def initialize(who)
-    @who = who
-  end
-  def greet
-    "Hello, #{@who}"
-  end
-end
+File: lib/greeter.py
+class Greeter:
+    def __init__(self, who):
+        self.who = who
+
+    def greet(self):
+        return f"Hello, {self.who}"
 EOF
 
 Execute:
-git add lib/greeter.rb
+git add lib/greeter.py
 git commit -m "Added greeter class"
 
 h2. Cambios para greet: Modificar el programa principal
 
-p. Actualiza el archivo hello.rb para que use greeter
+p. Actualiza el archivo hello.py para que use greeter
 
-File: lib/hello.rb
-require 'greeter'
+File: lib/hello.py
+import sys
+
+from greeter import Greeter
 
 # Default is World
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
 
-greeter = Greeter.new(name)
-puts greeter.greet
+greeter = Greeter(name)
+print(greeter.greet())
 EOF
 
 Execute:
-git add lib/hello.rb
+git add lib/hello.py
 git commit -m "Hello uses Greeter"
 
-h2. Cambios para greet: Actualizar el Rakefile
+h2. Cambios para greet: Actualizar main.py
 
-p. Actualiza el Rakefile para que use un proceso ruby externo
+p. Actualiza @main.py@ para que ejecute el programa en un proceso python externo
 
-File: Rakefile
-#!/usr/bin/ruby -wKU
+File: main.py
+#!/usr/bin/env python3
+# Entry point: runs the hello program
 
-task :default => :run
+import subprocess
+import sys
 
-task :run do
-  ruby '-Ilib', 'lib/hello.rb'
-end
+subprocess.run([sys.executable, "lib/hello.py"] + sys.argv[1:])
 EOF
 
 Execute:
-git add Rakefile
-git commit -m "Updated Rakefile"
+git add main.py
+git commit -m "Updated main.py"
 
 h2. A continuación
 
@@ -1631,7 +1644,7 @@ p. Usa simplemente el comando @git checkout@ para cambiar de rama.
 Execute:
 git checkout main
 =checkout
-cat lib/hello.rb
+cat lib/hello.py
 =cat
 
 Output:
@@ -1640,14 +1653,14 @@ Output:
 EOF
 
 p. Ahora estás en la rama main.  Lo sabes porque el archivo
-hello.rb no usa la clase @Greeter@.
+hello.py no usa la clase @Greeter@.
 
 h2. Volver a la rama greet.
 
 Execute:
 git checkout greet
 =checkout2
-cat lib/hello.rb
+cat lib/hello.py
 =cat2
 
 Output:
@@ -1655,7 +1668,7 @@ Output:
 =cat2
 EOF
 
-p. El contenido de @lib/hello.rb@ confirma que hemos vuelto a la rama
+p. El contenido de @lib/hello.py@ confirma que hemos vuelto a la rama
 *greet*.
 
 ----------------------------------------------------------------------
@@ -1709,7 +1722,7 @@ p. Aquí tenemos la primera ocasión de ver en acción la opción @--graph@ de @
 Añadir la opción @--graph@ a @git log@ hace que dibuje el
 árbol de commits usando caracteres ASCII sencillos.  Podemos ver ambas ramas
 (greet y main), y que la rama main es el HEAD actual.
-El ancestro común de ambas ramas es el commit "Added a Rakefile".
+El ancestro común de ambas ramas es el commit "Added main.py.".
 
 p. La opción @--all@ garantiza que veamos todas las ramas.  Por
 defecto solo se muestra la rama actual.
@@ -1766,15 +1779,17 @@ p. Vuelve a la rama main y haz este cambio:
 Execute:
 git checkout main
 
-File: lib/hello.rb
-puts "What's your name"
-my_name = gets.strip
+File: lib/hello.py
+import sys
 
-puts "Hello, #{my_name}!"
+# Ask for the name if it is not given
+my_name = sys.argv[1] if len(sys.argv) > 1 else input("What's your name? ")
+
+print(f"Hello, {my_name}!")
 EOF
 
 Execute:
-git add lib/hello.rb
+git add lib/hello.py
 git commit -m "Made interactive"
 
 h2. Ver las ramas
@@ -1815,29 +1830,29 @@ Output:
 $ git checkout greet
 Switched to branch 'greet'
 $ git merge main
-Auto-merging lib/hello.rb
-CONFLICT (content): Merge conflict in lib/hello.rb
+Auto-merging lib/hello.py
+CONFLICT (content): Merge conflict in lib/hello.py
 Automatic merge failed; fix conflicts and then commit the result.
 EOF
 
-Si abres lib/hello.rb, verás:
+Si abres lib/hello.py, verás:
 
-file: lib/hello.rb
+file: lib/hello.py
+import sys
+
 <<<<<<< HEAD
-require 'greeter'
+from greeter import Greeter
 
 # Default is World
-name = ARGV.first || "World"
+name = sys.argv[1] if len(sys.argv) > 1 else "World"
 
-greeter = Greeter.new(name)
-puts greeter.greet
+greeter = Greeter(name)
+print(greeter.greet())
 =======
-# Default is World
+# Ask for the name if it is not given
+my_name = sys.argv[1] if len(sys.argv) > 1 else input("What's your name? ")
 
-puts "What's your name"
-my_name = gets.strip
-
-puts "Hello, #{my_name}!"
+print(f"Hello, {my_name}!")
 >>>>>>> main
 EOF
 
@@ -1846,23 +1861,25 @@ p. La primera sección es la versión de la cabeza de la rama actual
 
 h2. Arreglar el conflicto
 
-p. Tienes que resolver el conflicto manualmente.  Modifica @lib/hello.rb@
+p. Tienes que resolver el conflicto manualmente.  Modifica @lib/hello.py@
 para que quede así.
 
-File: lib/hello.rb
-require 'greeter'
+File: lib/hello.py
+import sys
 
-puts "What's your name"
-my_name = gets.strip
+from greeter import Greeter
 
-greeter = Greeter.new(my_name)
-puts greeter.greet
+# Ask for the name if it is not given
+my_name = sys.argv[1] if len(sys.argv) > 1 else input("What's your name? ")
+
+greeter = Greeter(my_name)
+print(greeter.greet())
 EOF
 
 h2. Hacer commit de la resolución del conflicto
 
 Execute:
-git add lib/hello.rb
+git add lib/hello.py
 =add
 git commit -m "Merged main fixed conflict."
 =commit
@@ -1925,10 +1942,10 @@ Output:
 EOF
 
 p. Cuesta un poco leerlo, pero mirando los datos vemos que el
-commit "Updated Rakefile" fue el último commit de la rama greet
+commit "Updated main.py" fue el último commit de la rama greet
 antes de la fusión.  Vamos a restablecer la rama greet a ese commit.
 
-Set: hash=hash_for("Updated Rakefile")
+Set: hash=hash_for("Updated main.py")
 Execute:
 git reset --hard <hash>
 =reset
@@ -2016,9 +2033,9 @@ Switched to branch 'greet'
 $
 $ git rebase main
 First, rewinding head to replay your work on top of it...
-Applying: added Greeter class
-Applying: hello uses Greeter
-Applying: updated Rakefile
+Applying: Added greeter class
+Applying: Hello uses Greeter
+Applying: Updated main.py
 $
 =log
 EOF
@@ -2184,7 +2201,7 @@ Output:
 EOF
 
 p. Deberías ver una lista con todos los archivos del nivel superior del
-repositorio original (@README@, @Rakefile@ y @lib@).
+repositorio original (@README@, @main.py@ y @lib@).
 
 
 h2. Revisa el historial del repositorio
@@ -2346,7 +2363,7 @@ p. Busca el commit "Changed README in original repo" en el historial
 de arriba. Fíjate en que el commit incluye "origin/main" y
 "origin/HEAD".
 
-p. Ahora mira el commit "Updated Rakefile". Verás que
+p. Ahora mira el commit "Updated main.py". Verás que
 la rama main local apunta a este commit, no al nuevo commit
 que acabamos de obtener con fetch.
 

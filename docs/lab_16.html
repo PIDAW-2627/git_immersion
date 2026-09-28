@@ -158,15 +158,17 @@
 <p>A veces te das cuenta de que un cambio que ya has confirmado no era correcto y quieres deshacer ese commit. Hay varias formas de resolver este problema, y la que vamos a usar en este lab es siempre segura.</p>
 <p>Básicamente, desharemos el commit creando un nuevo commit que invierte los cambios no deseados.</p>
 <h2>Modifica el fichero y haz commit.</h2>
-<p>Cambia el fichero <code>hello.rb</code> por lo siguiente.</p>
-<h3 class="file-heading"><em>hello.rb</em></h3>
-<pre class="file"># This is an unwanted but committed change
-name = ARGV.first || "World"
+<p>Cambia el fichero <code>hello.py</code> por lo siguiente.</p>
+<h3 class="file-heading"><em>hello.py</em></h3>
+<pre class="file">import sys
 
-puts "Hello, #{name}!"
+# This is an unwanted but committed change
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add hello.rb
+<pre class="instructions">git add hello.py
 git commit -m "Oops, we didn't want this commit"</pre>
 <h2>Crea un commit de reversión</h2>
 <p>Para deshacer un cambio confirmado, necesitamos generar un commit que elimine los cambios introducidos por el commit no deseado.</p>
@@ -175,8 +177,8 @@ git commit -m "Oops, we didn't want this commit"</pre>
 <p>Esto te abrirá el editor. Puedes editar el mensaje de commit por defecto o dejarlo tal cual. Guarda y cierra el fichero. Deberías ver&#8230;</p>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git revert HEAD --no-edit
-[main b6120d7] Revert "Oops, we didn't want this commit"
- Date: Mon Sep 28 09:54:55 2026 +0000
+[main 83cf011] Revert "Oops, we didn't want this commit"
+ Date: Mon Sep 28 10:00:26 2026 +0000
  1 file changed, 1 insertion(+), 1 deletion(-)
 </pre>
 <p>Como estábamos deshaciendo el último commit que hicimos, pudimos usar <code>HEAD</code> como argumento de revert. Podemos revertir cualquier commit anterior del historial simplemente indicando su valor hash.</p>
@@ -187,12 +189,12 @@ git commit -m "Oops, we didn't want this commit"</pre>
 <pre class="instructions">git hist</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist
-* b6120d7 2026-09-28 | Revert "Oops, we didn't want this commit" (HEAD -&gt; main) [Jim Weirich]
-* 936f37f 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 83cf011 2026-09-28 | Revert "Oops, we didn't want this commit" (HEAD -&gt; main) [Jim Weirich]
+* 5d74299 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Esta técnica funciona con cualquier commit (aunque puede que tengas que resolver conflictos). Es segura incluso en ramas que se comparten públicamente en repositorios remotos.</p>
 <h2>A continuación</h2>
 <p>Ahora vamos a ver una técnica que sirve para eliminar los commits más recientes del historial del repositorio.</p>

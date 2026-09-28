@@ -166,22 +166,22 @@ Switched to branch 'greet'
 $
 $ git rebase main
 First, rewinding head to replay your work on top of it...
-Applying: added Greeter class
-Applying: hello uses Greeter
-Applying: updated Rakefile
+Applying: Added greeter class
+Applying: Hello uses Greeter
+Applying: Updated main.py
 $
 $ git hist
-* b6943cc 2026-09-28 | Updated Rakefile (HEAD -&gt; greet) [Jim Weirich]
-* 2db4648 2026-09-28 | Hello uses Greeter [Jim Weirich]
-* 4425292 2026-09-28 | Added greeter class [Jim Weirich]
-* 6a51570 2026-09-28 | Added README (main) [Jim Weirich]
-* 75f4ce9 2026-09-28 | Added a Rakefile. [Jim Weirich]
-* e81eacb 2026-09-28 | Moved hello.rb to lib [Jim Weirich]
-* 54f902a 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 25aacb1 2026-09-28 | Updated main.py (HEAD -&gt; greet) [Jim Weirich]
+* a13f6fa 2026-09-28 | Hello uses Greeter [Jim Weirich]
+* 27094eb 2026-09-28 | Added greeter class [Jim Weirich]
+* dea973a 2026-09-28 | Added README (main) [Jim Weirich]
+* 8a866ce 2026-09-28 | Added main.py. [Jim Weirich]
+* e9b28cd 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* 524aa94 2026-09-28 | Add an author/email comment [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <h2>Merge VS rebase</h2>
 <p>El resultado final del rebase es muy parecido al de la fusión.  La rama greet contiene ahora todos sus cambios, además de todos los cambios de la rama main.  Sin embargo, el árbol de commits es bastante distinto.  El árbol de commits de la rama greet se ha reescrito de forma que la rama main forma parte del historial de commits.  Así la cadena de commits queda lineal y es mucho más fácil de leer.</p>
 <h2>¿Cuándo hacer rebase y cuándo fusionar?</h2>

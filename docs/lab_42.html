@@ -162,23 +162,23 @@ git hist --all</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git fetch
 From /app/auto/hello
-   b6943cc..f06d27a  main       -&gt; origin/main
+   25aacb1..c41e4c9  main       -&gt; origin/main
 $ git hist --all
-* f06d27a 2026-09-28 | Changed README in original repo (origin/main, origin/HEAD) [Jim Weirich]
-* b6943cc 2026-09-28 | Updated Rakefile (HEAD -&gt; main, origin/greet) [Jim Weirich]
-* 2db4648 2026-09-28 | Hello uses Greeter [Jim Weirich]
-* 4425292 2026-09-28 | Added greeter class [Jim Weirich]
-* 6a51570 2026-09-28 | Added README [Jim Weirich]
-* 75f4ce9 2026-09-28 | Added a Rakefile. [Jim Weirich]
-* e81eacb 2026-09-28 | Moved hello.rb to lib [Jim Weirich]
-* 54f902a 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* c41e4c9 2026-09-28 | Changed README in original repo (origin/main, origin/HEAD) [Jim Weirich]
+* 25aacb1 2026-09-28 | Updated main.py (HEAD -&gt; main, origin/greet) [Jim Weirich]
+* a13f6fa 2026-09-28 | Hello uses Greeter [Jim Weirich]
+* 27094eb 2026-09-28 | Added greeter class [Jim Weirich]
+* dea973a 2026-09-28 | Added README [Jim Weirich]
+* 8a866ce 2026-09-28 | Added main.py. [Jim Weirich]
+* e9b28cd 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* 524aa94 2026-09-28 | Add an author/email comment [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>En este punto el repositorio tiene todos los commits del repositorio original, pero no están integrados en las ramas locales del repositorio clonado.</p>
 <p>Busca el commit &#8220;Changed <span class="caps">README</span> in original repo&#8221; en el historial de arriba. Fíjate en que el commit incluye &#8220;origin/main&#8221; y &#8220;origin/<span class="caps">HEAD</span>&#8221;.</p>
-<p>Ahora mira el commit &#8220;Updated Rakefile&#8221;. Verás que la rama main local apunta a este commit, no al nuevo commit que acabamos de obtener con fetch.</p>
+<p>Ahora mira el commit &#8220;Updated main.py&#8221;. Verás que la rama main local apunta a este commit, no al nuevo commit que acabamos de obtener con fetch.</p>
 <p>En resumen, el comando &#8220;git fetch&#8221; descarga los nuevos commits del repositorio remoto, pero no fusiona esos commits en las ramas locales.</p>
 <h2>Comprueba el <span class="caps">README</span></h2>
 <p>Podemos comprobar que el <span class="caps">README</span> clonado no ha cambiado.</p>

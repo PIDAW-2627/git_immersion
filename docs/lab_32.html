@@ -164,29 +164,29 @@ git hist</pre>
 <pre class="sample">$ git checkout greet
 Already on 'greet'
 $ git hist
-*   fb491a9 2026-09-28 | Merged main fixed conflict. (HEAD -&gt; greet) [Jim Weirich]
+*   265a1bd 2026-09-28 | Merged main fixed conflict. (HEAD -&gt; greet) [Jim Weirich]
 |\  
-| * 7ef14d3 2026-09-28 | Made interactive (main) [Jim Weirich]
-* | be11923 2026-09-28 | Merge branch 'main' into greet [Jim Weirich]
+| * 9de866d 2026-09-28 | Made interactive (main) [Jim Weirich]
+* | 450197c 2026-09-28 | Merge branch 'main' into greet [Jim Weirich]
 |\| 
-| * 6a51570 2026-09-28 | Added README [Jim Weirich]
-* | 340b158 2026-09-28 | Updated Rakefile [Jim Weirich]
-* | 90fffe1 2026-09-28 | Hello uses Greeter [Jim Weirich]
-* | 6916ae7 2026-09-28 | Added greeter class [Jim Weirich]
+| * dea973a 2026-09-28 | Added README [Jim Weirich]
+* | 30ff817 2026-09-28 | Updated main.py [Jim Weirich]
+* | e673679 2026-09-28 | Hello uses Greeter [Jim Weirich]
+* | dec0b70 2026-09-28 | Added greeter class [Jim Weirich]
 |/  
-* 75f4ce9 2026-09-28 | Added a Rakefile. [Jim Weirich]
-* e81eacb 2026-09-28 | Moved hello.rb to lib [Jim Weirich]
-* 54f902a 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
-<p>Cuesta un poco leerlo, pero mirando los datos vemos que el commit &#8220;Updated Rakefile&#8221; fue el último commit de la rama greet antes de la fusión.  Vamos a restablecer la rama greet a ese commit.</p>
+* 8a866ce 2026-09-28 | Added main.py. [Jim Weirich]
+* e9b28cd 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* 524aa94 2026-09-28 | Add an author/email comment [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
+<p>Cuesta un poco leerlo, pero mirando los datos vemos que el commit &#8220;Updated main.py&#8221; fue el último commit de la rama greet antes de la fusión.  Vamos a restablecer la rama greet a ese commit.</p>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">git reset --hard &lt;hash&gt;</pre>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ git reset --hard 340b158
-HEAD is now at 340b158 Updated Rakefile
+<pre class="sample">$ git reset --hard 30ff817
+HEAD is now at 30ff817 Updated main.py
 </pre>
 <h2>Comprobar la rama.</h2>
 <p>Mira el log de la rama greet.  Ya no aparecen los commits de fusión en su historial.</p>
@@ -194,19 +194,19 @@ HEAD is now at 340b158 Updated Rakefile
 <pre class="instructions">git hist --all</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist --all
-* 340b158 2026-09-28 | Updated Rakefile (HEAD -&gt; greet) [Jim Weirich]
-* 90fffe1 2026-09-28 | Hello uses Greeter [Jim Weirich]
-* 6916ae7 2026-09-28 | Added greeter class [Jim Weirich]
-| * 7ef14d3 2026-09-28 | Made interactive (main) [Jim Weirich]
-| * 6a51570 2026-09-28 | Added README [Jim Weirich]
+* 30ff817 2026-09-28 | Updated main.py (HEAD -&gt; greet) [Jim Weirich]
+* e673679 2026-09-28 | Hello uses Greeter [Jim Weirich]
+* dec0b70 2026-09-28 | Added greeter class [Jim Weirich]
+| * 9de866d 2026-09-28 | Made interactive (main) [Jim Weirich]
+| * dea973a 2026-09-28 | Added README [Jim Weirich]
 |/  
-* 75f4ce9 2026-09-28 | Added a Rakefile. [Jim Weirich]
-* e81eacb 2026-09-28 | Moved hello.rb to lib [Jim Weirich]
-* 54f902a 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 8a866ce 2026-09-28 | Added main.py. [Jim Weirich]
+* e9b28cd 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* 524aa94 2026-09-28 | Add an author/email comment [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
         <nav class="foot-navigation">
       <a href="lab_31.html">
       <svg version="1.1" width="36" height="36" viewBox="0 0 36 36" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M27.66,15.61,18,6,8.34,15.61A1,1,0,1,0,9.75,17L17,9.81V28.94a1,1,0,1,0,2,0V9.81L26.25,17a1,1,0,0,0,1.41-1.42Z"></path></svg>

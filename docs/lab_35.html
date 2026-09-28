@@ -163,13 +163,13 @@ git merge greet</pre>
 Switched to branch 'main'
 $
 $ git merge greet
-Updating 6a51570..b6943cc
+Updating dea973a..25aacb1
 Fast-forward
- Rakefile       | 2 +-
- lib/greeter.rb | 8 ++++++++
- lib/hello.rb   | 6 ++++--
- 3 files changed, 13 insertions(+), 3 deletions(-)
- create mode 100644 lib/greeter.rb
+ lib/greeter.py | 6 ++++++
+ lib/hello.py   | 6 ++++--
+ main.py        | 5 +++--
+ 3 files changed, 13 insertions(+), 4 deletions(-)
+ create mode 100644 lib/greeter.py
 </pre>
 <p>Como la cabeza de main es un ancestro directo de la cabeza de la rama greet, git puede hacer una fusión fast-forward (avance rápido).  Al hacer fast-forward, el puntero de la rama simplemente avanza para apuntar al mismo commit que la rama greet.</p>
 <p>En una fusión fast-forward nunca habrá conflictos.</p>
@@ -178,17 +178,17 @@ Fast-forward
 <pre class="instructions">git hist</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist
-* b6943cc 2026-09-28 | Updated Rakefile (HEAD -&gt; main, greet) [Jim Weirich]
-* 2db4648 2026-09-28 | Hello uses Greeter [Jim Weirich]
-* 4425292 2026-09-28 | Added greeter class [Jim Weirich]
-* 6a51570 2026-09-28 | Added README [Jim Weirich]
-* 75f4ce9 2026-09-28 | Added a Rakefile. [Jim Weirich]
-* e81eacb 2026-09-28 | Moved hello.rb to lib [Jim Weirich]
-* 54f902a 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 25aacb1 2026-09-28 | Updated main.py (HEAD -&gt; main, greet) [Jim Weirich]
+* a13f6fa 2026-09-28 | Hello uses Greeter [Jim Weirich]
+* 27094eb 2026-09-28 | Added greeter class [Jim Weirich]
+* dea973a 2026-09-28 | Added README [Jim Weirich]
+* 8a866ce 2026-09-28 | Added main.py. [Jim Weirich]
+* e9b28cd 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* 524aa94 2026-09-28 | Add an author/email comment [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Las ramas greet y main son ahora idénticas.</p>
         <nav class="foot-navigation">
       <a href="lab_34.html">

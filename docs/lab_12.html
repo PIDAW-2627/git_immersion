@@ -161,20 +161,20 @@
 <p class="note"><strong>Nota:</strong> Te acordaste de definir <code>hist</code> en tu fichero <code>.gitconfig</code>, ¿verdad? Si no, repasa el lab sobre alias.</p>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist
-* 30bb300 2026-09-28 | Added a comment (HEAD -&gt; main) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
-<p>Examina la salida del log y busca el hash del primer commit. Debería ser la última línea de la salida de <code>git hist</code>. Usa ese hash (con los 7 primeros caracteres basta) en el comando de abajo. Después comprueba el contenido del fichero hello.rb.</p>
+* d099bc1 2026-09-28 | Added a comment (HEAD -&gt; main) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
+<p>Examina la salida del log y busca el hash del primer commit. Debería ser la última línea de la salida de <code>git hist</code>. Usa ese hash (con los 7 primeros caracteres basta) en el comando de abajo. Después comprueba el contenido del fichero hello.py.</p>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">git checkout &lt;hash&gt;
-cat hello.rb</pre>
+cat hello.py</pre>
 <p class="note"><strong>Nota:</strong> Los comandos que se muestran aquí son comandos de Unix y funcionan tanto en Mac como en Linux. Por desgracia, si usas Windows tendrás que traducirlos a los comandos equivalentes de tu sistema.</p>
 <p class="note"><strong>Nota:</strong> Muchos comandos dependen de los valores hash del repositorio. Como tus hashes serán distintos de los míos, siempre que veas algo como &lt;hash&gt; o &lt;treehash&gt; en un comando, sustitúyelo por el valor hash correspondiente de tu repositorio.</p>
 <p>Deberías ver&#8230;</p>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ git checkout 36f205a
-Note: switching to '36f205a'.
+<pre class="sample">$ git checkout b30d419
+Note: switching to 'b30d419'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -191,26 +191,28 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at 36f205a First Commit
-$ cat hello.rb
-puts "Hello, World"
+HEAD is now at b30d419 First Commit
+$ cat hello.py
+print("Hello, World")
 </pre>
 <p>La salida del comando <code>checkout</code> explica bastante bien la situación. Las versiones antiguas de git se quejarán de que no estás en una rama local. En cualquier caso, de momento no te preocupes por eso.</p>
-<p>Fíjate en que el contenido del fichero hello.rb es el contenido original.</p>
+<p>Fíjate en que el contenido del fichero hello.py es el contenido original.</p>
 <h2>Vuelve a la última versión de la rama main</h2>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">git checkout main
-cat hello.rb</pre>
+cat hello.py</pre>
 <p>Deberías ver&#8230;</p>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git checkout main
-Previous HEAD position was 36f205a First Commit
+Previous HEAD position was b30d419 First Commit
 Switched to branch 'main'
-$ cat hello.rb
-# Default is "World"
-name = ARGV.first || "World"
+$ cat hello.py
+import sys
 
-puts "Hello, #{name}!"
+# Default is "World"
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <p>&#8216;main&#8217; es el nombre de la rama por defecto. Al hacer checkout de una rama por su nombre, vas a la última versión de esa rama.</p>
         <nav class="foot-navigation">

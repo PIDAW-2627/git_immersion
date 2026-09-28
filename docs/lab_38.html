@@ -163,26 +163,26 @@ ls</pre>
 <pre class="sample">$ cd cloned_hello
 $ ls
 README
-Rakefile
 lib
+main.py
 </pre>
-<p>Deberías ver una lista con todos los archivos del nivel superior del repositorio original (<code>README</code>, <code>Rakefile</code> y <code>lib</code>).</p>
+<p>Deberías ver una lista con todos los archivos del nivel superior del repositorio original (<code>README</code>, <code>main.py</code> y <code>lib</code>).</p>
 <h2>Revisa el historial del repositorio</h2>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">git hist --all</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist --all
-* b6943cc 2026-09-28 | Updated Rakefile (HEAD -&gt; main, origin/main, origin/greet, origin/HEAD) [Jim Weirich]
-* 2db4648 2026-09-28 | Hello uses Greeter [Jim Weirich]
-* 4425292 2026-09-28 | Added greeter class [Jim Weirich]
-* 6a51570 2026-09-28 | Added README [Jim Weirich]
-* 75f4ce9 2026-09-28 | Added a Rakefile. [Jim Weirich]
-* e81eacb 2026-09-28 | Moved hello.rb to lib [Jim Weirich]
-* 54f902a 2026-09-28 | Add an author/email comment [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 25aacb1 2026-09-28 | Updated main.py (HEAD -&gt; main, origin/main, origin/greet, origin/HEAD) [Jim Weirich]
+* a13f6fa 2026-09-28 | Hello uses Greeter [Jim Weirich]
+* 27094eb 2026-09-28 | Added greeter class [Jim Weirich]
+* dea973a 2026-09-28 | Added README [Jim Weirich]
+* 8a866ce 2026-09-28 | Added main.py. [Jim Weirich]
+* e9b28cd 2026-09-28 | Moved hello.py to lib [Jim Weirich]
+* 524aa94 2026-09-28 | Add an author/email comment [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Ahora deberías ver una lista con todos los commits del nuevo repositorio, y debería coincidir (más o menos) con el historial de commits del repositorio original. La única diferencia debería estar en los nombres de las ramas.</p>
 <h2>Ramas remotas</h2>
 <p>Deberías ver una rama <strong>main</strong> (junto con <strong><span class="caps">HEAD</span></strong>) en el historial. Pero también tendrás varias ramas con nombres extraños (<strong>origin/main</strong>, <strong>origin/greet</strong> y <strong>origin/<span class="caps">HEAD</span></strong>). Hablaremos de ellas en breve.</p>

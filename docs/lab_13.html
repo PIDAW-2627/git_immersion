@@ -164,7 +164,7 @@
 <p class="note">Si la notación <code>v1</code>^ te da algún problema, también puedes probar con <code>v1~1</code>, que hace referencia a la misma versión. Esta notación significa &#8220;el primer antecesor de v1&#8221;.</p>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">git checkout v1^
-cat hello.rb</pre>
+cat hello.py</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git checkout v1^
 Note: switching to 'v1^'.
@@ -184,11 +184,13 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at b883354 Added a default value
-$ cat hello.rb
-name = ARGV.first || "World"
+HEAD is now at 195f315 Added a default value
+$ cat hello.py
+import sys
 
-puts "Hello, #{name}!"
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <p>¿Ves? Esta es la versión con el valor por defecto <em>antes</em> de añadir el comentario. Vamos a convertirla en v1-beta.</p>
 <h3><b>Ejecuta:</b></h3>
@@ -200,11 +202,11 @@ puts "Hello, #{name}!"
 git checkout v1-beta</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git checkout v1
-Previous HEAD position was b883354 Added a default value
-HEAD is now at 30bb300 Added a comment
+Previous HEAD position was 195f315 Added a default value
+HEAD is now at d099bc1 Added a comment
 $ git checkout v1-beta
-Previous HEAD position was 30bb300 Added a comment
-HEAD is now at b883354 Added a default value
+Previous HEAD position was d099bc1 Added a comment
+HEAD is now at 195f315 Added a default value
 </pre>
 <h2>Ver las etiquetas con el comando <code>tag</code></h2>
 <p>Puedes ver qué etiquetas hay disponibles con el comando <code>git tag</code>.</p>
@@ -221,10 +223,10 @@ v1-beta
 <pre class="instructions">git hist main --all</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist main --all
-* 30bb300 2026-09-28 | Added a comment (tag: v1, main) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (HEAD, tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* d099bc1 2026-09-28 | Added a comment (tag: v1, main) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (HEAD, tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Puedes ver las dos etiquetas (<code>v1</code> y <code>v1-beta</code>) en la salida del log, junto con el nombre de la rama (<code>main</code>). Además, <code>HEAD</code> te muestra el commit en el que estás ahora mismo (que en este momento es <code>v1-beta</code>).</p>
         <nav class="foot-navigation">
       <a href="lab_12.html">

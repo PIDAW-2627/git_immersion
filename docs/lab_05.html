@@ -156,8 +156,10 @@
 </ul>
 <h2>Modifica el programa &#8220;Hello, World&#8221;.</h2>
 <p>Es hora de modificar nuestro programa hello para que reciba un argumento desde la línea de comandos. Cambia el archivo para que quede así:</p>
-<h3 class="file-heading"><em>hello.rb</em></h3>
-<pre class="file">puts "Hello, #{ARGV.first}!"
+<h3 class="file-heading"><em>hello.py</em></h3>
+<pre class="file">import sys
+
+print(f"Hello, {sys.argv[1]}!")
 </pre>
 <h2>Comprueba el estado</h2>
 <p>Ahora comprueba el estado del directorio de trabajo.</p>
@@ -170,11 +172,11 @@ On branch main
 Changes not staged for commit:
   (use "git add &lt;file&gt;..." to update what will be committed)
   (use "git restore &lt;file&gt;..." to discard changes in working directory)
-	modified:   hello.rb
+	modified:   hello.py
 
 no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
-<p>Lo primero que hay que observar es que git sabe que el archivo <code>hello.rb</code> ha sido modificado, pero todavía no se le ha indicado a git que registre estos cambios.</p>
+<p>Lo primero que hay que observar es que git sabe que el archivo <code>hello.py</code> ha sido modificado, pero todavía no se le ha indicado a git que registre estos cambios.</p>
 <p>Fíjate también en que el mensaje de estado te da pistas sobre qué tienes que hacer a continuación. Si quieres añadir estos cambios al repositorio, usa el comando <code>git add</code>. Si no, puedes usar el comando <code>git restore</code> para descartar los cambios.</p>
 <h2>A continuación</h2>
 <p>Vamos a preparar el cambio (añadirlo al staging).</p>

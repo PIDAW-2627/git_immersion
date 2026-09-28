@@ -156,7 +156,7 @@
 </ul>
 <h2>Haz commit del cambio</h2>
 <p>Bueno, ya basta de hablar del staging. Vamos a hacer commit de lo que hemos preparado en el repositorio.</p>
-<p>Antes, cuando usaste <code>git commit</code> para hacer commit de la versión inicial del archivo <code>hello.rb</code> en el repositorio, incluiste la opción <code>-m</code>, que permite escribir un comentario en la línea de comandos. El comando commit también te permite editar el comentario del commit de forma interactiva. Vamos a probarlo ahora.</p>
+<p>Antes, cuando usaste <code>git commit</code> para hacer commit de la versión inicial del archivo <code>hello.py</code> en el repositorio, incluiste la opción <code>-m</code>, que permite escribir un comentario en la línea de comandos. El comando commit también te permite editar el comentario del commit de forma interactiva. Vamos a probarlo ahora.</p>
 <p>Si omites la opción <code>-m</code> en la línea de comandos, git te abrirá el editor que hayas elegido. El editor se escoge de la siguiente lista (por orden de prioridad):</p>
 <ul>
 	<li>la variable de entorno GIT_EDITOR</li>
@@ -177,15 +177,15 @@
 # Changes to be committed:
 #   (use "git reset HEAD &lt;file&gt;..." to unstage)
 #
-#	modified:   hello.rb
+#	modified:   hello.py
 #
 </pre>
-<p>En la primera línea, escribe el comentario: &#8220;Using <span class="caps">ARGV</span>&#8221;. Guarda el archivo y sal del editor. Deberías ver&#8230;</p>
+<p>En la primera línea, escribe el comentario: &#8220;Using sys.argv&#8221;. Guarda el archivo y sal del editor. Deberías ver&#8230;</p>
 <h3><b>Salida:</b></h3>
 <pre class="sample">git commit
 Waiting for Emacs...
-[main 569aa96] Using ARGV
- 1 files changed, 1 insertions(+), 1 deletions(-)
+[main 569aa96] Using sys.argv
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 </pre>
 <p>La línea &#8220;Waiting for Emacs&#8230;&#8221; viene del programa <code>emacsclient</code>, que envía el archivo a un emacs en ejecución y espera a que se cierre el archivo. El resto de la salida son los mensajes habituales de commit.</p>
 <h2>Comprueba el estado</h2>

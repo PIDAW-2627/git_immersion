@@ -170,12 +170,12 @@
 <pre class="instructions">git hist</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist
-* b6120d7 2026-09-28 | Revert "Oops, we didn't want this commit" (HEAD -&gt; main) [Jim Weirich]
-* 936f37f 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 83cf011 2026-09-28 | Revert "Oops, we didn't want this commit" (HEAD -&gt; main) [Jim Weirich]
+* 5d74299 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Vemos que tenemos un commit &#8220;Oops&#8221; y un commit &#8220;Revert Oops&#8221; como los dos últimos commits de esta rama. Vamos a eliminarlos usando reset.</p>
 <h2>Primero, marca esta rama</h2>
 <p>Pero antes de eliminar los commits, vamos a marcar el último commit con una etiqueta para poder encontrarlo de nuevo.</p>
@@ -188,12 +188,12 @@
 git hist</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git reset --hard v1
-HEAD is now at 30bb300 Added a comment
+HEAD is now at d099bc1 Added a comment
 $ git hist
-* 30bb300 2026-09-28 | Added a comment (HEAD -&gt; main, tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* d099bc1 2026-09-28 | Added a comment (HEAD -&gt; main, tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Nuestra rama main apunta ahora al commit v1, y los commits Oops y Revert Oops ya no están en la rama. El parámetro <code>--hard</code> indica que el directorio de trabajo debe actualizarse para ser coherente con la nueva cabeza de la rama.</p>
 <h2>Nunca se pierde nada</h2>
 <p>Pero ¿qué ha pasado con los commits erróneos? Resulta que los commits siguen en el repositorio. De hecho, todavía podemos hacer referencia a ellos. Recuerda que al principio de este lab etiquetamos el commit de reversión con la etiqueta &#8220;oops&#8221;. Veamos <em>todos</em> los commits.</p>
@@ -201,12 +201,12 @@ $ git hist
 <pre class="instructions">git hist --all</pre>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git hist --all
-* b6120d7 2026-09-28 | Revert "Oops, we didn't want this commit" (tag: oops) [Jim Weirich]
-* 936f37f 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
-* 30bb300 2026-09-28 | Added a comment (HEAD -&gt; main, tag: v1) [Jim Weirich]
-* b883354 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
-* 15b00b7 2026-09-28 | Using ARGV [Jim Weirich]
-* 36f205a 2026-09-28 | First Commit [Jim Weirich]</pre>
+* 83cf011 2026-09-28 | Revert "Oops, we didn't want this commit" (tag: oops) [Jim Weirich]
+* 5d74299 2026-09-28 | Oops, we didn't want this commit [Jim Weirich]
+* d099bc1 2026-09-28 | Added a comment (HEAD -&gt; main, tag: v1) [Jim Weirich]
+* 195f315 2026-09-28 | Added a default value (tag: v1-beta) [Jim Weirich]
+* 9c35f1a 2026-09-28 | Using sys.argv [Jim Weirich]
+* b30d419 2026-09-28 | First Commit [Jim Weirich]</pre>
 <p>Aquí vemos que los commits erróneos no han desaparecido. Siguen en el repositorio. Lo que pasa es que ya no aparecen en la rama main. Si no los hubiéramos etiquetado, seguirían en el repositorio, pero no habría forma de referenciarlos salvo usando sus hashes. Los commits sin referencias permanecen en el repositorio hasta que el sistema ejecuta el recolector de basura (garbage collection).</p>
 <h2>Peligros de reset</h2>
 <p>Hacer reset en ramas locales suele ser seguro. Normalmente cualquier &#8220;accidente&#8221; se puede arreglar volviendo a hacer reset al commit deseado.</p>

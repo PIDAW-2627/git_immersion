@@ -159,22 +159,26 @@
 <p>En este lab intentaremos explorar esa diferencia.</p>
 <h2>Primer cambio: permitir un nombre por defecto</h2>
 <p>Modifica el programa &#8220;Hello, World&#8221; para que tenga un valor por defecto si no se le pasa ningún argumento en la línea de comandos.</p>
-<h3 class="file-heading"><em>hello.rb</em></h3>
-<pre class="file">name = ARGV.first || "World"
+<h3 class="file-heading"><em>hello.py</em></h3>
+<pre class="file">import sys
 
-puts "Hello, #{name}!"
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <h2>Añade este cambio</h2>
 <p>Ahora añade este cambio al área de preparación (staging) de git.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add hello.rb</pre>
+<pre class="instructions">git add hello.py</pre>
 <h2>Segundo cambio: añadir un comentario</h2>
 <p>Ahora añade un comentario al programa &#8220;Hello, World&#8221;.</p>
-<h3 class="file-heading"><em>hello.rb</em></h3>
-<pre class="file"># Default is "World"
-name = ARGV.first || "World"
+<h3 class="file-heading"><em>hello.py</em></h3>
+<pre class="file">import sys
 
-puts "Hello, #{name}!"
+# Default is "World"
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <h2>Comprueba el estado actual</h2>
 <h3><b>Ejecuta:</b></h3>
@@ -185,15 +189,15 @@ puts "Hello, #{name}!"
 On branch main
 Changes to be committed:
   (use "git restore --staged &lt;file&gt;..." to unstage)
-	modified:   hello.rb
+	modified:   hello.py
 
 Changes not staged for commit:
   (use "git add &lt;file&gt;..." to update what will be committed)
   (use "git restore &lt;file&gt;..." to discard changes in working directory)
-	modified:   hello.rb
+	modified:   hello.py
 
 </pre>
-<p>Fíjate en que <code>hello.rb</code> aparece dos veces en el estado. El primer cambio (añadir un valor por defecto) está preparado y listo para el commit. El segundo cambio (añadir un comentario) no está preparado. Si hicieras commit ahora mismo, el comentario no se guardaría en el repositorio.</p>
+<p>Fíjate en que <code>hello.py</code> aparece dos veces en el estado. El primer cambio (añadir un valor por defecto) está preparado y listo para el commit. El segundo cambio (añadir un comentario) no está preparado. Si hicieras commit ahora mismo, el comentario no se guardaría en el repositorio.</p>
 <p>Vamos a probarlo.</p>
 <h2>Hacer commit</h2>
 <p>Haz commit del cambio preparado (el valor por defecto) y vuelve a comprobar el estado.</p>
@@ -203,18 +207,18 @@ git status</pre>
 <p>Deberías ver&#8230;</p>
 <h3><b>Salida:</b></h3>
 <pre class="sample">$ git commit -m "Added a default value"
-[main b883354] Added a default value
+[main 195f315] Added a default value
  1 file changed, 3 insertions(+), 1 deletion(-)
 $ git status
 On branch main
 Changes not staged for commit:
   (use "git add &lt;file&gt;..." to update what will be committed)
   (use "git restore &lt;file&gt;..." to discard changes in working directory)
-	modified:   hello.rb
+	modified:   hello.py
 
 no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
-<p>El comando status te indica que <code>hello.rb</code> tiene cambios sin registrar, pero ya no está en el área de preparación.</p>
+<p>El comando status te indica que <code>hello.py</code> tiene cambios sin registrar, pero ya no está en el área de preparación.</p>
 <h2>Añade el segundo cambio</h2>
 <p>Ahora añade el segundo cambio al área de preparación y ejecuta git status.</p>
 <h3><b>Ejecuta:</b></h3>
@@ -228,7 +232,7 @@ git status</pre>
 On branch main
 Changes to be committed:
   (use "git restore --staged &lt;file&gt;..." to unstage)
-	modified:   hello.rb
+	modified:   hello.py
 
 </pre>
 <p>Ahora el segundo cambio está preparado y listo para el commit.</p>

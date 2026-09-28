@@ -155,12 +155,12 @@
 	<li>Aprender a crear un repositorio git desde cero.</li>
 </ul>
 <h2>Crea un programa &#8220;Hello, World&#8221;</h2>
-<p>Partiendo del directorio de trabajo vacío, crea un directorio vacío llamado &#8220;hello&#8221; y, dentro, crea un archivo llamado <code>hello.rb</code> con el contenido siguiente.</p>
+<p>Partiendo del directorio de trabajo vacío, crea un directorio vacío llamado &#8220;hello&#8221; y, dentro, crea un archivo llamado <code>hello.py</code> con el contenido siguiente.</p>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">mkdir hello
 cd hello</pre>
-<h3 class="file-heading"><em>hello.rb</em></h3>
-<pre class="file">puts "Hello, World"
+<h3 class="file-heading"><em>hello.py</em></h3>
+<pre class="file">print("Hello, World")
 </pre>
 <h2>Crea el repositorio</h2>
 <p>Ahora tienes un directorio con un único archivo. Para crear un repositorio git a partir de ese directorio, ejecuta el comando git init.</p>
@@ -173,15 +173,15 @@ Initialized empty Git repository in /app/auto/hello/.git/
 <h2>Añade el programa al repositorio</h2>
 <p>Ahora vamos a añadir el programa &#8220;Hello, World&#8221; al repositorio.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git add hello.rb
+<pre class="instructions">git add hello.py
 git commit -m "First Commit"</pre>
 <p>Deberías ver&#8230;</p>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ git add hello.rb
+<pre class="sample">$ git add hello.py
 $ git commit -m "First Commit"
-[main (root-commit) 36f205a] First Commit
+[main (root-commit) b30d419] First Commit
  1 file changed, 1 insertion(+)
- create mode 100644 hello.rb
+ create mode 100644 hello.py
 </pre>
         <nav class="foot-navigation">
       <a href="lab_02.html">

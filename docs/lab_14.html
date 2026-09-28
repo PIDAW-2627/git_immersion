@@ -158,14 +158,16 @@
 <p>Asegúrate de estar en el último commit de main antes de continuar.</p>
 <h3><b>Ejecuta:</b></h3>
 <pre class="instructions">git checkout main</pre>
-<h2>Modifica hello.rb</h2>
+<h2>Modifica hello.py</h2>
 <p>A veces has modificado un fichero en tu directorio de trabajo local y simplemente quieres volver a lo que ya estaba confirmado en un commit. El comando checkout se encarga de eso.</p>
-<p>Modifica hello.rb para que tenga un comentario incorrecto.</p>
-<h3 class="file-heading"><em>hello.rb</em></h3>
-<pre class="file"># This is a bad comment.  We want to revert it.
-name = ARGV.first || "World"
+<p>Modifica hello.py para que tenga un comentario incorrecto.</p>
+<h3 class="file-heading"><em>hello.py</em></h3>
+<pre class="file">import sys
 
-puts "Hello, #{name}!"
+# This is a bad comment.  We want to revert it.
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <h2>Comprueba el estado</h2>
 <p>Primero, comprueba el estado del directorio de trabajo.</p>
@@ -177,28 +179,30 @@ On branch main
 Changes not staged for commit:
   (use "git add &lt;file&gt;..." to update what will be committed)
   (use "git restore &lt;file&gt;..." to discard changes in working directory)
-	modified:   hello.rb
+	modified:   hello.py
 
 no changes added to commit (use "git add" and/or "git commit -a")
 </pre>
-<p>Vemos que el fichero <code>hello.rb</code> se ha modificado, pero todavía no se ha añadido al área de preparación (staging).</p>
+<p>Vemos que el fichero <code>hello.py</code> se ha modificado, pero todavía no se ha añadido al área de preparación (staging).</p>
 <h2>Revierte los cambios en el directorio de trabajo</h2>
-<p>Usa el comando <code>checkout</code> para recuperar la versión del repositorio del fichero <code>hello.rb</code>.</p>
+<p>Usa el comando <code>checkout</code> para recuperar la versión del repositorio del fichero <code>hello.py</code>.</p>
 <h3><b>Ejecuta:</b></h3>
-<pre class="instructions">git checkout hello.rb
+<pre class="instructions">git checkout hello.py
 git status
-cat hello.rb</pre>
+cat hello.py</pre>
 <h3><b>Salida:</b></h3>
-<pre class="sample">$ git checkout hello.rb
+<pre class="sample">$ git checkout hello.py
 Updated 1 path from the index
 $ git status
 On branch main
 nothing to commit, working tree clean
-$ cat hello.rb
-# Default is "World"
-name = ARGV.first || "World"
+$ cat hello.py
+import sys
 
-puts "Hello, #{name}!"
+# Default is "World"
+name = sys.argv[1] if len(sys.argv) &gt; 1 else "World"
+
+print(f"Hello, {name}!")
 </pre>
 <p>El comando status nos muestra que no hay cambios pendientes en el directorio de trabajo. Y el &#8220;comentario incorrecto&#8221; ya no forma parte del contenido del fichero.</p>
         <nav class="foot-navigation">
